@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background_image"
+    tools:context=".MainActivity">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logoSmall"
+        android:layout_width="88dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Small Logo"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleLogin"
+        android:layout_width="256dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="Boas-vindas!"
+        android:textColor="#CC0676"
+        android:textSize="47dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoSmall" />
+
+
+    <!-- Text -->
+    <TextView
+        android:id="@+id/textLogin"
+        android:layout_width="255dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:lineSpacingExtra="10dp"
+        android:text="Faz já login para poderes dar ou receber feedback"
+        android:textAlignment="textStart"
+        android:textColor="#25183E"
+        android:textSize="33dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleLogin" />
+
+    <!-- Email Input Field -->
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:hint="Digita o email"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textColorHint="#999999"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textLogin" />
+
+    <!-- Password Input Field -->
+    <TextView
+        android:id="@+id/passwordRemember"
+        android:layout_width="140dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="Forgot your password?"
+        android:textColor="#61CC0676"
+        android:textColorLink="#CC0676"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:hint="Digita a password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="#999999"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="344dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_with_shadow"
+        android:fontFamily="@font/league_spartan_medium"
+        android:paddingTop="0dp"
+        android:paddingBottom="5dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#5E48ED53"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput" />
+
+    <TextView
+        android:id="@+id/createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="Not registered yet? Create Account"
+        android:textColor="#25183E"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Login Button -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
