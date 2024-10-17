@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "744524591157",
+    "project_id": "roastly-56c37",
+    "storage_bucket": "roastly-56c37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744524591157:android:b5d7418ffd15411cf9817c",
+        "android_client_info": {
+          "package_name": "ly.roast.roastly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9pI2k-eVS-cX099LtveVy3v7quDQp2Ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
