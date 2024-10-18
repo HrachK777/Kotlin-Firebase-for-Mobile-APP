@@ -20,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.loginButton.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             val name = binding.nameInput.text.toString().trim()
             val surname = binding.surnameInput.text.toString().trim()
             val email = binding.emailInput.text.toString().trim()
@@ -70,8 +70,8 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    // Função para verificar se o email termina com 'msft.cesae.pt' ou 'cesae.pt'
+    // Função para verificar se o email termina com 'msft.cesae.pt' ou 'cesae.pt' e contem um arroba com texto antes
     private fun isValidEmail(email: String): Boolean {
-        return email.endsWith("msft.cesae.pt") || email.endsWith("cesae.pt")
-    }
+        val arrobaIndex = email.indexOf('@')
+        return arrobaIndex > 0 && (email.endsWith("msft.cesae.pt") || email.endsWith("cesae.pt"))    }
 }

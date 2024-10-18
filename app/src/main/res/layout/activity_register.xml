@@ -160,7 +160,7 @@
 
     <!-- Register button -->
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:layout_width="226dp"
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
