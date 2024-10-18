@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">Roastly</string>
+    <!-- LOGIN -->
+    <string name="app_name">Roast.ly</string>
+    <string name="small_logo_description">Logo Small Roast.ly</string>
+    <string name="titulo_boas_vindas">Boas-vindas!</string>
+    <string name="texto_login">Faz já login para poderes dar ou receber feedback</string>
+    <string name="email_hint">Digita o email</string>
+    <string name="password_hint">Digita a password</string>
+    <string name="esqueceu_password">Esqueceste-te da password?</string>
+    <string name="login_button_text">Login</string>
+
+    <!-- REGISTAR -->
+
+    <string name="create_account_text">Ainda não estás registado? Cria conta</string>
+    <string name="create_account_title">Criar nova conta</string>
+    <string name="create_account_nome_hint">Nome</string>
+    <string name="create_account_ultimo_nome_hint">Apelido</string>
+    <string name="create_account_email_hint">Digita o email</string>
+    <string name="create_account_password_hint">Password</string>
+    <string name="create_account_confirm_password_hint">Confirma a password</string>
+    <string name="create_account_cargo_hint">Cargo</string>
+    <string name="create_account_button_text">Registar</string>
 </resources>
