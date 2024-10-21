@@ -12,8 +12,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEBEB"
-    tools:context=".Feed_Historic_AddActivity">
+    android:background="#EFEBEB">
 
     <!-- Add feedback image -->
     <ImageView
