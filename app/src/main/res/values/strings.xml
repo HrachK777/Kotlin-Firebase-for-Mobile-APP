@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">roastly</string>
+    <string name="app_name_2">roastly</string>
 
 
     <!-- Strings add by Juan -->
@@ -47,4 +47,5 @@
     <string name="create_account_confirm_password_hint">Confirma a password</string>
     <string name="create_account_cargo_hint">Cargo</string>
     <string name="create_account_button_text">Registar</string>
+    <string name="name_surname">Name Surname</string>
 </resources>
