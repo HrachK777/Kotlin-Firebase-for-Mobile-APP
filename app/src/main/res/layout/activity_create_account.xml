@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background_image"
+    tools:context=".ProfilesActivity"
+    tools:layout_editor_absoluteX="-3dp"
+    tools:layout_editor_absoluteY="-5dp">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logoSmall"
+        android:layout_width="88dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Small Logo"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_small"
+        app:layout_constraintEnd_toEndf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleCreateAccount"
+        android:layout_width="253dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="Criar nova conta"
+        android:textColor="#CC0676"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoSmall"/>
+
+    <!-- Name Input Field -->
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="347dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleCreateAccount" />
+
+    <!-- Surname Input Field -->
+    <EditText
+        android:id="@+id/surnameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="Apelido"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameInput" />
+
+    <!-- Email Input Field -->
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="346dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="Digita o email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/surnameInput" />
+
+    <!-- Password Input Field -->
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+
+    <!-- Password confirmation Input Field -->
+    <EditText
+        android:id="@+id/passwordConfirmationInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="Confirme a password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailInput" />
+
+    <!-- Job Input Field -->
+    <EditText
+        android:id="@+id/jobInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="Cargo"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameInput" />
+
+    <!-- Register button -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="226dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_with_shadow"
+        android:fontFamily="@font/league_spartan_medium"
+        android:paddingTop="0dp"
+        android:paddingBottom="5dp"
+        android:text="Registar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#5E48ED53"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jobInput" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

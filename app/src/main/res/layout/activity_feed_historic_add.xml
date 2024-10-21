@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/add_background_image"
+    tools:context=".Splash_ScreenActivity">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logoSmall"
+        android:layout_width="88dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Small Logo"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Fragment Container -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/logoSmall"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Footer with 5 icons -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/white"
+        android:padding="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Feed Icon -->
+        <ImageView
+            android:id="@+id/icon_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_feed"
+            android:contentDescription="Home"
+            android:onClick="onIconClick" />
+
+        <!-- Historic Icon -->
+        <ImageView
+            android:id="@+id/icon_feed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_historic"
+            android:contentDescription="Feed"
+            android:onClick="onIconClick" />
+
+        <!-- Add Icon -->
+        <ImageView
+            android:id="@+id/icon_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_add"
+            android:contentDescription="Add"
+            android:onClick="onIconClick" />
+
+        <!-- Ranking Icon -->
+        <ImageView
+            android:id="@+id/icon_ranking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_ranking"
+            android:contentDescription="Ranking"
+            android:onClick="onIconClick" />
+
+        <!-- Profile Icon -->
+        <ImageView
+            android:id="@+id/icon_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/icon_profile"
+            android:contentDescription="Profile"
+            android:onClick="onIconClick" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

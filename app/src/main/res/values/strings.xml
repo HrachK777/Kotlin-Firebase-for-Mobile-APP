@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">Roastly</string>
+    <string name="app_name">roastly</string>
+
+
+    <!-- Strings add by Juan -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="two_girls_with_a_big_star">two girls with a big star</string>
+    <string name="feedbacks_dispon_veis">Feedbacks disponíveis</string>
+    <string name="editar_perfil">Editar perfil</string>
+    <string name="feedbacks_recebidos">Feedbacks recebidos:</string>
+    <string name="feedbacks_efetuados">Feedbacks efetuados:</string>
+    <string name="m_dia_pessoal">Média pessoal</string>
+    <string name="iniciativa">Iniciativa:</string>
+    <string name="colabora_o">Colaboração:</string>
+    <string name="compromisso">Compromisso:</string>
+    <string name="comunica_o">Comunicação:</string>
+    <string name="editar_perfil_dashboard_profile">Editar perfil</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="feedbacks_recebidos_dashboard">Feedbacks recebidos:</string>
+    <string name="feedbacks_efetuados_dashboard">Feedbacks efetuados:</string>
+    <string name="m_dia_pessoal_dashboard">Média pessoal</string>
+    <string name="iniciativa_dashboard">Iniciativa:</string>
+    <string name="colabora_o_dashboard">Colaboração:</string>
+    <string name="compromisso_dashboard">Compromisso:</string>
+    <string name="comunica_o_dashboard">Comunicação:</string>
 </resources>
