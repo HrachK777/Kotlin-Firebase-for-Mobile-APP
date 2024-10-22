@@ -58,4 +58,8 @@
     <string name="alterar_cargo">Alterar cargo</string>
     <string name="icon_camera">icon camera</string>
     <string name="user_photo">User Photo</string>
+    <string name="registar">Registar</string>
+    <string name="cargo">Cargo</string>
+    <string name="password_">Password</string>
+    <string name="apelido">Apelido</string>
 </resources>
