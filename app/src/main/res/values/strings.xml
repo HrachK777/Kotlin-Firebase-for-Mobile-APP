@@ -58,4 +58,13 @@
     <string name="alterar_cargo">Alterar cargo</string>
     <string name="icon_camera">icon camera</string>
     <string name="user_photo">User Photo</string>
+    <string name="criar_nova_conta">Criar nova conta</string>
+    <string name="small_logo_">Small Logo</string>
+    <string name="nome">Nome</string>
+    <string name="digita_o_email">Digita o email</string>
+    <string name="password_">Password</string>
+    <string name="confirme_a_password_">Confirme a password</string>
+    <string name="cargo">Cargo</string>
+    <string name="registar">Registar</string>
+    <string name="apelido">Apelido</string>
 </resources>
