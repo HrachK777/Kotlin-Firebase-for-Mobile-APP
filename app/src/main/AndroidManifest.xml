@@ -26,7 +26,13 @@
         <!-- MainActivity -->
         <activity android:name=".MainActivity"
             android:exported="true" />
+
+        <!-- HomeActivity -->
+        <activity android:name=".ui.common.HomeActivity"
+            android:exported="true" />
+
     </application>
+
 
 
 </manifest>

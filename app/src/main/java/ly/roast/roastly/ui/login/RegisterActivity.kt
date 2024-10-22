@@ -57,6 +57,7 @@ class RegisterActivity : AppCompatActivity() {
                     db.collection("users").document(uid).set(user)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Registo bem-sucedido!", Toast.LENGTH_SHORT).show()
+                            finish()
                             startActivity(Intent(this, LoginActivity::class.java))
                         }
                         .addOnFailureListener {
