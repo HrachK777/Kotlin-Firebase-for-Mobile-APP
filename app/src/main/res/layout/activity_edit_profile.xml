@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background_image"
+    tools:layout_editor_absoluteX="-3dp"
+    tools:layout_editor_absoluteY="-5dp">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/logoSmall"
+        android:layout_width="88dp"
+        android:layout_height="73dp"
+        android:contentDescription="@string/small_logo"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/photo_frame"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoSmall">
+
+        <!-- Default User Photo -->
+        <ImageView
+            android:id="@+id/user_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/user_photo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_default_image" />
+
+        <!-- Camera Icon (Overlay) -->
+        <ImageView
+            android:id="@+id/icon_camera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/icon_camera"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_camera" />
+    </FrameLayout>
+
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleEditProfile"
+        android:layout_width="253dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="@string/editar_perfil_1"
+        android:textColor="#CC0676"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo_frame"/>
+
+    <!-- Password confirmation Input Field -->
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="@string/alterar_a_password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleEditProfile" />
+
+    <EditText
+        android:id="@+id/passwordConfirmationInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="@string/confirma_a_nova_password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput"/>
+
+    <!-- Job Input Field -->
+    <EditText
+        android:id="@+id/jobInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:fontFamily="@font/league_spartan_medium"
+        android:hint="@string/alterar_cargo"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordConfirmationInput" />
+
+    <!-- Register button -->
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="226dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_with_shadow"
+        android:fontFamily="@font/league_spartan_medium"
+        android:paddingTop="0dp"
+        android:paddingBottom="5dp"
+        android:text="@string/salvar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#5E48ED53"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jobInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
