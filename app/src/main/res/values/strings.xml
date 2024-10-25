@@ -22,6 +22,7 @@
     <string name="colabora_o_dashboard">Colaboração:</string>
     <string name="compromisso_dashboard">Compromisso:</string>
     <string name="comunica_o_dashboard">Comunicação:</string>
+    <string name="name_surname">Name Surname</string>
 
 
     <!-- Strings add by Danny -->
@@ -47,7 +48,7 @@
     <string name="create_account_confirm_password_hint">Confirma a password</string>
     <string name="create_account_cargo_hint">Cargo</string>
     <string name="create_account_button_text">Registar</string>
-    <string name="name_surname">Name Surname</string>
+
     <string name="password">Password</string>
     <string name="confirme_a_password">Confirme a password</string>
     <string name="salvar">Salvar</string>
@@ -58,4 +59,5 @@
     <string name="alterar_cargo">Alterar cargo</string>
     <string name="icon_camera">icon camera</string>
     <string name="user_photo">User Photo</string>
+
 </resources>

@@ -13,21 +13,26 @@
             android:name=".EditProfileActivity"
             android:exported="false" />
         <!-- Set LoginActivity as the launcher activity -->
-        <activity
-            android:name=".ui.login.LoginActivity"
+        <activity android:name=".ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- RegisterActivity -->
-        <activity
-            android:name=".ui.login.RegisterActivity"
-            android:exported="true" /> <!-- MainActivity -->
-        <activity
-            android:name=".MainActivity"
+        </activity>
+
+        <!-- HomeActivity -->
+        <activity android:name=".ui.common.HomeActivity"
+            android:exported="true" />
+
+        <!-- RegisterActivity -->
+        <activity android:name=".ui.login.RegisterActivity"
+            android:exported="true" />
+
+        <!-- MainActivity -->
+        <activity android:name=".MainActivity"
             android:exported="true" />
     </application>
+
 
 </manifest>
