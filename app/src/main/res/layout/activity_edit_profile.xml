@@ -53,11 +53,11 @@
         android:id="@+id/titleEditProfile"
         android:layout_width="253dp"
         android:layout_height="57dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/league_spartan_medium"
         android:text="@string/editar_perfil_1"
         android:textColor="#CC0676"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,8 +96,9 @@
         android:id="@+id/editEmailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Editar"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="18sp"
+        android:text="@string/editar"
         android:textColor="#CB3086"
         android:background="@android:color/transparent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -110,7 +111,7 @@
         android:id="@+id/jobLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cargo"
+        android:text="@string/cargo_"
         android:layout_marginStart="32dp"
         android:textColor="#80999999"
         android:fontFamily="@font/league_spartan_medium"
@@ -138,8 +139,9 @@
         android:id="@+id/editJobButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Editar"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="18sp"
+        android:text="@string/editar_"
         android:textColor="#CB3086"
         android:background="@android:color/transparent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -152,7 +154,7 @@
         android:id="@+id/passwordLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password__"
         android:fontFamily="@font/league_spartan_medium"
         android:layout_marginStart="32dp"
         android:textColor="#80999999"
@@ -176,16 +178,6 @@
         app:layout_constraintTop_toBottomOf="@id/passwordLabel"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/editPasswordButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alterar password"
-        android:textColor="#CB3086"
-        android:background="@android:color/transparent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

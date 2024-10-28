@@ -18,21 +18,25 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the XML layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        // Obtém a referência para o icon_menu
+        // Find the ImageView with ID 'icon_menu' in the layout
         val iconMenu = view.findViewById<ImageView>(R.id.icon_menu)
 
-        // Configura o listener de clique
+        // Set a click listener on 'iconMenu'
         iconMenu.setOnClickListener {
-            // Adiciona o FragmentMenu abaixo do icon_menu
+
+            // Create a new instance of MenuFragment to display
             val fragmentMenu = MenuFragment()
+
+            // Replace the FrameLayout with ID 'fragment_menu_container' with the MenuFragment instance
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_menu_container, fragmentMenu) // Certifique-se de que este ID corresponde ao seu layout
+                .replace(R.id.fragment_menu_container, fragmentMenu)
                 .commit()
         }
 
         return view
     }
 }
+
