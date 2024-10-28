@@ -67,4 +67,7 @@
     <string name="cargo">Cargo</string>
     <string name="registar">Registar</string>
     <string name="apelido">Apelido</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="editar_perfil_">Editar perfil</string>
 </resources>

@@ -5,9 +5,7 @@
     android:id="@+id/splashScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background_image"
-    tools:layout_editor_absoluteX="-3dp"
-    tools:layout_editor_absoluteY="-5dp">
+    android:background="@drawable/login_background_image">
 
     <!-- Logo Image -->
     <ImageView
@@ -31,7 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoSmall">
 
-        <!-- Default User Photo -->
         <ImageView
             android:id="@+id/user_photo"
             android:layout_width="match_parent"
@@ -40,18 +37,16 @@
             android:scaleType="centerCrop"
             android:src="@drawable/profile_default_image" />
 
-        <!-- Camera Icon (Overlay) -->
         <ImageView
             android:id="@+id/icon_camera"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="bottom|end"
-            android:layout_margin="8dp"
+            android:layout_margin="6dp"
             android:contentDescription="@string/icon_camera"
             android:scaleType="centerCrop"
-            android:src="@drawable/icon_camera" />
+            android:src="@drawable/icon_camera"/>
     </FrameLayout>
-
 
     <!-- Title -->
     <TextView
@@ -68,44 +63,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/photo_frame"/>
 
-    <!-- Password confirmation Input Field -->
-    <EditText
-        android:id="@+id/passwordInput"
-        android:layout_width="0dp"
+    <!-- Email Label -->
+    <TextView
+        android:id="@+id/emailLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_input_background"
+        android:text="Email"
         android:fontFamily="@font/league_spartan_medium"
-        android:hint="@string/alterar_a_password"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:textColorHint="#80999999"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleEditProfile" />
+        app:layout_constraintTop_toBottomOf="@id/titleEditProfile"
+        android:layout_marginStart="32dp"
+        android:textColor="#80999999"
+        android:textSize="21sp"/>
 
+    <!-- Email Input Field -->
     <EditText
-        android:id="@+id/passwordConfirmationInput"
+        android:id="@+id/emailInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_input_background"
-        android:fontFamily="@font/league_spartan_medium"
-        android:hint="@string/confirma_a_nova_password"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textColorHint="#80999999"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput"/>
+        app:layout_constraintTop_toBottomOf="@id/emailLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/editEmailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Editar"
+        android:textColor="#CB3086"
+        android:background="@android:color/transparent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintTop_toBottomOf="@id/emailInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Job Label -->
+    <TextView
+        android:id="@+id/jobLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cargo"
+        android:layout_marginStart="32dp"
+        android:textColor="#80999999"
+        android:fontFamily="@font/league_spartan_medium"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editEmailButton" />
 
     <!-- Job Input Field -->
     <EditText
@@ -113,40 +124,68 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_input_background"
-        android:fontFamily="@font/league_spartan_medium"
-        android:hint="@string/alterar_cargo"
         android:inputType="textPersonName"
         android:padding="12dp"
         android:textColorHint="#80999999"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordConfirmationInput" />
+        app:layout_constraintTop_toBottomOf="@id/jobLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Register button -->
     <Button
-        android:id="@+id/loginButton"
-        android:layout_width="226dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button_with_shadow"
-        android:fontFamily="@font/league_spartan_medium"
-        android:paddingTop="0dp"
-        android:paddingBottom="5dp"
-        android:text="@string/salvar"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#5E48ED53"
-        android:textSize="22sp"
+        android:id="@+id/editJobButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Editar"
+        android:textColor="#CB3086"
+        android:background="@android:color/transparent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintTop_toBottomOf="@id/jobInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Password Label -->
+    <TextView
+        android:id="@+id/passwordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:fontFamily="@font/league_spartan_medium"
+        android:layout_marginStart="32dp"
+        android:textColor="#80999999"
+        android:textSize="21sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/jobInput" />
+        app:layout_constraintTop_toBottomOf="@id/editJobButton" />
+
+    <!-- Password Input Field -->
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_input_background"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColorHint="#80999999"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordLabel"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/editPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alterar password"
+        android:textColor="#CB3086"
+        android:background="@android:color/transparent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintTop_toBottomOf="@id/passwordInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
