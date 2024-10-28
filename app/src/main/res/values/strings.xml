@@ -60,4 +60,29 @@
     <string name="icon_camera">icon camera</string>
     <string name="user_photo">User Photo</string>
 
+
+
+    <string name="criar_nova_conta">Criar nova conta</string>
+    <string name="small_logo_">Small Logo</string>
+    <string name="nome">Nome</string>
+    <string name="digita_o_email">Digita o email</string>
+    <string name="password_">Password</string>
+    <string name="confirme_a_password_">Confirme a password</string>
+    <string name="cargo">Cargo</string>
+    <string name="registar">Registar</string>
+    <string name="apelido">Apelido</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="editar_perfil_">Editar perfil</string>
+    <string name="user_photo_">User Photo</string>
+    <string name="user_photo__">User Photo</string>
+    <string name="joana">Joana</string>
+    <string name="formadora">Formadora</string>
+    <string name="feedback_received_icon">Feedback received icon</string>
+    <string name="feedback_given_icon">Feedback given icon</string>
+    <string name="stars_icon">stars icon</string>
+    <string name="stars_icon_">stars icon</string>
+    <string name="stars_icon__">stars icon</string>
+    <string name="stars_icon___">stars icon</string>
+
 </resources>
