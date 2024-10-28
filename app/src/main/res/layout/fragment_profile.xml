@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="4dp"
-        android:contentDescription="User Photo"
+        android:contentDescription="@string/user_photo__"
         android:scaleType="centerCrop"
         android:src="@drawable/profile_default_image"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:id="@+id/icon_menu"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:contentDescription="User Photo"
+        android:contentDescription="@string/user_photo_"
         android:scaleType="centerCrop"
         android:src="@drawable/icon_menu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="Joana"
+        android:text="@string/joana"
         android:textColor="#CB3086"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="Formadora"
+        android:text="@string/formadora"
         android:textColor="#25183E"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,14 +91,14 @@
                     android:id="@+id/icon_feedback_received"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:contentDescription="Feedback received icon"
+                    android:contentDescription="@string/feedback_received_icon"
                     android:src="@drawable/icon_profile_feedback_received"/>
 
                 <TextView
                     android:id="@+id/text_profile_feedback_received"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="22dp"
+                    android:layout_marginStart="22dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="@string/feedbacks_recebidos"
                     android:textColor="#25183E"
@@ -117,14 +117,14 @@
                     android:id="@+id/icon_feedback_given"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:contentDescription="Feedback given icon"
+                    android:contentDescription="@string/feedback_given_icon"
                     android:src="@drawable/icon_profile_feedback_given"/>
 
                 <TextView
                     android:id="@+id/text_profile_feedback_given"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="22dp"
+                    android:layout_marginStart="22dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="@string/feedbacks_efetuados"
                     android:textColor="#25183E"
@@ -173,12 +173,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="12dp"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="@string/iniciativa"
                     android:textColor="#25183E"
@@ -190,8 +191,8 @@
                     android:layout_width="150dp"
                     android:layout_height="57dp"
                     android:layout_gravity="end"
-                    android:layout_marginLeft="55dp"
-                    android:contentDescription="stars icon"
+                    android:layout_marginStart="55dp"
+                    android:contentDescription="@string/stars_icon"
                     android:src="@drawable/one_stars_profile_card"/>
             </LinearLayout>
 
@@ -206,7 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="@string/colabora_o"
                     android:textColor="#25183E"
@@ -218,9 +219,9 @@
                     android:layout_width="150dp"
                     android:layout_height="57dp"
                     android:layout_gravity="end"
-                    android:contentDescription="stars icon"
+                    android:contentDescription="@string/stars_icon_"
                     android:src="@drawable/two_stars_profile_card"
-                    android:layout_marginLeft="15dp"/>/>
+                    android:layout_marginStart="15dp"/>/>
             </LinearLayout>
 
             <!-- Commitment Section -->
@@ -234,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="@string/compromisso"
                     android:textColor="#25183E"
@@ -247,9 +248,9 @@
                     android:layout_width="150dp"
                     android:layout_height="57dp"
                     android:layout_gravity="end"
-                    android:contentDescription="stars icon"
+                    android:contentDescription="@string/stars_icon__"
                     android:src="@drawable/three_stars_profile_card"
-                    android:layout_marginLeft="5dp"/>/>
+                    android:layout_marginStart="5dp"/>/>
             </LinearLayout>
 
             <!-- Communication Section -->
@@ -263,7 +264,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="@string/comunica_o"
                     android:textColor="#25183E"
@@ -275,9 +276,9 @@
                     android:layout_width="150dp"
                     android:layout_height="57dp"
                     android:layout_gravity="end"
-                    android:contentDescription="stars icon"
+                    android:contentDescription="@string/stars_icon___"
                     android:src="@drawable/four_stars_profile_card"
-                    android:layout_marginLeft="8dp"/>
+                    android:layout_marginStart="8dp"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

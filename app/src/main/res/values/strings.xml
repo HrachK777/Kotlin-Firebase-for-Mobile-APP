@@ -70,4 +70,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="editar_perfil_">Editar perfil</string>
+    <string name="user_photo_">User Photo</string>
+    <string name="user_photo__">User Photo</string>
+    <string name="joana">Joana</string>
+    <string name="formadora">Formadora</string>
+    <string name="feedback_received_icon">Feedback received icon</string>
+    <string name="feedback_given_icon">Feedback given icon</string>
+    <string name="stars_icon">stars icon</string>
+    <string name="stars_icon_">stars icon</string>
+    <string name="stars_icon__">stars icon</string>
+    <string name="stars_icon___">stars icon</string>
 </resources>
