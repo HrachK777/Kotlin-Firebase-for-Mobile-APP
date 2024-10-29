@@ -6,9 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import ly.roast.roastly.EditProfileActivity
-import ly.roast.roastly.MainActivity
-import ly.roast.roastly.ProfileFragment
 import ly.roast.roastly.data.repository.UserRepository
 import ly.roast.roastly.databinding.ActivityLoginBinding
 import ly.roast.roastly.ui.common.HomeActivity

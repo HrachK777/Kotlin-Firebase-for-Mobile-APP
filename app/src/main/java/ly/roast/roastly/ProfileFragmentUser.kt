@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.fragment.app.FragmentManager
 
-class ProfileFragment : Fragment() {
+class ProfileFragmentUser : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +18,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the XML layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
 
         // Find the ImageView with ID 'icon_menu' in the layout
         val iconMenu = view.findViewById<ImageView>(R.id.icon_menu)

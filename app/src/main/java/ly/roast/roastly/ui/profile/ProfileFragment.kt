@@ -16,7 +16,7 @@ class ProfileFragment : Fragment() {
     private lateinit var jobNameLogin: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
         
         userNameLogin = view.findViewById(R.id.user_name)
         jobNameLogin = view.findViewById(R.id.job_name)
