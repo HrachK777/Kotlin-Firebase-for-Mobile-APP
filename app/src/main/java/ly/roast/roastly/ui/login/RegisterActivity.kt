@@ -1,12 +1,12 @@
 package ly.roast.roastly.ui.login
 
+import User
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import ly.roast.roastly.data.model.User
 import ly.roast.roastly.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -57,6 +57,7 @@ class RegisterActivity : AppCompatActivity() {
                     db.collection("users").document(uid).set(user)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Registo bem-sucedido!", Toast.LENGTH_SHORT).show()
+                            finish()
                             startActivity(Intent(this, LoginActivity::class.java))
                         }
                         .addOnFailureListener {

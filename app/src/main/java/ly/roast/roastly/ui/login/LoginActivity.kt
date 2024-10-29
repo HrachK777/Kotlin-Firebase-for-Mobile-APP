@@ -9,8 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import ly.roast.roastly.EditProfileActivity
 import ly.roast.roastly.MainActivity
 import ly.roast.roastly.ProfileFragment
+import ly.roast.roastly.data.repository.UserRepository
 import ly.roast.roastly.databinding.ActivityLoginBinding
+import ly.roast.roastly.ui.common.HomeActivity
 import ly.roast.roastly.viewmodel.LoginViewModel
+import ly.roast.roastly.viewmodelFactories.LoginViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,16 +24,24 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        // Configura ViewModel
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        // Configura ViewModel pela factory porque temos que adicionar dependencia ao userRepository
+        val userRepository = UserRepository(this)
+        val viewModelFactory = LoginViewModelFactory(userRepository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
+
+        // Se user ja estiver logado nao mostrar login
+        if (viewModel.checkIfUserIsLoggedIn()) {
+            finish()
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
 
         // Observa mudanças no estado de login
         viewModel.loginState.observe(this, Observer { success ->
             if (success) {
                 Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                 finish()
+                startActivity(Intent(this, HomeActivity::class.java))
                 // Ir para a próxima Activity
-                startActivity(Intent(this, EditProfileActivity::class.java))
             } else {
                 Toast.makeText(this, "Erro no login", Toast.LENGTH_SHORT).show()
             }
