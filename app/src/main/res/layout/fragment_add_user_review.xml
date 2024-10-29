@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEBEB">
+
+    <!-- Feedback Title -->
+    <TextView
+        android:id="@+id/add_feedback_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dar Feedback"
+        android:textColor="#CB3086"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- User Details Section -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#333"
+        app:layout_constraintTop_toBottomOf="@id/add_feedback_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Rating Section -->
+    <LinearLayout
+        android:id="@+id/rating_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/user_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Field 1: Iniciativa -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciativa"
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <RatingBar
+            android:id="@+id/rating_iniciativa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+
+        <!-- Field 2: Conhecimento -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conhecimento"
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <RatingBar
+            android:id="@+id/rating_conhecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+
+        <!-- Field 3: Colaboração -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Colaboração"
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <RatingBar
+            android:id="@+id/rating_colaboracao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+
+        <!-- Field 4: Responsabilidade -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Responsabilidade"
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <RatingBar
+            android:id="@+id/rating_responsabilidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0" />
+    </LinearLayout>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintTop_toBottomOf="@id/rating_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
