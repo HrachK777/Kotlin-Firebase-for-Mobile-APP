@@ -49,5 +49,15 @@
     <string name="create_account_cargo_hint">Cargo</string>
     <string name="create_account_button_text">Registar</string>
 
+    <string name="password">Password</string>
+    <string name="confirme_a_password">Confirme a password</string>
+    <string name="salvar">Salvar</string>
+    <string name="small_logo">Small Logo</string>
+    <string name="editar_perfil_1">Editar perfil</string>
+    <string name="alterar_a_password">Alterar a password</string>
+    <string name="confirma_a_nova_password">Confirma a nova password</string>
+    <string name="alterar_cargo">Alterar cargo</string>
+    <string name="icon_camera">icon camera</string>
+    <string name="user_photo">User Photo</string>
 
 </resources>

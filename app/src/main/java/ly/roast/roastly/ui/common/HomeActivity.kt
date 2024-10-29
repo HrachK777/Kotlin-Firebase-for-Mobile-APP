@@ -1,11 +1,12 @@
 package ly.roast.roastly.ui.common
 
-import AddFragment
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ly.roast.roastly.R
+import ly.roast.roastly.ui.review.AddFragment
+import ly.roast.roastly.ui.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
 
