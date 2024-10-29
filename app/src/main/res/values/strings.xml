@@ -86,4 +86,9 @@
     <string name="editar_">Editar</string>
     <string name="password__">Password</string>
     <string name="alterar_password">Alterar password</string>
+    <string name="nova_password">Nova password</string>
+    <string name="confirma_a_nova_password_">Confirma a nova password</string>
+    <string name="salvar_altera_es">Salvar alterações</string>
+    <string name="login">Login</string>
+    <string name="not_registered_yet_create_account">Not registered yet? Create Account</string>
 </resources>
