@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/icon_menu"
+        android:id="@+id/icon_menu_user"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/user_photo_"

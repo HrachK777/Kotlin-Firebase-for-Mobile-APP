@@ -93,4 +93,6 @@
     <string name="login">Login</string>
     <string name="not_registered_yet_create_account">Not registered yet? Create Account</string>
     <string name="icon_menu">icon</string>
+    <string name="user_photo___">User Photo</string>
+    <string name="dashboard_">Dashboard</string>
 </resources>
