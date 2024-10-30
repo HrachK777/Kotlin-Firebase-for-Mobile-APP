@@ -11,6 +11,7 @@
         android:id="@+id/add_feedback_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/league_spartan_medium"
         android:text="Dar Feedback"
         android:textColor="#CB3086"
         android:textSize="28sp"

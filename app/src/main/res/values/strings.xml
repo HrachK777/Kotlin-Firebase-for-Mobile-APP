@@ -95,4 +95,6 @@
     <string name="icon_menu">icon</string>
     <string name="user_photo___">User Photo</string>
     <string name="dashboard_">Dashboard</string>
+    <string name="add">Add</string>
+    <string name="ranking">Ranking</string>
 </resources>
