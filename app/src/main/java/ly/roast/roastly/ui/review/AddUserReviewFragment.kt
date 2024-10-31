@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import ly.roast.roastly.R
 
 class AddUserReviewFragment : Fragment() {
@@ -23,14 +24,13 @@ class AddUserReviewFragment : Fragment() {
     private lateinit var ratingColaboracao: RatingBar
     private lateinit var ratingResponsabilidade: RatingBar
 
-    // Initialize the ViewModel
     private val viewModel: AddFragmentViewModel by viewModels()
+    private val firestore = FirebaseFirestore.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_user_review, container, false)
 
         selectedUser = arguments?.getParcelable("selectedUser")
-
 
         val feedbackTitle = view.findViewById<TextView>(R.id.add_feedback_title)
         val submitButton = view.findViewById<Button>(R.id.submit_button)
@@ -53,27 +53,37 @@ class AddUserReviewFragment : Fragment() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         selectedUser?.let { user ->
             currentUser?.let { firebaseUser ->
-                val currentUserObject = User(
-                    uid = firebaseUser.uid,
-                    name = firebaseUser.displayName ?: "Anonymous",
-                    email = firebaseUser.email ?: ""
-                )
+                val userId = firebaseUser.uid
 
-                viewModel.submitReview(
-                    currentUser = currentUserObject,
-                    selectedUserUid = user.uid,
-                    iniciativa = ratingIniciativa.rating,
-                    conhecimento = ratingConhecimento.rating,
-                    colaboracao = ratingColaboracao.rating,
-                    responsabilidade = ratingResponsabilidade.rating,
-                    onSuccess = {
-                        Toast.makeText(context, "Review submitted successfully!", Toast.LENGTH_SHORT).show()
-                        parentFragmentManager.popBackStack()
-                    },
-                    onFailure = { exception ->
-                        Toast.makeText(context, "Failed to submit review: ${exception.message}", Toast.LENGTH_SHORT).show()
+                firestore.collection("users").document(userId).get()
+                    .addOnSuccessListener { document ->
+                        val reviewerName = document.getString("name") ?: "Anonymous"
+                        val currentUserObject = User(
+                            uid = userId,
+                            name = reviewerName,
+                            email = firebaseUser.email ?: ""
+                        )
+
+                        viewModel.submitReview(
+                            currentUser = currentUserObject,
+                            selectedUserUid = user.uid,
+                            selectedUserName = user.name,
+                            iniciativa = ratingIniciativa.rating,
+                            conhecimento = ratingConhecimento.rating,
+                            colaboracao = ratingColaboracao.rating,
+                            responsabilidade = ratingResponsabilidade.rating,
+                            onSuccess = {
+                                Toast.makeText(context, "Review submitted successfully!", Toast.LENGTH_SHORT).show()
+                                parentFragmentManager.popBackStack()
+                            },
+                            onFailure = { exception ->
+                                Toast.makeText(context, "Failed to submit review: ${exception.message}", Toast.LENGTH_SHORT).show()
+                            }
+                        )
                     }
-                )
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(context, "Error fetching user data: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
     }

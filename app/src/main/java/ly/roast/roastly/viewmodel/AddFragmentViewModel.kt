@@ -71,6 +71,7 @@ class AddFragmentViewModel : ViewModel() {
     fun submitReview(
         currentUser: User,
         selectedUserUid: String,
+        selectedUserName: String,
         iniciativa: Float,
         conhecimento: Float,
         colaboracao: Float,
@@ -80,7 +81,8 @@ class AddFragmentViewModel : ViewModel() {
     ) {
         val reviewData = hashMapOf(
             "reviewerId" to currentUser.uid,
-            "reviewerName" to currentUser.name,
+            "reviewerName" to (currentUser.name.takeIf { it.isNotEmpty() } ?: "Anonymous"),
+            "recipientName" to selectedUserName,
             "iniciativa" to iniciativa,
             "conhecimento" to conhecimento,
             "colaboracao" to colaboracao,
@@ -95,6 +97,9 @@ class AddFragmentViewModel : ViewModel() {
             .addOnSuccessListener {
                 onSuccess()
             }
-            .addOnFailureListener { exception -> onFailure(exception) }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
     }
+
 }
