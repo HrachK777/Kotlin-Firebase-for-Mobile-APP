@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Roastly">
         <activity
             android:name=".EditProfileActivity"
-            android:exported="false" />
+            android:exported="true" />
         <!-- Set LoginActivity as the launcher activity -->
         <activity android:name=".ui.login.LoginActivity"
             android:exported="true">
