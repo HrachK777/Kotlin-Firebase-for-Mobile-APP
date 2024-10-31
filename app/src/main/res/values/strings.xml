@@ -97,4 +97,8 @@
     <string name="dashboard_">Dashboard</string>
     <string name="add">Add</string>
     <string name="ranking">Ranking</string>
+    <string name="feed">Feed</string>
+    <string name="small_logo__">Small Logo</string>
+    <string name="submeter">Submeter</string>
+    <string name="adicionar_coment_rio">Adicionar comentário</string>
 </resources>
