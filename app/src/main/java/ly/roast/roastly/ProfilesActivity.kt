@@ -10,16 +10,12 @@ class ProfilesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-<<<<<<<< HEAD:app/src/main/java/ly/roast/roastly/ProfilesActivity.kt
         setContentView(R.layout.activity_profiles)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-========
         setContentView(R.layout.activity_edit_profile)
-
->>>>>>>> main:app/src/main/java/ly/roast/roastly/EditProfileActivity.kt
     }
 }
