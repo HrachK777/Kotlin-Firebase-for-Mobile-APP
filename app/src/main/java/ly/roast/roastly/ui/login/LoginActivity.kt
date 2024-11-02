@@ -1,5 +1,6 @@
 package ly.roast.roastly.ui.login
 
+import ly.roast.roastly.ui.profile.EditProfileActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast

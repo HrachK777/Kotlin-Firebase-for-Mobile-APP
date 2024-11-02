@@ -10,28 +10,28 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import ly.roast.roastly.EditProfileActivity
+//import ly.roast.roastly.EditProfileActivity
 import ly.roast.roastly.R
 
 class ProfileFragment : Fragment() {
 
     private lateinit var userNameLogin: TextView
     private lateinit var jobNameLogin: TextView
-    private lateinit var editProfileButton: Button
+    //private lateinit var editProfileButton: Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
         
         userNameLogin = view.findViewById(R.id.user_name)
         jobNameLogin = view.findViewById(R.id.job_name)
-        editProfileButton = view.findViewById(R.id.button_edit_profile)
+        //editProfileButton = view.findViewById(R.id.button_edit_profile)
 
         fetchUserProfileData()
 
-        editProfileButton.setOnClickListener {
+        /*editProfileButton.setOnClickListener {
             val intent = Intent(requireContext(), EditProfileActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
         return view
     }
