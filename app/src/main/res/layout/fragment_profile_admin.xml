@@ -21,18 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/icon_menu"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:contentDescription="@string/icon_menu"
-        android:scaleType="centerCrop"
-        android:src="@drawable/icon_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <!-- User Name -->
     <TextView
         android:id="@+id/user_name"
