@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/fragment_container_profile_user"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#EFEBEB">
+
 
     <!-- User Photo -->
     <ImageView
@@ -22,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/icon_menu"
+        android:id="@+id/icon_menu_user"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="@string/user_photo_"
@@ -138,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="@string/m_dia_pessoal"
+        android:text="Teste"
         android:textColor="#CB3086"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -277,13 +279,4 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <!-- FrameLayout for fragment_menu -->
-    <FrameLayout
-        android:id="@+id/fragment_menu_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/icon_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
