@@ -4,21 +4,22 @@ import User
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import androidx.lifecycle.Observer
 import ly.roast.roastly.databinding.ActivityRegisterBinding
+import ly.roast.roastly.viewmodel.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
 
-    // ViewModel injetado usando o ViewModelProvider
     private val binding by lazy { ActivityRegisterBinding.inflate(layoutInflater) }
-    private val auth by lazy { FirebaseAuth.getInstance() }
-    private val db by lazy { FirebaseFirestore.getInstance() }
+    private val viewModel: RegisterViewModel by viewModels() // Using ViewModelProvider for ViewModel injection
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        observeViewModel()
 
         binding.registerButton.setOnClickListener {
             val name = binding.nameInput.text.toString().trim()
@@ -28,51 +29,34 @@ class RegisterActivity : AppCompatActivity() {
             val confirmPassword = binding.passwordConfirmationInput.text.toString().trim()
             val job = binding.jobInput.text.toString().trim()
 
-            // Verificar se as passwords coincidem
             if (password != confirmPassword) {
-                Toast.makeText(this, "As palavra-passes não coincidem!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Validação do email
             if (!isValidEmail(email)) {
-                Toast.makeText(this, "O email deve terminar com 'msft.cesae.pt' ou 'cesae.pt'", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email must end with 'msft.cesae.pt' or 'cesae.pt'", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Criar utilizador no Firebase Auth
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnSuccessListener { authResult ->
-                    val uid = authResult.user?.uid ?: return@addOnSuccessListener
-
-                    // Criar objeto User para guardar na Firestore
-                    val user = User(
-                        name = name,
-                        surname = surname,
-                        email = email,
-                        job = job
-                    )
-
-                    // Guardar os dados do utilizador no Firestore
-                    db.collection("users").document(uid).set(user)
-                        .addOnSuccessListener {
-                            Toast.makeText(this, "Registo bem-sucedido!", Toast.LENGTH_SHORT).show()
-                            finish()
-                            startActivity(Intent(this, LoginActivity::class.java))
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "Erro ao guardar dados!", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Erro ao registar utilizador!", Toast.LENGTH_SHORT).show()
-                }
+            viewModel.registerUser(email, password, name, surname, job)
         }
     }
 
-    // Função para verificar se o email termina com 'msft.cesae.pt' ou 'cesae.pt' e contem um arroba com texto antes
+    private fun observeViewModel() {
+        viewModel.registerState.observe(this, Observer { success ->
+            if (success) {
+                Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+                finish()
+                startActivity(Intent(this, LoginActivity::class.java))
+            } else {
+                Toast.makeText(this, "Registration failed!", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
     private fun isValidEmail(email: String): Boolean {
         val arrobaIndex = email.indexOf('@')
-        return arrobaIndex > 0 && (email.endsWith("msft.cesae.pt") || email.endsWith("cesae.pt"))    }
+        return arrobaIndex > 0 && (email.endsWith("msft.cesae.pt") || email.endsWith("cesae.pt"))
+    }
 }
