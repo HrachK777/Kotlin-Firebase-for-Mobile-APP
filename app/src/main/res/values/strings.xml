@@ -59,6 +59,7 @@
     <string name="alterar_cargo">Alterar cargo</string>
     <string name="icon_camera">icon camera</string>
     <string name="user_photo">User Photo</string>
+
     <string name="criar_nova_conta">Criar nova conta</string>
     <string name="small_logo_">Small Logo</string>
     <string name="nome">Nome</string>
@@ -81,6 +82,7 @@
     <string name="stars_icon_">stars icon</string>
     <string name="stars_icon__">stars icon</string>
     <string name="stars_icon___">stars icon</string>
+
     <string name="capacidade">Capacidade:</string>
     <string name="editar">Editar</string>
     <string name="cargo_">Cargo</string>
@@ -106,4 +108,16 @@
     <string name="deu_feedback_a">deu feedback a</string>
     <string name="name_">Name</string>
     <string name="hoje_s_14h">Hoje às 14h</string>
+    <string name="avalia_es_de">Avaliações de</string>
+    <string name="name__">Name</string>
+    <string name="para">para</string>
+    <string name="name___">Name</string>
+    <string name="iniciativa_">Iniciativa</string>
+    <string name="conhecimento">Conhecimento</string>
+    <string name="colabora_o_">Colaboração</string>
+    <string name="responsabilidade">Responsabilidade</string>
+    <string name="responsabilidade_">Responsabilidade</string>
+    <string name="conhecimento_">Conhecimento</string>
+    <string name="iniciativa__">Iniciativa</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet nulla et ullamcorper dignissim. Nullam id dolor quis velit fringilla venenatis. Integer vitae metus ac felis varius posuere.</string>
 </resources>

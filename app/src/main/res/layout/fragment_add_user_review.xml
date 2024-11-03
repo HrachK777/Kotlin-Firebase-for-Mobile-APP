@@ -22,10 +22,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Iniciativa"
+            android:text="@string/iniciativa__"
             android:fontFamily="@font/league_spartan_medium"
             android:textColor="#CB3086"
-            android:textSize="28sp"/>
+            android:textSize="30sp"/>
 
         <RatingBar
             android:id="@+id/rating_iniciativa"
@@ -33,14 +33,16 @@
             android:layout_height="wrap_content"
             android:numStars="5"
             android:progressTint="@color/yellow_star"
-            android:stepSize="1.0" />
+            android:stepSize="1.0"
+            android:scaleX="0.9"
+            android:scaleY="0.9"/>
 
 
         <!-- Field 2: Conhecimento -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Conhecimento"
+            android:text="@string/conhecimento_"
             android:fontFamily="@font/league_spartan_medium"
             android:textColor="#CB3086"
             android:textSize="30sp"
@@ -51,7 +53,9 @@
             android:layout_height="wrap_content"
             android:numStars="5"
             android:stepSize="1.0"
-            android:progressTint="@color/yellow_star"/>
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"/>
 
         <!-- Field 3: Colaboração -->
         <TextView
@@ -68,13 +72,15 @@
             android:layout_height="wrap_content"
             android:numStars="5"
             android:stepSize="1.0"
-            android:progressTint="@color/yellow_star"/>
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"/>
 
         <!-- Field 4: Responsabilidade -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Responsabilidade"
+            android:text="@string/responsabilidade_"
             android:fontFamily="@font/league_spartan_medium"
             android:textColor="#CB3086"
             android:textSize="30sp"
@@ -85,7 +91,9 @@
             android:layout_height="wrap_content"
             android:numStars="5"
             android:stepSize="1.0"
-            android:progressTint="@color/yellow_star"/>
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"/>
     </LinearLayout>
 
     <!-- Comment Box -->
@@ -104,23 +112,23 @@
         app:layout_constraintTop_toBottomOf="@+id/rating_section"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/submitFeedbackButton" />
+        app:layout_constraintBottom_toTopOf="@+id/submit_button" />
 
     <!-- Submit Button -->
     <Button
-        android:id="@+id/submitFeedbackButton"
+        android:id="@+id/submit_button"
         android:layout_width="344dp"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:layout_marginTop="160dp"
         android:fontFamily="@font/league_spartan_medium"
         android:text="@string/submeter"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#FFFFFF"
-        android:background="@drawable/button_with_shadow"
-        android:textColorLink="#5E48ED53"
+        android:backgroundTint="@color/button_background"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rating_section"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

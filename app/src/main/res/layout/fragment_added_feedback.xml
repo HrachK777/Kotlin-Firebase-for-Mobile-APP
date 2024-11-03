@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEBEB">
+
+    <LinearLayout
+        android:id="@+id/added_feedback_title_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/added_feedbacks_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="@string/avalia_es_de"
+                android:textColor="#25183E"
+                android:textSize="28sp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/added_feedbacks_name_given"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="@string/name__"
+                android:textColor="#CB3086"
+                android:textSize="28sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="230dp">
+
+            <TextView
+                android:id="@+id/added_feedbacks_title_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="@string/para"
+                android:textColor="#25183E"
+                android:textSize="28sp"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/added_feedbacks_name_received"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="@string/name___"
+                android:textColor="#CB3086"
+                android:textSize="28sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+        <!-- Rating Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/comment_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Field 1: Iniciativa -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/league_spartan_medium"
+            android:text="@string/iniciativa_"
+            android:textColor="#007CBA"
+            android:textSize="26sp" />
+
+        <RatingBar
+            android:id="@+id/rating_iniciativa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:numStars="5"
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:stepSize="1.0" />
+
+        <!-- Field 2: Conhecimento -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/league_spartan_medium"
+            android:text="@string/conhecimento"
+            android:textColor="#007CBA"
+            android:textSize="26sp" />
+
+        <RatingBar
+            android:id="@+id/rating_conhecimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:numStars="5"
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:stepSize="1.0" />
+
+        <!-- Field 3: Colaboração -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/league_spartan_medium"
+            android:text="@string/colabora_o_"
+            android:textColor="#007CBA"
+            android:textSize="26sp" />
+
+        <RatingBar
+            android:id="@+id/rating_colaboracao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:numStars="5"
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:stepSize="1.0" />
+
+        <!-- Field 4: Responsabilidade -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/league_spartan_medium"
+            android:text="@string/responsabilidade"
+            android:textColor="#007CBA"
+            android:textSize="26sp"/>
+
+        <RatingBar
+            android:id="@+id/rating_responsabilidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:numStars="5"
+            android:progressTint="@color/yellow_star"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:stepSize="1.0" />
+    </LinearLayout>
+
+    <!-- Comment Box -->
+    <EditText
+        android:id="@+id/comment_box"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:autofillHints=""
+        android:padding="8dp"
+        android:inputType="textMultiLine"
+        android:background="@drawable/edit_text_border"
+        android:minHeight="120dp"
+        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere"
+        android:gravity="top|start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        tools:ignore="LabelFor" />
+</androidx.constraintlayout.widget.ConstraintLayout>
