@@ -20,6 +20,9 @@
         </activity>
 
         <activity
+            android:name=".AddFeedbackActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfilesActivity"
             android:exported="false" />
         <activity

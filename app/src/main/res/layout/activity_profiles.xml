@@ -1,98 +1,373 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/profile_background_image">
+    android:layout_height="match_parent">
 
-    <!-- Logo Image -->
-    <ImageView
-        android:id="@+id/logoSmall"
-        android:layout_width="88dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Small Logo"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Fragment Container -->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="0dp"
+    <!-- Footer with 5 Icons -->
+    <ScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/logoSmall"
         app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Footer with 5 icons -->
-    <LinearLayout
-        android:id="@+id/footer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@color/white"
-        android:padding="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <!-- Feed Icon -->
-        <ImageView
-            android:id="@+id/icon_home"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/icon_feed"
-            android:contentDescription="Home"
-            android:onClick="onIconClick" />
+            android:background="@drawable/background_profile_user_admin">
 
-        <!-- Historic Icon -->
-        <ImageView
-            android:id="@+id/icon_feed"
-            android:layout_width="0dp"
+            <!-- Logo Image -->
+            <ImageView
+                android:id="@+id/logoSmall"
+                android:layout_width="88dp"
+                android:layout_height="73dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/small_logo__"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <!-- User Photo -->
+            <ImageView
+                android:id="@+id/user_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="80dp"
+                android:contentDescription="@string/user_photo__"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_default_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/logoSmall" />
+
+            <!-- User Name -->
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="Nome"
+                android:textColor="#CB3086"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_photo" />
+
+            <!-- Job Name -->
+            <TextView
+                android:id="@+id/job_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="Cargo"
+                android:textColor="#25183E"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_name" />
+
+            <!-- CardView Feedbacks -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_feedbacks"
+                android:layout_width="366dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="290dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="26dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Feedbacks Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Feedback Received Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_feedback_received"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@string/feedback_received_icon"
+                            android:src="@drawable/icon_profile_feedback_received" />
+
+                        <TextView
+                            android:id="@+id/text_profile_feedback_received"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="22dp"
+                            android:fontFamily="@font/league_spartan_medium"
+                            android:text="@string/feedbacks_recebidos"
+                            android:textColor="#25183E"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+
+                    <!-- Feedback Given Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="11dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_feedback_given"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@string/feedback_given_icon"
+                            android:src="@drawable/icon_profile_feedback_given" />
+
+                        <TextView
+                            android:id="@+id/text_profile_feedback_given"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="22dp"
+                            android:fontFamily="@font/league_spartan_medium"
+                            android:text="@string/feedbacks_efetuados"
+                            android:textColor="#25183E"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Average Title -->
+            <TextView
+                android:id="@+id/average_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="Média pessoal"
+                android:textColor="#CB3086"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_view_feedbacks" />
+
+            <!-- CardView Personal Average -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_average"
+                android:layout_width="366dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="26dp"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/average_title">
+
+                <!-- Ratings Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Initiative Rating -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="@font/league_spartan_medium"
+                            android:text="@string/iniciativa"
+                            android:textColor="#25183E"
+                            android:textSize="27sp" />
+
+                        <ImageView
+                            android:id="@+id/one_star_image"
+                            android:layout_width="150dp"
+                            android:layout_height="57dp"
+                            android:layout_marginStart="60dp"
+                            android:src="@drawable/one_stars_profile_card" />
+                    </LinearLayout>
+
+                    <!-- Collaboration Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        tools:ignore="ExtraText">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginBottom="7dp"
+                            android:fontFamily="@font/league_spartan_medium"
+                            android:text="@string/colabora_o"
+                            android:textColor="#25183E"
+                            android:textSize="27sp" />
+
+                        <ImageView
+                            android:id="@+id/two_star_image"
+                            android:layout_width="150dp"
+                            android:layout_height="57dp"
+                            android:layout_marginStart="20dp"
+                            android:contentDescription="@string/stars_icon_"
+                            android:src="@drawable/two_stars_profile_card" />
+                    </LinearLayout>
+
+                    <!-- Commitment Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginBottom="7dp"
+                            android:fontFamily="@font/league_spartan_medium"
+                            android:text="@string/compromisso"
+                            android:textColor="#25183E"
+                            android:textSize="27sp" />
+
+                        <ImageView
+                            android:id="@+id/three_star_image"
+                            android:layout_width="150dp"
+                            android:layout_height="57dp"
+                            android:layout_marginStart="10dp"
+                            android:contentDescription="@string/stars_icon"
+                            android:src="@drawable/three_stars_profile_card" />
+                    </LinearLayout>
+
+                    <!-- Capacity Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginBottom="7dp"
+                            android:fontFamily="@font/league_spartan_medium"
+                            android:text="@string/capacidade"
+                            android:textColor="#25183E"
+                            android:textSize="27sp" />
+
+                        <ImageView
+                            android:id="@+id/four_star_image"
+                            android:layout_width="150dp"
+                            android:layout_height="57dp"
+                            android:layout_marginStart="30dp"
+                            android:contentDescription="@string/stars_icon"
+                            android:src="@drawable/four_stars_profile_card" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/icon_historic"
-            android:contentDescription="Feed"
-            android:onClick="onIconClick" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/white"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Add Icon -->
-        <ImageView
-            android:id="@+id/icon_add"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/icon_add"
-            android:contentDescription="Add"
-            android:onClick="onIconClick" />
+            <!-- Feed -->
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/icon_feed"
+                android:contentDescription="Home"
+                android:onClick="onIconClick"/>
 
-        <!-- Ranking Icon -->
-        <ImageView
-            android:id="@+id/icon_ranking"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/icon_ranking"
-            android:contentDescription="Ranking"
-            android:onClick="onIconClick" />
+            <!-- Historic Icon -->
+            <ImageView
+                android:id="@+id/icon_feed"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/icon_historic"
+                android:contentDescription="@string/feed"
+                android:onClick="onIconClick" />
 
-        <!-- Profile Icon -->
-        <ImageView
-            android:id="@+id/icon_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/icon_profile"
-            android:contentDescription="Profile"
-            android:onClick="onIconClick" />
+            <!-- Add Icon -->
+            <ImageView
+                android:id="@+id/icon_add"
+                android:layout_width="18dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/icon_add"
+                android:contentDescription="@string/add"
+                android:onClick="onIconClick" />
 
-    </LinearLayout>
+            <!-- Ranking Icon -->
+            <ImageView
+                android:id="@+id/icon_ranking"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/icon_ranking"
+                android:contentDescription="@string/ranking"
+                android:onClick="onIconClick" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Profile Icon -->
+            <ImageView
+                android:id="@+id/icon_profile"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/icon_profile"
+                android:contentDescription="Profile"
+                android:onClick="onIconClick" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

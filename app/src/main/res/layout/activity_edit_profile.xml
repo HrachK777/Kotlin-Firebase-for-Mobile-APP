@@ -286,7 +286,7 @@
             android:text="@string/salvar_altera_es"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:background="@drawable/button_with_shadow"
+            android:backgroundTint="@color/button_background"
             android:textColorLink="#5E48ED53"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"

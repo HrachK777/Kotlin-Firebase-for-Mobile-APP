@@ -48,7 +48,7 @@
         <ImageView
             android:id="@+id/icon_home"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:contentDescription="Home"
             android:onClick="onIconClick"
@@ -58,7 +58,7 @@
         <ImageView
             android:id="@+id/icon_feed"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:contentDescription="Feed"
             android:onClick="onIconClick"
@@ -68,7 +68,7 @@
         <ImageView
             android:id="@+id/icon_add"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:contentDescription="Add"
             android:onClick="onIconClick"
@@ -78,7 +78,7 @@
         <ImageView
             android:id="@+id/icon_ranking"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:contentDescription="Ranking"
             android:onClick="onIconClick"
@@ -88,7 +88,7 @@
         <ImageView
             android:id="@+id/icon_profile"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:contentDescription="Profile"
             android:onClick="onIconClick"
