@@ -27,12 +27,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun fetchUserProfileData() {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        if (userId != null) {
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email
+        if (userEmail != null) {
             val firestore = FirebaseFirestore.getInstance()
 
             // Buscar informação da base de dados
-            firestore.collection("users").document(userId)
+            firestore.collection("users").document(userEmail)
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null) {

@@ -17,8 +17,10 @@ class RegisterViewModel : ViewModel() {
 
     fun registerUser(email: String, password: String, name: String, surname: String, job: String) {
         auth.createUserWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
-                val user = User(name = name, surname = surname, email = email, job = job)
+            .addOnSuccessListener { authResult ->
+                val uid = authResult.user?.uid ?: return@addOnSuccessListener
+
+                val user = User(name = name, surname = surname, email = email, job = job, uid = uid)
 
                 db.collection("users").document(email).set(user)
                     .addOnSuccessListener {

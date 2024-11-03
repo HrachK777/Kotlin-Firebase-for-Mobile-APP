@@ -3,6 +3,7 @@ package ly.roast.roastly.ui.review
 import AddFragmentViewModel
 import User
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,17 +51,17 @@ class AddUserReviewFragment : Fragment() {
 
     private fun submitReview() {
         val currentUser = FirebaseAuth.getInstance().currentUser
-        val comment = commentBox.text.toString() // Retrieve comment text
+        val comment = commentBox.text.toString()
 
         selectedUser?.let { user ->
             currentUser?.let { firebaseUser ->
-                val userId = firebaseUser.uid
+                val userEmail = firebaseUser.email ?: "default@example.com"
 
-                firestore.collection("users").document(userId).get()
+                firestore.collection("users").document(userEmail).get()
                     .addOnSuccessListener { document ->
                         val reviewerName = document.getString("name") ?: "Anonymous"
                         val currentUserObject = User(
-                            uid = userId,
+                            uid = FirebaseAuth.getInstance().currentUser?.uid ?: "",
                             name = reviewerName,
                             email = firebaseUser.email ?: ""
                         )
@@ -74,7 +75,7 @@ class AddUserReviewFragment : Fragment() {
                             conhecimento = ratingConhecimento.rating,
                             colaboracao = ratingColaboracao.rating,
                             responsabilidade = ratingResponsabilidade.rating,
-                            comment = comment, // Pass the comment to the ViewModel
+                            comment = comment,
                             onSuccess = {
                                 Toast.makeText(context, "Review submitted successfully!", Toast.LENGTH_SHORT).show()
                                 parentFragmentManager.popBackStack()

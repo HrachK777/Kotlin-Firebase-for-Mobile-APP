@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,11 +10,11 @@
         android:id="@+id/added_feedback_title_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="50dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -26,11 +25,11 @@
                 android:id="@+id/added_feedbacks_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/avalia_es_de"
                 android:textColor="#25183E"
-                android:textSize="28sp"
-                android:layout_marginEnd="8dp" />
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/added_feedbacks_name_given"
@@ -39,24 +38,24 @@
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/name__"
                 android:textColor="#CB3086"
-                android:textSize="28sp"/>
+                android:textSize="28sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginEnd="230dp">
+            android:layout_marginEnd="230dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/added_feedbacks_title_"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/para"
                 android:textColor="#25183E"
-                android:textSize="28sp"
-                android:layout_marginEnd="8dp"/>
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/added_feedbacks_name_received"
@@ -65,20 +64,22 @@
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/name___"
                 android:textColor="#CB3086"
-                android:textSize="28sp"/>
+                android:textSize="28sp" />
         </LinearLayout>
     </LinearLayout>
 
-        <!-- Rating Section -->
+    <!-- Rating Section -->
     <LinearLayout
+        android:id="@+id/rating_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="35dp"
         android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/comment_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/added_feedback_title_container">
 
         <!-- Field 1: Iniciativa -->
         <TextView
@@ -157,7 +158,7 @@
             android:fontFamily="@font/league_spartan_medium"
             android:text="@string/responsabilidade"
             android:textColor="#007CBA"
-            android:textSize="26sp"/>
+            android:textSize="26sp" />
 
         <RatingBar
             android:id="@+id/rating_responsabilidade"
@@ -173,22 +174,24 @@
     </LinearLayout>
 
     <!-- Comment Box -->
-    <EditText
+
+    <TextView
         android:id="@+id/comment_box"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
-        android:autofillHints=""
-        android:padding="8dp"
-        android:inputType="textMultiLine"
-        android:background="@drawable/edit_text_border"
-        android:minHeight="120dp"
-        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere"
-        android:gravity="top|start"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="30dp"
-        tools:ignore="LabelFor" />
+        android:background="@android:color/transparent"
+        android:gravity="top|start"
+        android:minHeight="120dp"
+        android:padding="8dp"
+        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

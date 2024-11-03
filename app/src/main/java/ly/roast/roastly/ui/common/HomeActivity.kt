@@ -46,6 +46,7 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel.deletionState.observe(this) { result ->
             result.onSuccess {
+                clearSharedPreferences()
                 Toast.makeText(this, "Account deleted successfully", Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }.onFailure { exception ->

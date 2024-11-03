@@ -21,7 +21,7 @@ class AddFragmentViewModel : ViewModel() {
 
     fun fetchUsersFromFirestore() {
         val firestore = FirebaseFirestore.getInstance()
-        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
+        val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
 
         firestore.collection("users")
             .get()
@@ -31,29 +31,27 @@ class AddFragmentViewModel : ViewModel() {
                 val availableUsers = mutableListOf<User>()
 
                 for (document in result) {
-                    if (document.id != currentUserId) {
-                        val user = document.toObject(User::class.java).copy(uid = document.id)
+                    val user = document.toObject(User::class.java).copy(
+                        uid = document.getString("uid") ?: document.id
+                    )
+
+                    if (user.email != currentUserEmail) {
 
                         firestore.collection("users")
-                            .document(user.uid)
+                            .document(user.email)
                             .collection("reviews")
-                            .whereEqualTo("reviewerId", currentUserId)
+                            .whereEqualTo("reviewerId", currentUserEmail)
                             .get()
                             .addOnSuccessListener { reviewResult ->
-
                                 var alreadyReviewedThisMonth = false
 
                                 for (review in reviewResult.documents) {
                                     val reviewedOn = review.getTimestamp("reviewedOn")?.toDate()
-
                                     if (reviewedOn != null) {
                                         val calendar = Calendar.getInstance()
                                         calendar.time = reviewedOn
 
-                                        if (calendar.get(Calendar.MONTH) == currentMonth && calendar.get(
-                                                Calendar.YEAR
-                                            ) == currentYear
-                                        ) {
+                                        if (calendar.get(Calendar.MONTH) == currentMonth && calendar.get(Calendar.YEAR) == currentYear) {
                                             alreadyReviewedThisMonth = true
                                             break
                                         }
@@ -70,6 +68,7 @@ class AddFragmentViewModel : ViewModel() {
             }
     }
 
+
     fun submitReview(
         currentUser: User,
         selectedUserUid: String,
@@ -83,6 +82,13 @@ class AddFragmentViewModel : ViewModel() {
         onSuccess: () -> Unit,
         onFailure: (Exception) -> Unit
     ) {
+        val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
+        val currentMonth = monthFormat.format(Calendar.getInstance().time)
+
+        val documentId = "${currentUser.email}-${recipientEmail}-${currentMonth}"
+
+        val formattedComment = "\"$comment\""
+
         val reviewData = hashMapOf(
             "reviewerId" to currentUser.uid,
             "reviewerName" to (currentUser.name.takeIf { it.isNotEmpty() } ?: "Anonymous"),
@@ -92,14 +98,15 @@ class AddFragmentViewModel : ViewModel() {
             "conhecimento" to conhecimento,
             "colaboracao" to colaboracao,
             "responsabilidade" to responsabilidade,
-            "comment" to comment,
+            "comment" to formattedComment,
             "reviewedOn" to Timestamp.now()
         )
 
         firestore.collection("users")
-            .document(selectedUserUid)
+            .document(recipientEmail)
             .collection("reviews")
-            .add(reviewData)
+            .document(documentId)
+            .set(reviewData)
             .addOnSuccessListener {
                 onSuccess()
             }

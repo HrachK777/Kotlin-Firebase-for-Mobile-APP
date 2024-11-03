@@ -24,7 +24,7 @@ class ReviewDetailsFragment : Fragment() {
         val conhecimentoRatingBar: RatingBar = view.findViewById(R.id.rating_conhecimento)
         val colaboracaoRatingBar: RatingBar = view.findViewById(R.id.rating_colaboracao)
         val responsabilidadeRatingBar: RatingBar = view.findViewById(R.id.rating_responsabilidade)
-        val commentBox: EditText = view.findViewById(R.id.comment_box)
+        val commentBox: TextView = view.findViewById(R.id.comment_box)
 
         review?.let {
             reviewerNameTextView.text = it.reviewerName
@@ -33,7 +33,7 @@ class ReviewDetailsFragment : Fragment() {
             conhecimentoRatingBar.rating = it.conhecimento
             colaboracaoRatingBar.rating = it.colaboracao
             responsabilidadeRatingBar.rating = it.responsabilidade
-            commentBox.setText(it.comment)
+            commentBox.text = it.comment
         }
 
         commentBox.isEnabled = false

@@ -108,7 +108,7 @@
     <string name="deu_feedback_a">deu feedback a</string>
     <string name="name_">Name</string>
     <string name="hoje_s_14h">Hoje às 14h</string>
-    <string name="avalia_es_de">Avaliações de</string>
+    <string name="avalia_es_de">Avaliação de</string>
     <string name="name__">Name</string>
     <string name="para">para</string>
     <string name="name___">Name</string>
@@ -121,4 +121,5 @@
     <string name="iniciativa__">Iniciativa</string>
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet nulla et ullamcorper dignissim. Nullam id dolor quis velit fringilla venenatis. Integer vitae metus ac felis varius posuere.</string>
     <string name="menu_icon">menu icon</string>
+    <string name="comentario">Comentário</string>
 </resources>
