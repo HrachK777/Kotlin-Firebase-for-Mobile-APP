@@ -79,16 +79,10 @@ class AddFragmentViewModel : ViewModel() {
         conhecimento: Float,
         colaboracao: Float,
         responsabilidade: Float,
+        comment: String,
         onSuccess: () -> Unit,
         onFailure: (Exception) -> Unit
     ) {
-        val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
-        val currentMonth = monthFormat.format(Timestamp.now().toDate())
-        val currentUserEmail = currentUser.email
-
-        val documentId = "$currentUserEmail-$recipientEmail-$currentMonth"
-
-
         val reviewData = hashMapOf(
             "reviewerId" to currentUser.uid,
             "reviewerName" to (currentUser.name.takeIf { it.isNotEmpty() } ?: "Anonymous"),
@@ -98,15 +92,14 @@ class AddFragmentViewModel : ViewModel() {
             "conhecimento" to conhecimento,
             "colaboracao" to colaboracao,
             "responsabilidade" to responsabilidade,
+            "comment" to comment,
             "reviewedOn" to Timestamp.now()
         )
-
 
         firestore.collection("users")
             .document(selectedUserUid)
             .collection("reviews")
-            .document(documentId)
-            .set(reviewData)
+            .add(reviewData)
             .addOnSuccessListener {
                 onSuccess()
             }

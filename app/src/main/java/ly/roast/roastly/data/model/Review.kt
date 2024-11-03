@@ -1,38 +1,53 @@
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.parcel.Parcelize
 import ly.roast.roastly.R
 
+@Parcelize
 data class Review(
     val reviewerName: String = "",
     val recipientName: String = "",
     val iniciativa: Float = 0f,
     val conhecimento: Float = 0f,
     val colaboracao: Float = 0f,
-    val responsabilidade: Float = 0f
-)
+    val responsabilidade: Float = 0f,
+    val comment: String = "",
+    val timestamp: String = ""
+) : Parcelable
 
-class FeedAdapter(private var reviews: List<Review>) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
+class FeedAdapter(
+    private var reviews: List<Review>,
+    private val onClick: (Review) -> Unit
+) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
 
     inner class FeedViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val reviewText: TextView = view.findViewById(R.id.review_text)
-        val reviewDetails: TextView = view.findViewById(R.id.review_details)
+        val feedNameGiven: TextView = view.findViewById(R.id.feed_name_given)
+        val feedText: TextView = view.findViewById(R.id.feed_text)
+        val feedNameReceived: TextView = view.findViewById(R.id.feed_name_received)
+        val feedDayTime: TextView = view.findViewById(R.id.feed_day_time)
+
+        init {
+            view.setOnClickListener {
+                onClick(reviews[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_review_feed, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.feedback_given_card_view, parent, false)
         return FeedViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val review = reviews[position]
-
-        holder.reviewText.text = "${review.reviewerName} rated ${review.recipientName}"
-
-        holder.reviewDetails.text = "Iniciativa: ${review.iniciativa}, Conhecimento: ${review.conhecimento}, " +
-                "Colaboração: ${review.colaboracao}, Responsabilidade: ${review.responsabilidade}"
+        holder.feedNameGiven.text = review.reviewerName
+        holder.feedText.text = "gave feedback to"
+        holder.feedNameReceived.text = review.recipientName
+        holder.feedDayTime.text = review.timestamp // Adjust timestamp format as needed
     }
 
     override fun getItemCount() = reviews.size

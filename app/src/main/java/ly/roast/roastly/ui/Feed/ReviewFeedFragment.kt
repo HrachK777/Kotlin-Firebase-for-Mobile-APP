@@ -19,12 +19,14 @@ class ReviewFeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_review_feed, container, false)
+        val view = inflater.inflate(R.layout.fragment_feedbacks_feed, container, false)
 
-        recyclerView = view.findViewById(R.id.recycler_view_feed)
+        recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        feedAdapter = FeedAdapter(emptyList())
+        feedAdapter = FeedAdapter(emptyList()) { review ->
+            openReviewDetails(review)
+        }
         recyclerView.adapter = feedAdapter
 
         observeViewModel()
@@ -37,5 +39,17 @@ class ReviewFeedFragment : Fragment() {
         viewModel.reviews.observe(viewLifecycleOwner) { reviewList ->
             feedAdapter.updateData(reviewList)
         }
+    }
+
+    private fun openReviewDetails(review: Review) {
+        val reviewDetailsFragment = ReviewDetailsFragment().apply {
+            arguments = Bundle().apply {
+                putParcelable("review", review)
+            }
+        }
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, reviewDetailsFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

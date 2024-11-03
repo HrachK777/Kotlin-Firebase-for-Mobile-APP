@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.RatingBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -23,6 +23,8 @@ class AddUserReviewFragment : Fragment() {
     private lateinit var ratingConhecimento: RatingBar
     private lateinit var ratingColaboracao: RatingBar
     private lateinit var ratingResponsabilidade: RatingBar
+    private lateinit var commentBox: EditText
+    private lateinit var submitButton: Button
 
     private val viewModel: AddFragmentViewModel by viewModels()
     private val firestore = FirebaseFirestore.getInstance()
@@ -32,15 +34,12 @@ class AddUserReviewFragment : Fragment() {
 
         selectedUser = arguments?.getParcelable("selectedUser")
 
-        val feedbackTitle = view.findViewById<TextView>(R.id.add_feedback_title)
-        val submitButton = view.findViewById<Button>(R.id.submit_button)
-
-        feedbackTitle.text = "Dar feedback a ${selectedUser?.name}"
-
         ratingIniciativa = view.findViewById(R.id.rating_iniciativa)
         ratingConhecimento = view.findViewById(R.id.rating_conhecimento)
         ratingColaboracao = view.findViewById(R.id.rating_colaboracao)
         ratingResponsabilidade = view.findViewById(R.id.rating_responsabilidade)
+        commentBox = view.findViewById(R.id.comment_box)
+        submitButton = view.findViewById(R.id.submit_button)
 
         submitButton.setOnClickListener {
             submitReview()
@@ -51,6 +50,8 @@ class AddUserReviewFragment : Fragment() {
 
     private fun submitReview() {
         val currentUser = FirebaseAuth.getInstance().currentUser
+        val comment = commentBox.text.toString() // Retrieve comment text
+
         selectedUser?.let { user ->
             currentUser?.let { firebaseUser ->
                 val userId = firebaseUser.uid
@@ -73,6 +74,7 @@ class AddUserReviewFragment : Fragment() {
                             conhecimento = ratingConhecimento.rating,
                             colaboracao = ratingColaboracao.rating,
                             responsabilidade = ratingResponsabilidade.rating,
+                            comment = comment, // Pass the comment to the ViewModel
                             onSuccess = {
                                 Toast.makeText(context, "Review submitted successfully!", Toast.LENGTH_SHORT).show()
                                 parentFragmentManager.popBackStack()
