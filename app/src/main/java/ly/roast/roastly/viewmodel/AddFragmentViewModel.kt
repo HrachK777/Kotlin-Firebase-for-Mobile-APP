@@ -1,3 +1,4 @@
+import android.icu.text.SimpleDateFormat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -5,6 +6,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
+import java.util.Locale
 
 
 class AddFragmentViewModel : ViewModel() {
@@ -72,6 +74,7 @@ class AddFragmentViewModel : ViewModel() {
         currentUser: User,
         selectedUserUid: String,
         selectedUserName: String,
+        recipientEmail: String,
         iniciativa: Float,
         conhecimento: Float,
         colaboracao: Float,
@@ -79,9 +82,17 @@ class AddFragmentViewModel : ViewModel() {
         onSuccess: () -> Unit,
         onFailure: (Exception) -> Unit
     ) {
+        val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
+        val currentMonth = monthFormat.format(Timestamp.now().toDate())
+        val currentUserEmail = currentUser.email
+
+        val documentId = "$currentUserEmail-$recipientEmail-$currentMonth"
+
+
         val reviewData = hashMapOf(
             "reviewerId" to currentUser.uid,
             "reviewerName" to (currentUser.name.takeIf { it.isNotEmpty() } ?: "Anonymous"),
+            "recipientId" to selectedUserUid,
             "recipientName" to selectedUserName,
             "iniciativa" to iniciativa,
             "conhecimento" to conhecimento,
@@ -90,10 +101,12 @@ class AddFragmentViewModel : ViewModel() {
             "reviewedOn" to Timestamp.now()
         )
 
+
         firestore.collection("users")
             .document(selectedUserUid)
             .collection("reviews")
-            .add(reviewData)
+            .document(documentId)
+            .set(reviewData)
             .addOnSuccessListener {
                 onSuccess()
             }

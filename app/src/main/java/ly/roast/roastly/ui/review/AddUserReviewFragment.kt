@@ -68,6 +68,7 @@ class AddUserReviewFragment : Fragment() {
                             currentUser = currentUserObject,
                             selectedUserUid = user.uid,
                             selectedUserName = user.name,
+                            recipientEmail = user.email,
                             iniciativa = ratingIniciativa.rating,
                             conhecimento = ratingConhecimento.rating,
                             colaboracao = ratingColaboracao.rating,
