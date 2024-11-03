@@ -12,7 +12,7 @@
         android:id="@+id/user_photo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/user_photo___"
         android:scaleType="centerCrop"
         android:src="@drawable/profile_default_image"
@@ -21,17 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/icon_menu"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:contentDescription="@string/icon_menu"
-        android:scaleType="centerCrop"
-        android:src="@drawable/icon_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- User Name -->
     <TextView
@@ -292,7 +281,6 @@
         android:id="@+id/fragment_menu_container_admin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/icon_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>

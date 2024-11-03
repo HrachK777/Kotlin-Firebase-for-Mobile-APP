@@ -118,4 +118,5 @@
     <string name="conhecimento_">Conhecimento</string>
     <string name="iniciativa__">Iniciativa</string>
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet nulla et ullamcorper dignissim. Nullam id dolor quis velit fringilla venenatis. Integer vitae metus ac felis varius posuere.</string>
+    <string name="destaques_do_m_s">Destaques do mês</string>
 </resources>
