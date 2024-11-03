@@ -8,16 +8,46 @@
 
     <!-- Leaderboard title -->
     <TextView
-        android:id="@+id/average_title"
+        android:id="@+id/leaderboards_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/league_spartan_medium"
         android:text="@string/destaques_do_m_s"
         android:textColor="#CB3086"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toStartOf="leaderboards_card"/>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/leaderboards_card"
+        android:layout_width="380dp"
+        android:layout_height="111dp"
+        android:layout_margin="12dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        app:cardCornerRadius="80dp"
+        app:cardElevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.45">
+
+        <ImageView
+            android:id="@+id/leaderboards_image_initiative"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/profile_photo_content_desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_default_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
 </FrameLayout>
