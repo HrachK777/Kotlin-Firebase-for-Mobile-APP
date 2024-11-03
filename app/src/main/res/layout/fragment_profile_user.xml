@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#EFEBEB">
+    android:background="@android:color/transparent">
 
 
     <!-- User Photo -->
@@ -20,18 +20,6 @@
         android:src="@drawable/profile_default_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
-        android:id="@+id/icon_menu_user"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:contentDescription="@string/user_photo_"
-        android:scaleType="centerCrop"
-        android:src="@drawable/icon_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

@@ -1,3 +1,4 @@
+import android.icu.text.SimpleDateFormat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -5,6 +6,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
+import java.util.Locale
 
 
 class AddFragmentViewModel : ViewModel() {
@@ -71,20 +73,26 @@ class AddFragmentViewModel : ViewModel() {
     fun submitReview(
         currentUser: User,
         selectedUserUid: String,
+        selectedUserName: String,
+        recipientEmail: String,
         iniciativa: Float,
         conhecimento: Float,
         colaboracao: Float,
         responsabilidade: Float,
+        comment: String,
         onSuccess: () -> Unit,
         onFailure: (Exception) -> Unit
     ) {
         val reviewData = hashMapOf(
             "reviewerId" to currentUser.uid,
-            "reviewerName" to currentUser.name,
+            "reviewerName" to (currentUser.name.takeIf { it.isNotEmpty() } ?: "Anonymous"),
+            "recipientId" to selectedUserUid,
+            "recipientName" to selectedUserName,
             "iniciativa" to iniciativa,
             "conhecimento" to conhecimento,
             "colaboracao" to colaboracao,
             "responsabilidade" to responsabilidade,
+            "comment" to comment,
             "reviewedOn" to Timestamp.now()
         )
 
@@ -95,6 +103,9 @@ class AddFragmentViewModel : ViewModel() {
             .addOnSuccessListener {
                 onSuccess()
             }
-            .addOnFailureListener { exception -> onFailure(exception) }
+            .addOnFailureListener { exception ->
+                onFailure(exception)
+            }
     }
+
 }

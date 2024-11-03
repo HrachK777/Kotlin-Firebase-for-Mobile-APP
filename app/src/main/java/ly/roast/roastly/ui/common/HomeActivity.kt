@@ -1,6 +1,7 @@
 package ly.roast.roastly.ui.common
 
 import AddFragment
+import ReviewFeedFragment
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         // Add click listeners for the icons
-        //findViewById<View>(R.id.icon_home).setOnClickListener { loadFragment(HomeFragment()) }
+        findViewById<View>(R.id.icon_home).setOnClickListener { loadFragment(ReviewFeedFragment()) }
         //findViewById<View>(R.id.icon_feed).setOnClickListener { loadFragment(HistoricFragment()) }
         findViewById<View>(R.id.icon_add).setOnClickListener { loadFragment(AddFragment()) }
         //findViewById<View>(R.id.icon_ranking).setOnClickListener { loadFragment(RankingFragment()) }
