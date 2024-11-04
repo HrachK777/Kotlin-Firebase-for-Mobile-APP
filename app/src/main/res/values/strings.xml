@@ -131,4 +131,6 @@
     <string name="five_star_icon" />
     <string name="destaque_em_todas_as_categorias">Destaque em todas as categorias</string>
     <string name="name_____">Name</string>
+    <string name="two_bullets_icon" />
+    <string name="feedbacks_efetuados_">Feedbacks efetuados</string>
 </resources>

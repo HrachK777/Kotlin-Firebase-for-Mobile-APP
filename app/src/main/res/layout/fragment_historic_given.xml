@@ -6,30 +6,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HistoricGivenFragment">
 
-    <!-- Add feedback title -->
-    <TextView
-        android:id="@+id/historic_given_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/league_spartan_medium"
-        android:layout_marginStart="20dp"
-        android:text="Feedbacks efetuados"
-        android:textColor="#CB3086"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_photo"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/best_employees_recycler_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:clipToPadding="false"
-        android:layout_marginTop="40dp"
-        android:paddingBottom="10dp"
-        tools:listitem="@layout/historic_given_feedback_card">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/two_bullets_right_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/two_bullets_icon"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icon_bullets_right"/>
+
+            <!-- Add feedback title -->
+            <TextView
+                android:id="@+id/historic_given_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="@string/feedbacks_efetuados_"
+                android:textColor="#CB3086"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="30dp"
+                android:textSize="28sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/best_employees_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                tools:listitem="@layout/historic_given_feedback_card">
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
