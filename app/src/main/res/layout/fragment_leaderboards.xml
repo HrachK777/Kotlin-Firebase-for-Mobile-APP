@@ -337,7 +337,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="125dp"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/name_____"
+                    android:text="Liliana"
                     android:fontFamily="@font/league_spartan_medium"
                     android:textColor="#25183E"
                     android:textSize="32sp" />
@@ -372,8 +372,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:clipToPadding="false"
-                android:paddingBottom="10dp"/>
-
+                android:paddingBottom="10dp"
+                tools:listitem="@layout/employee_card_item"/>
         </LinearLayout>
 </ScrollView>
 </FrameLayout>
