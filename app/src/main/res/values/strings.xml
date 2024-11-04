@@ -135,4 +135,5 @@
     <string name="feedbacks_efetuados_">Feedbacks efetuados</string>
     <string name="feedbacks_recebidos_">Feedbacks recebidos</string>
     <string name="feedbacks_realizados">Feedbacks realizados</string>
+    <string name="star_icon">Star icon</string>
 </resources>
