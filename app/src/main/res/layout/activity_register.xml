@@ -160,8 +160,8 @@
     <!-- Register button -->
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="226dp"
-        android:layout_height="47dp"
+        android:layout_width="344dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -170,6 +170,7 @@
         android:paddingTop="0dp"
         android:paddingBottom="5dp"
         android:text="@string/create_account_button_text"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorLink="#5E48ED53"

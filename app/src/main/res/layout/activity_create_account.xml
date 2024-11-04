@@ -160,16 +160,15 @@
     <!-- Register button -->
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="226dp"
+        android:layout_width="344dp"
         android:layout_height="47dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_with_shadow"
         android:fontFamily="@font/league_spartan_medium"
-        android:paddingTop="0dp"
-        android:paddingBottom="5dp"
         android:text="@string/registar"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorLink="#5E48ED53"
@@ -177,6 +176,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/jobInput" />
+        app:layout_constraintTop_toBottomOf="@id/jobInput"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -136,4 +136,9 @@
     <string name="feedbacks_recebidos_">Feedbacks recebidos</string>
     <string name="feedbacks_realizados">Feedbacks realizados</string>
     <string name="star_icon">Star icon</string>
+    <string name="esqueceste_a_password">Esqueceste a password?</string>
+    <string name="enviaremos_um_email_com_instru_es_para_que_possas_criar_uma_nova">Enviaremos um email com instruções para que possas criar uma nova.</string>
+    <string name="recuperar_password">Recuperar password</string>
+    <string name="salvar_altera_es_">Salvar alterações</string>
+    <string name="submeter_">Submeter</string>
 </resources>
