@@ -357,7 +357,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="18dp"
                 android:layout_marginStart="20dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="Maiores destaques mensais"
@@ -367,10 +367,9 @@
             <!-- Best employee list RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/best_employees_recycler_view"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_gravity="center_horizontal"
                 android:clipToPadding="false"
                 android:paddingBottom="10dp"
                 tools:listitem="@layout/employee_card_item"/>
