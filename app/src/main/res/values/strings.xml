@@ -133,4 +133,6 @@
     <string name="name_____">Name</string>
     <string name="two_bullets_icon" />
     <string name="feedbacks_efetuados_">Feedbacks efetuados</string>
+    <string name="feedbacks_recebidos_">Feedbacks recebidos</string>
+    <string name="feedbacks_realizados">Feedbacks realizados</string>
 </resources>
