@@ -13,7 +13,15 @@ data class User(
     val name: String = "",
     val surname: String = "",
     val email: String = "",
-    val job: String = ""
+    val job: String = "",
+    val employeeOfTheMonthWins: Int = 0,
+    val averageIniciativa: Float = 0f,
+    val averageConhecimento: Float = 0f,
+    val averageColaboracao: Float = 0f,
+    val averageResponsabilidade: Float = 0f,
+    val averageOverall: Float = 0f,
+    val feedbacksGiven: Int = 0,
+    val feedbacksReceived: Int = 0
 ) : Parcelable
 
 class UserAdapter(

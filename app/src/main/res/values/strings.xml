@@ -130,4 +130,5 @@
     <string name="five_star_icon" />
     <string name="destaque_em_todas_as_categorias">Destaque em todas as categorias</string>
     <string name="name_____">Name</string>
+    <string name="star_icon">Star Icon</string>
 </resources>

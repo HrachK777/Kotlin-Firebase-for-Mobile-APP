@@ -1,10 +1,12 @@
 package ly.roast.roastly.ui.common
 
 import AddFragment
+import LeaderboardsFragment
 import ReviewFeedFragment
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.PopupWindowCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import ly.roast.roastly.R
 import ly.roast.roastly.ui.login.LoginActivity
 import ly.roast.roastly.ui.profile.ProfileFragment
@@ -37,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.icon_home).setOnClickListener { loadFragment(ReviewFeedFragment()) }
+        findViewById<View>(R.id.icon_ranking).setOnClickListener { loadFragment(LeaderboardsFragment()) }
         findViewById<View>(R.id.icon_add).setOnClickListener { loadFragment(AddFragment()) }
         findViewById<View>(R.id.icon_profile).setOnClickListener { loadFragment(ProfileFragment()) }
 
@@ -53,6 +57,7 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to delete account: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     private fun loadFragment(fragment: Fragment) {
