@@ -1,4 +1,4 @@
-package ly.roast.roastly.data.model
+package ly.roast.roastly.utils
 
 import User
 import android.view.LayoutInflater

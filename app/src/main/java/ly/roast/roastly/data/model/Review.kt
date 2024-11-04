@@ -47,7 +47,7 @@ class FeedAdapter(
         holder.feedNameGiven.text = review.reviewerName
         holder.feedText.text = "gave feedback to"
         holder.feedNameReceived.text = review.recipientName
-        holder.feedDayTime.text = review.timestamp // Adjust timestamp format as needed
+        holder.feedDayTime.text = review.timestamp
     }
 
     override fun getItemCount() = reviews.size

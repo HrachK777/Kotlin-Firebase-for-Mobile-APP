@@ -1,11 +1,10 @@
 import android.os.Bundle
-import android.util.Half.toFloat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import ly.roast.roastly.data.model.TopEmployeeAdapter
+import ly.roast.roastly.utils.TopEmployeeAdapter
 import ly.roast.roastly.databinding.FragmentLeaderboardsBinding
 
 class LeaderboardsFragment : Fragment() {

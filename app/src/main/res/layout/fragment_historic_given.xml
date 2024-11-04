@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoricGivenFragment">
+    tools:context=".ui.history.HistoricGivenFragment">
 
     <ImageView
         android:id="@+id/two_bullets_right_icon"
@@ -26,17 +26,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/historic_given_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/league_spartan_medium"
-                android:text="@string/feedbacks_realizados"
-                android:textColor="#CB3086"
-                android:layout_marginEnd="40dp"
-                android:layout_marginTop="5dp"
-                android:textSize="28sp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/given_feedback_recycler_view"

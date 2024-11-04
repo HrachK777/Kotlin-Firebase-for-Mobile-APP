@@ -1,6 +1,7 @@
 package ly.roast.roastly.ui.common
 
 import AddFragment
+import FeedbackHistoryFragment
 import LeaderboardsFragment
 import ReviewFeedFragment
 import android.content.Intent
@@ -43,6 +44,7 @@ class HomeActivity : AppCompatActivity() {
         findViewById<View>(R.id.icon_ranking).setOnClickListener { loadFragment(LeaderboardsFragment()) }
         findViewById<View>(R.id.icon_add).setOnClickListener { loadFragment(AddFragment()) }
         findViewById<View>(R.id.icon_profile).setOnClickListener { loadFragment(ProfileFragment()) }
+        findViewById<View>(R.id.icon_feed).setOnClickListener { loadFragment(FeedbackHistoryFragment()) }
 
         findViewById<View>(R.id.icon_menu_user).setOnClickListener {
             showMenuPopup(it)
@@ -54,7 +56,11 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Account deleted successfully", Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }.onFailure { exception ->
-                Toast.makeText(this, "Failed to delete account: ${exception.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Failed to delete account: ${exception.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
