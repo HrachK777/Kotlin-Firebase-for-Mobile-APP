@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import ly.roast.roastly.R
+import ly.roast.roastly.data.repository.UserRepository
 import ly.roast.roastly.ui.login.LoginActivity
 import ly.roast.roastly.ui.profile.ProfileFragment
 import ly.roast.roastly.viewmodel.HomeViewModel
@@ -31,10 +32,13 @@ import ly.roast.roastly.viewmodel.HomeViewModel
 class HomeActivity : AppCompatActivity() {
 
     private val homeViewModel: HomeViewModel by viewModels()
+    private val userRepository by lazy { UserRepository(applicationContext) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_home)
+
 
         if (savedInstanceState == null) {
             loadFragment(AddFragment())
@@ -87,8 +91,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         popupView.findViewById<TextView>(R.id.item_logout).setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            clearSharedPreferences()
+            userRepository.logout()
             navigateToLogin()
             popupWindow.dismiss()
         }
