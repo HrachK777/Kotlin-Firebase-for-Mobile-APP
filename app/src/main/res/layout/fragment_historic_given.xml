@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HistoricGivenFragment">
+
+    <!-- Add feedback title -->
+    <TextView
+        android:id="@+id/historic_given_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/league_spartan_medium"
+        android:layout_marginStart="20dp"
+        android:text="Feedbacks efetuados"
+        android:textColor="#CB3086"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_photo"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/best_employees_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:layout_marginTop="40dp"
+        android:paddingBottom="10dp"
+        tools:listitem="@layout/historic_given_feedback_card">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</FrameLayout>
