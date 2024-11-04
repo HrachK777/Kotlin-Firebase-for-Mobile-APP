@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name_2">roastly</string>
 
+
     <!-- Strings add by Juan -->
     <string name="two_girls_with_a_big_star">two girls with a big star</string>
     <string name="feedbacks_dispon_veis">Feedbacks disponíveis</string>
@@ -81,6 +82,7 @@
     <string name="stars_icon_">stars icon</string>
     <string name="stars_icon__">stars icon</string>
     <string name="stars_icon___">stars icon</string>
+
     <string name="capacidade">Capacidade:</string>
     <string name="editar">Editar</string>
     <string name="cargo_">Cargo</string>
@@ -106,7 +108,7 @@
     <string name="deu_feedback_a">deu feedback a</string>
     <string name="name_">Name</string>
     <string name="hoje_s_14h">Hoje às 14h</string>
-    <string name="avalia_es_de">Avaliação de</string>
+    <string name="avalia_es_de">Avaliações de</string>
     <string name="name__">Name</string>
     <string name="para">para</string>
     <string name="name___">Name</string>
@@ -120,7 +122,6 @@
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet nulla et ullamcorper dignissim. Nullam id dolor quis velit fringilla venenatis. Integer vitae metus ac felis varius posuere.</string>
     <string name="destaques_do_m_s">Destaques do mês</string>
     <string name="menu_icon">menu icon</string>
-    <string name="comentario">Comentário</string>
     <string name="name____">Name</string>
     <string name="initiative_icon" />
     <string name="collaboration_icon" />
@@ -130,5 +131,8 @@
     <string name="five_star_icon" />
     <string name="destaque_em_todas_as_categorias">Destaque em todas as categorias</string>
     <string name="name_____">Name</string>
-    <string name="star_icon">Star Icon</string>
+    <string name="two_bullets_icon" />
+    <string name="feedbacks_efetuados_">Feedbacks efetuados</string>
+    <string name="feedbacks_recebidos_">Feedbacks recebidos</string>
+    <string name="feedbacks_realizados">Feedbacks realizados</string>
 </resources>

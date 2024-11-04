@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ranking.LeaderboardsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LeaderboardsFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
 
             <!-- Top categories title -->
             <TextView
                 android:id="@+id/top_categories_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="Destaques por categoria"
                 android:textColor="#CB3086"
@@ -44,8 +43,8 @@
                     android:id="@+id/leaderboards_initiative_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -53,49 +52,47 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="125dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="125dp">
 
                     <!-- Username Iniciative -->
                     <TextView
                         android:id="@+id/leaderboards_iniciative_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/name____"
+                        android:fontFamily="@font/league_spartan_medium"
                         android:textColor="#25183E"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"/>
 
                     <!-- Iniciative -->
                     <TextView
                         android:id="@+id/leaderboards_iniciative_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/iniciativa__"
+                        android:fontFamily="@font/league_spartan_medium"
                         android:textColor="#007CBA"
                         android:textSize="28sp" />
 
                     <RatingBar
-                        android:id="@+id/rating_iniciativa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
-                        android:scaleY="0.6" />
+                        android:scaleY="0.6"
+                        android:layout_marginStart="-50dp"/>
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/collaboration_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="300dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/initiative_icon"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/icon_initiative" />
-
+                    android:src="@drawable/icon_initiative"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Collaboration card-->
@@ -113,8 +110,8 @@
                     android:id="@+id/leaderboards_collaboration_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -122,53 +119,52 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="125dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="125dp">
 
                     <!-- Username Iniciative -->
                     <TextView
                         android:id="@+id/leaderboards_collaboration_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/name____"
+                        android:fontFamily="@font/league_spartan_medium"
                         android:textColor="#25183E"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"/>
 
                     <!-- Iniciative -->
                     <TextView
                         android:id="@+id/leaderboards_collaboration_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
                         android:text="Colaboração"
+                        android:fontFamily="@font/league_spartan_medium"
                         android:textColor="#007CBA"
-                        android:textSize="28sp" />
+                        android:textSize="28sp"/>
 
                     <RatingBar
-                        android:id="@+id/rating_colaboracao"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
-                        android:scaleY="0.6" />
+                        android:scaleY="0.6"
+                        android:layout_marginStart="-50dp"/>
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/initiative_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="300dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/collaboration_icon"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/icon_collaboration" />
+                    android:src="@drawable/icon_collaboration"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Commitment card-->
             <androidx.cardview.widget.CardView
-                android:id="@+id/leaderboards_card_knowledge"
+                android:id="@+id/leaderboards_card_commitment"
                 android:layout_width="355dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
@@ -181,8 +177,8 @@
                     android:id="@+id/leaderboards_commitment_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -190,53 +186,52 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="125dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="125dp">
 
                     <!-- Username Iniciative -->
                     <TextView
-                        android:id="@+id/leaderboards_knowledge_username"
+                        android:id="@+id/leaderboards_commitment_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/name____"
+                        android:fontFamily="@font/league_spartan_medium"
                         android:textColor="#25183E"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"/>
 
                     <!-- Iniciative -->
                     <TextView
-                        android:id="@+id/leaderboards_knowledge_text"
+                        android:id="@+id/leaderboards_commitment_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Compromisso"
                         android:fontFamily="@font/league_spartan_medium"
-                        android:text="Conhecimento"
                         android:textColor="#007CBA"
-                        android:textSize="28sp" />
+                        android:textSize="28sp"/>
 
                     <RatingBar
-                        android:id="@+id/rating_conhecimento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
-                        android:scaleY="0.6" />
+                        android:scaleY="0.6"
+                        android:layout_marginStart="-50dp"/>
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/knowledge_icon"
+                    android:id="@+id/commitment_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="300dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/collaboration_icon"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/icon_commitment" />
+                    android:src="@drawable/icon_commitment"/>
             </androidx.cardview.widget.CardView>
 
-            <!-- Responsibility card-->
+            <!-- Communication card-->
             <androidx.cardview.widget.CardView
-                android:id="@+id/leaderboards_card_responsibility"
+                android:id="@+id/leaderboards_card_communication"
                 android:layout_width="355dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
@@ -249,8 +244,8 @@
                     android:id="@+id/leaderboards_communication_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -258,48 +253,47 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="125dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="125dp">
 
-                    <!-- Username Responsibility -->
+                    <!-- Username Communication -->
                     <TextView
-                        android:id="@+id/leaderboards_responsibility_username"
+                        android:id="@+id/leaderboards_communication_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/name____"
+                        android:fontFamily="@font/league_spartan_medium"
                         android:textColor="#25183E"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"/>
 
-                    <!-- Responsibility -->
+                    <!-- Communication -->
                     <TextView
-                        android:id="@+id/leaderboards_responsibility_text"
+                        android:id="@+id/leaderboards_communication_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Comunicação"
                         android:fontFamily="@font/league_spartan_medium"
-                        android:text="Responsabilidade"
                         android:textColor="#007CBA"
-                        android:textSize="23sp" />
+                        android:textSize="28sp"/>
 
                     <RatingBar
-                        android:id="@+id/rating_responsabilidade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
-                        android:scaleY="0.6" />
+                        android:scaleY="0.6"
+                        android:layout_marginStart="-50dp"/>
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/responsibility_icon"
+                    android:id="@+id/communication_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="300dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/communication_icon"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/icon_communication" />
+                    android:src="@drawable/icon_communication"/>
             </androidx.cardview.widget.CardView>
 
             <!-- Best employee Title -->
@@ -307,13 +301,13 @@
                 android:id="@+id/best_category_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="15dp"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/destaque_em_todas_as_categorias"
                 android:textColor="#CB3086"
-                android:textSize="27sp" />
+                android:textSize="27sp"/>
 
             <!-- Best employee card -->
             <androidx.cardview.widget.CardView
@@ -330,8 +324,8 @@
                     android:id="@+id/all_categories_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
+                    android:layout_gravity="center_vertical"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -340,65 +334,45 @@
                     android:id="@+id/all_categories_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="125dp"
-                    android:fontFamily="@font/league_spartan_medium"
+                    android:layout_gravity="center_vertical"
                     android:text="Liliana"
+                    android:fontFamily="@font/league_spartan_medium"
                     android:textColor="#25183E"
                     android:textSize="32sp" />
-
-                <!-- Container for rating text and star icon -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|center"
-                    android:layout_marginEnd="40dp"
-                    android:orientation="horizontal">
-
-                    <!-- Rating Text -->
-                    <TextView
-                        android:id="@+id/all_categories_rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="@font/league_spartan_medium"
-                        android:text="4.8"
-                        android:textColor="#007CBA"
-                        android:textSize="28sp" />
-
-                    <!-- Star Icon -->
-                    <ImageView
-                        android:id="@+id/all_categories_star_icon"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginStart="4dp"
-                        android:contentDescription="@string/star_icon"
-                        android:src="@drawable/ic_star_yellow" />
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/five_star_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="260dp"
+                    android:contentDescription="@string/five_star_icon"
+                    android:src="@drawable/icon_stars"/>
             </androidx.cardview.widget.CardView>
 
-        <!-- Best employee list title -->
-        <TextView
-            android:id="@+id/best_employees_list_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="18dp"
-            android:fontFamily="@font/league_spartan_medium"
-            android:text="Maiores destaques mensais"
-            android:textColor="#CB3086"
-            android:textSize="27sp" />
+            <!-- Best employee list title -->
+            <TextView
+                android:id="@+id/best_employees_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="Maiores destaques mensais"
+                android:textColor="#CB3086"
+                android:textSize="27sp"/>
 
-        <!-- Best employee list RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/best_employees_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:clipToPadding="false"
-            android:paddingBottom="10dp"
-            tools:listitem="@layout/employee_card_item" />
-    </LinearLayout>
-</ScrollView></FrameLayout>
+            <!-- Best employee list RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/best_employees_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:clipToPadding="false"
+                android:paddingBottom="10dp"
+                tools:listitem="@layout/employee_card_item"/>
+        </LinearLayout>
+</ScrollView>
+</FrameLayout>
 
