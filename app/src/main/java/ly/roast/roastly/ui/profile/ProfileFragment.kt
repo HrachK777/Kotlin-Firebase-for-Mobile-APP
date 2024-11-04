@@ -16,7 +16,7 @@ class ProfileFragment : Fragment() {
     private lateinit var jobNameLogin: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
         
         userNameLogin = view.findViewById(R.id.user_name)
         jobNameLogin = view.findViewById(R.id.job_name)
@@ -27,12 +27,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun fetchUserProfileData() {
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        if (userId != null) {
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email
+        if (userEmail != null) {
             val firestore = FirebaseFirestore.getInstance()
 
             // Buscar informação da base de dados
-            firestore.collection("users").document(userId)
+            firestore.collection("users").document(userEmail)
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null) {

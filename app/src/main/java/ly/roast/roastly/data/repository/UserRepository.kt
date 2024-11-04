@@ -5,7 +5,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class UserRepository(private val context: Context) {
-    fun loginWithEmailPass(email: String, password: String, callback: (FirebaseUser?, Exception?) -> Unit) {
+    fun loginWithEmailPass(
+        email: String,
+        password: String,
+        callback: (FirebaseUser?, Exception?) -> Unit
+    ) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -21,22 +25,16 @@ class UserRepository(private val context: Context) {
         val sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("userId", userId)
-        editor.putBoolean("isLoggedIn", true)
         editor.apply()
     }
 
     fun isUserLoggedIn(): Boolean {
-        val sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
-        val user = FirebaseAuth.getInstance().currentUser
-        return isLoggedIn && user != null
+        return FirebaseAuth.getInstance().currentUser != null
     }
 
     fun logout() {
         val sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.clear()
-        editor.apply()
+        sharedPreferences.edit().clear().apply()
 
         FirebaseAuth.getInstance().signOut()
     }

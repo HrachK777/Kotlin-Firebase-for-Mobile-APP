@@ -45,7 +45,7 @@ class AddFragment : Fragment() {
         reviewFragment.arguments = bundle
 
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, reviewFragment)  // Use the correct container ID
+            .replace(R.id.fragment_container, reviewFragment)
             .addToBackStack(null)
             .commit()
     }

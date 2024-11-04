@@ -36,6 +36,7 @@ android {
         jvmTarget = "1.8"
     }
 
+    // Ativando o View Binding
     buildFeatures {
         viewBinding = true
     }
@@ -53,6 +54,10 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Adicionando o Fragment KTX para suporte ao commit
+    implementation("androidx.fragment:fragment-ktx:1.3.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
