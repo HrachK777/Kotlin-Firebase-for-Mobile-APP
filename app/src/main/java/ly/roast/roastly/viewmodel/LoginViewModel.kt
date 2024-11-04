@@ -1,5 +1,6 @@
 package ly.roast.roastly.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,8 +18,10 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
         userRepository.loginWithEmailPass(email, password) {  user, error ->
             if(user != null) {
                 userRepository.saveUserToSharedPreferences(user.uid)
+                Log.d("LoginViewModel", "SUCESSSOOOOO")
                 _loginState.postValue(true)
             } else {
+                Log.d("LoginViewModel", "errooooo")
                 _loginState.postValue(false)
             }
         }

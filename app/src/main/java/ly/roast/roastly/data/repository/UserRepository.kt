@@ -1,6 +1,7 @@
 package ly.roast.roastly.data.repository
 
 import android.content.Context
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -14,8 +15,10 @@ class UserRepository(private val context: Context) {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val user = FirebaseAuth.getInstance().currentUser
+                    Log.d("UserRepo", "SUCESSSOOOOO")
                     callback(user, null)
                 } else {
+                    Log.d("UserRepo", task.exception.toString())
                     callback(null, task.exception)
                 }
             }

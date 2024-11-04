@@ -23,6 +23,7 @@ import androidx.core.widget.PopupWindowCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import ly.roast.roastly.EditProfileActivity
 import ly.roast.roastly.R
 import ly.roast.roastly.data.repository.UserRepository
 import ly.roast.roastly.ui.login.LoginActivity
@@ -86,7 +87,8 @@ class HomeActivity : AppCompatActivity() {
         )
 
         popupView.findViewById<TextView>(R.id.item_edit_profile).setOnClickListener {
-            loadFragment(ProfileFragment())
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
             popupWindow.dismiss()
         }
 
