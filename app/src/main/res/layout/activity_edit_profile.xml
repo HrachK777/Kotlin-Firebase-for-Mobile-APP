@@ -294,7 +294,7 @@
 
         <!-- Register button -->
         <Button
-            android:id="@+id/editNewPasswordConfirmation"
+            android:id="@+id/saveEditProfileButton"
             android:layout_width="344dp"
             android:layout_height="48dp"
             android:layout_marginTop="50dp"
