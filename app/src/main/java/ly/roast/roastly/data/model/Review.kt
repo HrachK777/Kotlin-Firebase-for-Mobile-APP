@@ -49,7 +49,7 @@ class FeedAdapter(
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val review = reviews[position]
         holder.feedNameGiven.text = review.reviewerName
-        holder.feedText.text = "gave feedback to"
+        holder.feedText.text = "deu feedback a"
         holder.feedNameReceived.text = review.recipientName
         Log.d("Review", review.reviewedOn.toDate().toString())
         holder.feedDayTime.text = simplifyTimestamp(review.reviewedOn.toDate().toString())

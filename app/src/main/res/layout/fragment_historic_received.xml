@@ -12,8 +12,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
         android:contentDescription="@string/two_bullets_icon"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/icon_bullets_left"/>
+
+    <TextView
+        android:id="@+id/average_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="35dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="Feedbacks recebidos"
+        android:textColor="#CB3086"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_feedbacks"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,6 +38,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
