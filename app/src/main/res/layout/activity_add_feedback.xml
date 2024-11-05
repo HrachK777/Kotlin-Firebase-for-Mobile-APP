@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFeedbackActivity"
     android:background="@drawable/background_profile_user_admin">
 
     <!-- Logo Image -->
@@ -101,7 +100,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Responsabilidade"
+            android:text="@string/comunica_o_"
             android:fontFamily="@font/league_spartan_medium"
             android:textColor="#CB3086"
             android:textSize="30sp"

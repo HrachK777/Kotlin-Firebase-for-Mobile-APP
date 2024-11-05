@@ -141,4 +141,6 @@
     <string name="recuperar_password">Recuperar password</string>
     <string name="salvar_altera_es_">Salvar alterações</string>
     <string name="submeter_">Submeter</string>
+    <string name="icon_back">icon back</string>
+    <string name="comunica_o_">Comunicação</string>
 </resources>
