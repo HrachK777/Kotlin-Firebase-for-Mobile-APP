@@ -39,7 +39,7 @@
 
     <!-- REGISTAR -->
 
-    <string name="create_account_text">Ainda não estás registado? Cria conta</string>
+    <string name="create_account_text">Ainda não estás registado? Cria conta.</string>
     <string name="create_account_title">Criar nova conta</string>
     <string name="create_account_nome_hint">Nome</string>
     <string name="create_account_ultimo_nome_hint">Apelido</string>
@@ -65,7 +65,7 @@
     <string name="nome">Nome</string>
     <string name="digita_o_email">Digita o email</string>
     <string name="password_">Password</string>
-    <string name="confirme_a_password_">Confirme a password</string>
+    <string name="confirme_a_password_">Confirma a password</string>
     <string name="cargo">Cargo</string>
     <string name="registar">Registar</string>
     <string name="apelido">Apelido</string>
@@ -83,7 +83,7 @@
     <string name="stars_icon__">stars icon</string>
     <string name="stars_icon___">stars icon</string>
 
-    <string name="capacidade">Capacidade:</string>
+    <string name="capacidade">Comunicação:</string>
     <string name="editar">Editar</string>
     <string name="cargo_">Cargo</string>
     <string name="editar_">Editar</string>
@@ -115,8 +115,8 @@
     <string name="iniciativa_">Iniciativa</string>
     <string name="conhecimento">Conhecimento</string>
     <string name="colabora_o_">Colaboração</string>
-    <string name="responsabilidade">Responsabilidade</string>
-    <string name="responsabilidade_">Responsabilidade</string>
+    <string name="responsabilidade">Comunicação</string>
+    <string name="responsabilidade_">Comunicação</string>
     <string name="conhecimento_">Conhecimento</string>
     <string name="iniciativa__">Iniciativa</string>
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet nulla et ullamcorper dignissim. Nullam id dolor quis velit fringilla venenatis. Integer vitae metus ac felis varius posuere.</string>
@@ -141,4 +141,7 @@
     <string name="recuperar_password">Recuperar password</string>
     <string name="salvar_altera_es_">Salvar alterações</string>
     <string name="submeter_">Submeter</string>
+    <string name="icon_back">icon back</string>
+    <string name="comunica_o_">Comunicação</string>
+    <string name="comunica_o__">Comunicação</string>
 </resources>

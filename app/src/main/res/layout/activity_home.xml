@@ -52,7 +52,10 @@
         android:background="@color/white"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="13dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="-5dp"
+        android:paddingEnd="-5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -61,7 +64,7 @@
         <ImageView
             android:id="@+id/icon_home"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:contentDescription="Home"
             android:onClick="onIconClick"
@@ -71,7 +74,7 @@
         <ImageView
             android:id="@+id/icon_feed"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:contentDescription="Feed"
             android:onClick="onIconClick"
@@ -81,7 +84,7 @@
         <ImageView
             android:id="@+id/icon_add"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:contentDescription="Add"
             android:onClick="onIconClick"
@@ -91,8 +94,9 @@
         <ImageView
             android:id="@+id/icon_ranking"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
+            android:layout_marginStart="5dp"
             android:contentDescription="Ranking"
             android:onClick="onIconClick"
             android:src="@drawable/icon_ranking" />
@@ -101,12 +105,11 @@
         <ImageView
             android:id="@+id/icon_profile"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:contentDescription="Profile"
             android:onClick="onIconClick"
-            android:src="@drawable/icon_profile" />
-
+            android:src="@drawable/icon_profile"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
