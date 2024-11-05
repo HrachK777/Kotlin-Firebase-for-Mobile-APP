@@ -46,11 +46,10 @@
                 android:id="@+id/given_feedback_recycler_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
                 android:layout_marginTop="10dp"
+                android:clipToPadding="false"
                 android:paddingBottom="10dp"
-                tools:listitem="@layout/historic_given_feedback_card">
-            </androidx.recyclerview.widget.RecyclerView>
+                tools:listitem="@layout/historic_given_feedback_card"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

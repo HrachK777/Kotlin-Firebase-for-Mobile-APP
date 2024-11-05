@@ -26,19 +26,7 @@ class ReceivedReviewAdapter(private val onClick: (Review) -> Unit) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val review = reviews[position]
         holder.reviewerName.text = review.reviewerName
-        holder.timestamp.text = simplifyTimestamp(review.reviewedOn.toString())
-    }
-
-    fun simplifyTimestamp(originalTimestamp: String): String {
-        val originalFormat = SimpleDateFormat("MMMM d, yyyy 'at' h:mm:ss a z", Locale.ENGLISH)
-        val targetFormat = SimpleDateFormat("MMM d, yyyy - h:mm a", Locale.ENGLISH)
-
-        return try {
-            val date = originalFormat.parse(originalTimestamp)
-            targetFormat.format(date)
-        } catch (e: Exception) {
-            originalTimestamp
-        }
+        holder.timestamp.text = simplifyTimestamp(review.reviewedOn.toDate().toString())
     }
 
     override fun getItemCount(): Int = reviews.size
