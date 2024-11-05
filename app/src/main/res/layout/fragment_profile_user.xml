@@ -132,7 +132,7 @@
                 android:id="@+id/average_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="Média pessoal"
                 android:textColor="#CB3086"

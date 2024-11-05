@@ -33,7 +33,7 @@
             <!-- Initiative card-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/leaderboards_card_initiative"
-                android:layout_width="380dp"
+                android:layout_width="370dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="12dp"
@@ -46,7 +46,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -75,7 +75,7 @@
                         android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/iniciativa__"
                         android:textColor="#007CBA"
-                        android:textSize="28sp" />
+                        android:textSize="27sp"/>
 
                     <RatingBar
                         android:id="@+id/rating_iniciativa"
@@ -90,10 +90,10 @@
 
                 <ImageView
                     android:id="@+id/collaboration_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="335dp"
+                    android:layout_marginStart="330dp"
                     android:contentDescription="@string/initiative_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_initiative"/>
@@ -103,7 +103,7 @@
             <!-- Collaboration card-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/leaderboards_card_collaboration"
-                android:layout_width="380dp"
+                android:layout_width="370dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="12dp"
@@ -116,7 +116,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -145,7 +145,7 @@
                         android:fontFamily="@font/league_spartan_medium"
                         android:text="Colaboração"
                         android:textColor="#007CBA"
-                        android:textSize="28sp" />
+                        android:textSize="27sp"/>
 
                     <RatingBar
                         android:id="@+id/rating_colaboracao"
@@ -160,10 +160,10 @@
 
                 <ImageView
                     android:id="@+id/initiative_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="335dp"
+                    android:layout_marginStart="330dp"
                     android:contentDescription="@string/collaboration_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_collaboration" />
@@ -172,7 +172,7 @@
             <!-- Commitment card-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/leaderboards_card_knowledge"
-                android:layout_width="380dp"
+                android:layout_width="370dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="12dp"
@@ -185,7 +185,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -214,7 +214,7 @@
                         android:fontFamily="@font/league_spartan_medium"
                         android:text="Conhecimento"
                         android:textColor="#007CBA"
-                        android:textSize="28sp" />
+                        android:textSize="27sp"/>
 
                     <RatingBar
                         android:id="@+id/rating_conhecimento"
@@ -229,10 +229,10 @@
 
                 <ImageView
                     android:id="@+id/knowledge_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="335dp"
+                    android:layout_marginStart="330dp"
                     android:contentDescription="@string/collaboration_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_commitment" />
@@ -241,7 +241,7 @@
             <!-- Responsibility card-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/leaderboards_card_responsibility"
-                android:layout_width="385dp"
+                android:layout_width="370dp"
                 android:layout_height="115dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="12dp"
@@ -254,7 +254,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:contentDescription="@string/profile_photo_content_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profile_default_image" />
@@ -283,7 +283,7 @@
                         android:fontFamily="@font/league_spartan_medium"
                         android:text="@string/comunica_o__"
                         android:textColor="#007CBA"
-                        android:textSize="28sp"/>
+                        android:textSize="27sp"/>
 
                     <RatingBar
                         android:id="@+id/rating_responsabilidade"
@@ -298,10 +298,10 @@
 
                 <ImageView
                     android:id="@+id/responsibility_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="335dp"
+                    android:layout_marginStart="330dp"
                     android:contentDescription="@string/communication_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_communication" />
@@ -346,7 +346,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="125dp"
+                    android:layout_marginStart="130dp"
                     android:fontFamily="@font/league_spartan_medium"
                     android:text="Liliana"
                     android:textColor="#25183E"
@@ -357,7 +357,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginEnd="60dp"
                     android:orientation="horizontal">
 
                     <!-- Rating Text -->
