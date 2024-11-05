@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/league_spartan_medium"
         android:text="Últimas notícias"
+        android:layout_marginTop="60dp"
         android:textColor="#CB3086"
         android:textSize="28sp"
         app:layout_constraintHorizontal_bias="0.2"

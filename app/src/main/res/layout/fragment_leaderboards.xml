@@ -80,6 +80,7 @@
                         android:id="@+id/rating_iniciativa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
@@ -94,7 +95,7 @@
                     android:layout_marginStart="300dp"
                     android:contentDescription="@string/initiative_icon"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/icon_initiative" />
+                    android:src="@drawable/icon_initiative"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -149,6 +150,7 @@
                         android:id="@+id/rating_colaboracao"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
@@ -217,6 +219,7 @@
                         android:id="@+id/rating_conhecimento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
@@ -285,6 +288,7 @@
                         android:id="@+id/rating_responsabilidade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
                         android:numStars="5"
                         android:scaleX="0.6"
@@ -307,7 +311,7 @@
                 android:id="@+id/best_category_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="11dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/league_spartan_medium"

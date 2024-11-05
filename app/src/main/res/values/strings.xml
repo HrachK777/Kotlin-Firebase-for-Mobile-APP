@@ -144,4 +144,11 @@
     <string name="icon_back">icon back</string>
     <string name="comunica_o_">Comunicação</string>
     <string name="comunica_o__">Comunicação</string>
+    <string name="icon_under_bar">icon_under_bar</string>
+    <string name="profile">Profile</string>
+    <string name="feed_">Feed</string>
+    <string name="home">Home</string>
+    <string name="small_logo___">Small Logo</string>
+    <string name="add_">Add</string>
+    <string name="ranking_">Ranking</string>
 </resources>
