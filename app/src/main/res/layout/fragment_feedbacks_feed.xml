@@ -29,12 +29,14 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@id/feed_feedbacks_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/feedback_given_card_view"/>
-    
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/feed_feedbacks_title"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/feedback_given_card_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
