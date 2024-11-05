@@ -26,7 +26,7 @@ class GivenReviewAdapter(private val onClick: (Review) -> Unit) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val review = reviews[position]
         holder.recipientName.text = review.recipientName
-        holder.timestamp.text = simplifyTimestamp(review.timestamp)
+        holder.timestamp.text = simplifyTimestamp(review.reviewedOn.toString())
     }
 
     fun simplifyTimestamp(originalTimestamp: String): String {
