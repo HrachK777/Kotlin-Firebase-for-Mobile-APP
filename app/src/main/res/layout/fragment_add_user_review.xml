@@ -114,21 +114,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/submit_button" />
 
-    <!-- Submit Button -->
+<!--    &lt;!&ndash; Submit Button &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/submit_button"-->
+<!--        android:layout_width="344dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginTop="160dp"-->
+<!--        android:fontFamily="@font/league_spartan_medium"-->
+<!--        android:text="@string/submeter"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:backgroundTint="@color/button_background"-->
+<!--        android:textSize="22sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/rating_section"/>-->
+
     <Button
         android:id="@+id/submit_button"
         android:layout_width="344dp"
-        android:layout_height="55dp"
+        android:layout_height="48dp"
         android:layout_marginTop="160dp"
+        android:background="@drawable/button_with_shadow"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="@string/submeter"
-        android:gravity="center"
+        android:text="@string/submeter_"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:backgroundTint="@color/button_background"
+        android:textColorLink="#5E48ED53"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rating_section"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
