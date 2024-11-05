@@ -114,76 +114,72 @@
             android:progressTint="@color/yellow_star"/>
     </LinearLayout>
 
-    <!-- Footer with 5 Icons -->
+    <!-- Footer with 5 icons -->
     <LinearLayout
         android:id="@+id/footer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@color/white"
-        android:padding="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="-5dp"
+        android:paddingEnd="-5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Feed -->
+        <!-- Feed Icon -->
         <ImageView
             android:id="@+id/icon_home"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/icon_feed"
             android:contentDescription="Home"
-            android:onClick="onIconClick"/>
+            android:onClick="onIconClick"
+            android:src="@drawable/icon_feed" />
 
         <!-- Historic Icon -->
         <ImageView
             android:id="@+id/icon_feed"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/icon_historic"
-            android:contentDescription="@string/feed"
-            android:onClick="onIconClick" />
+            android:contentDescription="Feed"
+            android:onClick="onIconClick"
+            android:src="@drawable/icon_historic" />
 
         <!-- Add Icon -->
         <ImageView
             android:id="@+id/icon_add"
-            android:layout_width="18dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/icon_add"
-            android:contentDescription="@string/add"
-            android:onClick="onIconClick" />
+            android:contentDescription="Add"
+            android:onClick="onIconClick"
+            android:src="@drawable/icon_add" />
 
         <!-- Ranking Icon -->
         <ImageView
             android:id="@+id/icon_ranking"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/icon_ranking"
-            android:contentDescription="@string/ranking"
-            android:onClick="onIconClick" />
+            android:layout_marginStart="5dp"
+            android:contentDescription="Ranking"
+            android:onClick="onIconClick"
+            android:src="@drawable/icon_ranking" />
 
         <!-- Profile Icon -->
         <ImageView
             android:id="@+id/icon_profile"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/icon_profile"
             android:contentDescription="Profile"
-            android:onClick="onIconClick" />
+            android:onClick="onIconClick"
+            android:src="@drawable/icon_profile"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

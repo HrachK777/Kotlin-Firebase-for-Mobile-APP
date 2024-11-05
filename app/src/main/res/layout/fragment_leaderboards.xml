@@ -277,9 +277,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/league_spartan_medium"
-                        android:text="Responsabilidade"
+                        android:text="@string/comunica_o__"
                         android:textColor="#007CBA"
-                        android:textSize="23sp" />
+                        android:textSize="28sp"/>
 
                     <RatingBar
                         android:id="@+id/rating_responsabilidade"
