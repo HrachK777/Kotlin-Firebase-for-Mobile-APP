@@ -25,10 +25,6 @@ class FeedbackHistoryFragment : Fragment() {
 
         val feedbackPagerAdapter = FeedbackPagerAdapter(requireActivity())
         binding.viewPager.adapter = feedbackPagerAdapter
-
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            tab.text = if (position == 0) "Feedbacks Recebidos" else "Feedbacks Dados"
-        }.attach()
     }
 
     override fun onDestroyView() {
@@ -36,3 +32,4 @@ class FeedbackHistoryFragment : Fragment() {
         _binding = null
     }
 }
+

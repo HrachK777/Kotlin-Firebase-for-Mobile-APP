@@ -51,6 +51,14 @@ class EditProfileActivity : AppCompatActivity() {
             }
         }
 
+        // Encontre o ImageView do ícone de voltar
+        val backButton: ImageView = findViewById(R.id.icon_back)
+
+        // Configurar o listener de clique
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
+
         fetchUserDetails()
     }
 
@@ -106,5 +114,9 @@ class EditProfileActivity : AppCompatActivity() {
                     }
                 }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

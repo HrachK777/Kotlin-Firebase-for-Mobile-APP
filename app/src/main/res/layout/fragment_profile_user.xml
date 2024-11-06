@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/user_name"/>
 
-    <!-- ScrollView starting from card_view_feedbacks -->
+    <!-- ScrollView for feedbacks -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -187,15 +187,13 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        tools:ignore="ExtraText">
+                        android:layout_marginTop="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/colabora_o"
-                            android:layout_marginStart="2dp"
                             android:textColor="#25183E"
                             android:textSize="25sp"/>
 
@@ -222,7 +220,6 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/compromisso"
                             android:textColor="#25183E"
-                            android:layout_marginStart="2dp"
                             android:textSize="25sp"/>
 
                         <ImageView
@@ -247,7 +244,6 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="Responsabilidade:"
                             android:textColor="#25183E"
-                            android:layout_marginStart="5dp"
                             android:textSize="25sp"/>
 
                         <ImageView

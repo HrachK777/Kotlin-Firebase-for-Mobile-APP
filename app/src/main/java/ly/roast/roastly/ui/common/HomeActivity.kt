@@ -13,12 +13,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.PopupWindow
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.widget.PopupWindowCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -45,11 +48,28 @@ class HomeActivity : AppCompatActivity() {
             loadFragment(AddFragment())
         }
 
-        findViewById<View>(R.id.icon_home).setOnClickListener { loadFragment(ReviewFeedFragment()) }
-        findViewById<View>(R.id.icon_ranking).setOnClickListener { loadFragment(LeaderboardsFragment()) }
-        findViewById<View>(R.id.icon_add).setOnClickListener { loadFragment(AddFragment()) }
-        findViewById<View>(R.id.icon_profile).setOnClickListener { loadFragment(ProfileFragment()) }
-        findViewById<View>(R.id.icon_feed).setOnClickListener { loadFragment(FeedbackHistoryFragment()) }
+        val iconUnderBar = findViewById<ImageView>(R.id.icon_under_bar)
+
+        findViewById<View>(R.id.icon_home).setOnClickListener {
+            loadFragment(ReviewFeedFragment())
+            moveUnderBar(iconUnderBar, it)
+        }
+        findViewById<View>(R.id.icon_ranking).setOnClickListener {
+            loadFragment(LeaderboardsFragment())
+            moveUnderBar(iconUnderBar, it)
+        }
+        findViewById<View>(R.id.icon_add).setOnClickListener {
+            loadFragment(AddFragment())
+            moveUnderBar(iconUnderBar, it)
+        }
+        findViewById<View>(R.id.icon_profile).setOnClickListener {
+            loadFragment(ProfileFragment())
+            moveUnderBar(iconUnderBar, it)
+        }
+        findViewById<View>(R.id.icon_feed).setOnClickListener {
+            loadFragment(FeedbackHistoryFragment())
+            moveUnderBar(iconUnderBar, it)
+        }
 
         findViewById<View>(R.id.icon_menu_user).setOnClickListener {
             showMenuPopup(it)
@@ -58,17 +78,29 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.deletionState.observe(this) { result ->
             result.onSuccess {
                 clearSharedPreferences()
-                Toast.makeText(this, "Account deleted successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Conta eliminada com sucesso!", Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }.onFailure { exception ->
                 Toast.makeText(
                     this,
-                    "Failed to delete account: ${exception.message}",
+                    "Erro ao eliminar a conta: ${exception.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
 
+    }
+
+    private fun moveUnderBar(iconUnderBar: ImageView, clickedIcon: View) {
+        val constraintSet = ConstraintSet()
+        val parent = findViewById<ConstraintLayout>(R.id.footer) // O layout pai do footer
+        constraintSet.clone(parent)
+
+        // Altera a posição do icon_under_bar para estar abaixo do ícone clicado
+        constraintSet.connect(iconUnderBar.id, ConstraintSet.START, clickedIcon.id, ConstraintSet.START)
+        constraintSet.connect(iconUnderBar.id, ConstraintSet.END, clickedIcon.id, ConstraintSet.END)
+        constraintSet.connect(iconUnderBar.id, ConstraintSet.TOP, clickedIcon.id, ConstraintSet.BOTTOM, 0) // 0 de margem
+        constraintSet.applyTo(parent) // Aplica as alterações
     }
 
     private fun loadFragment(fragment: Fragment) {
@@ -108,7 +140,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun showDeleteAccountPrompt() {
         val passwordInput = EditText(this).apply {
-            hint = "Enter your password"
+            hint = "Introduz a tua password"
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
 
@@ -125,7 +157,7 @@ class HomeActivity : AppCompatActivity() {
                 }
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel") { dialog, _ ->
+            .setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()

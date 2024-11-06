@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.common.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.SplashScreen">
@@ -45,6 +42,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>
