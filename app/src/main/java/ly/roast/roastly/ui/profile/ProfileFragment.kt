@@ -21,40 +21,18 @@ class ProfileFragment : Fragment() {
     private lateinit var jobNameLogin: TextView
     private lateinit var feedbackGivenTotalText: TextView
     private lateinit var feedbackReceivedTotalText: TextView
-<<<<<<< HEAD
     private lateinit var oneStarImage: ImageView
     private lateinit var twoStarImage: ImageView
     private lateinit var threeStarImage: ImageView
     private lateinit var fourStarImage: ImageView
     private lateinit var firestore: FirebaseFirestore
-=======
-    private lateinit var profileViewModel: LeaderboardsViewModel.ProfileViewModel
->>>>>>> 7cc182fa9825f2ce1a7f7605ff18680952651393
     private lateinit var userId: String
+    private lateinit var profileViewModel: LeaderboardsViewModel.ProfileViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
 
-<<<<<<< HEAD
         // Inicialização das Views
-=======
-        val starIniciativa = view.findViewById<ImageView>(R.id.one_star_image)
-        val starColaboracao = view.findViewById<ImageView>(R.id.two_star_image)
-        val starConhecimento = view.findViewById<ImageView>(R.id.three_star_image)
-        val starResponsabilidade = view.findViewById<ImageView>(R.id.four_star_image)
-        //val starOverall = view.findViewById<ImageView>(R.id.star_overall)
-
-        profileViewModel = ViewModelProvider(this).get(LeaderboardsViewModel.ProfileViewModel::class.java)
-
-        profileViewModel.userProfile.observe(viewLifecycleOwner) { user ->
-            setStarImage(starIniciativa, user.averageIniciativa)
-            setStarImage(starColaboracao, user.averageColaboracao)
-            setStarImage(starConhecimento, user.averageConhecimento)
-            setStarImage(starResponsabilidade, user.averageResponsabilidade)
-            //setStarImage(starOverall, user.averageOverall)
-        }
-        
->>>>>>> 7cc182fa9825f2ce1a7f7605ff18680952651393
         userNameLogin = view.findViewById(R.id.user_name)
         jobNameLogin = view.findViewById(R.id.job_name)
         feedbackGivenTotalText = view.findViewById(R.id.text_profile_feedback_given)
@@ -72,7 +50,16 @@ class ProfileFragment : Fragment() {
         fetchUserFeedbacks()
         fetchUserData()
 
+        profileViewModel = ViewModelProvider(this).get(LeaderboardsViewModel.ProfileViewModel::class.java)
         profileViewModel.loadUserProfile(userId)
+
+        // Observa o perfil do usuário
+        profileViewModel.userProfile.observe(viewLifecycleOwner) { user ->
+            setStarImage(oneStarImage, user.averageIniciativa)
+            setStarImage(twoStarImage, user.averageColaboracao)
+            setStarImage(threeStarImage, user.averageConhecimento)
+            setStarImage(fourStarImage, user.averageResponsabilidade)
+        }
 
         return view
     }
@@ -95,7 +82,6 @@ class ProfileFragment : Fragment() {
             }
     }
 
-<<<<<<< HEAD
     private fun fetchUserFeedbacks() {
         firestore.collection("users").document(userId)
             .get()
@@ -121,8 +107,8 @@ class ProfileFragment : Fragment() {
                     val averageColaboracao = document.getDouble("averageColaboracao")?.toInt() ?: 0
                     val averageIniciativa = document.getDouble("averageIniciativa")?.toInt() ?: 0
                     val averageResponsabilidade = document.getDouble("averageResponsabilidade")?.toInt() ?: 0
-                    val averageCompromisso = document.getDouble("averageConhecimento")?.toInt() ?: 0
-                    updateStars(averageColaboracao, averageIniciativa, averageResponsabilidade, averageCompromisso)
+                    val averageConhecimento = document.getDouble("averageConhecimento")?.toInt() ?: 0
+                    updateStars(averageColaboracao, averageIniciativa, averageResponsabilidade, averageConhecimento)
                 } else {
                     Log.d("ProfileFragment", "No such document")
                 }
@@ -142,23 +128,25 @@ class ProfileFragment : Fragment() {
 
     private fun getStarImage(rating: Int): Int {
         return when (rating) {
-=======
-    private fun setStarImage(imageView: ImageView, rating: Float) {
-        val roundedRating = rating.roundToInt() // Arredonda para o inteiro mais próximo
-        val drawableRes = when (roundedRating) {
->>>>>>> 7cc182fa9825f2ce1a7f7605ff18680952651393
             1 -> R.drawable.one_stars_profile_card
             2 -> R.drawable.two_stars_profile_card
             3 -> R.drawable.three_stars_profile_card
             4 -> R.drawable.four_stars_profile_card
             5 -> R.drawable.five_stars_profile_card
-<<<<<<< HEAD
             else -> R.drawable.one_stars_profile_card // Para zero ou valores inválidos
         }
-=======
+    }
+
+    private fun setStarImage(imageView: ImageView, rating: Float) {
+        val roundedRating = rating.roundToInt() // Arredonda para o inteiro mais próximo
+        val drawableRes = when (roundedRating) {
+            1 -> R.drawable.one_stars_profile_card
+            2 -> R.drawable.two_stars_profile_card
+            3 -> R.drawable.three_stars_profile_card
+            4 -> R.drawable.four_stars_profile_card
+            5 -> R.drawable.five_stars_profile_card
             else -> R.drawable.one_stars_profile_card // Imagem padrão se algo der errado
         }
         imageView.setImageResource(drawableRes)
->>>>>>> 7cc182fa9825f2ce1a7f7605ff18680952651393
     }
 }
