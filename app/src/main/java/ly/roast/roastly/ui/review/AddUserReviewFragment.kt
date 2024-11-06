@@ -77,16 +77,16 @@ class AddUserReviewFragment : Fragment() {
                             responsabilidade = ratingResponsabilidade.rating,
                             comment = comment,
                             onSuccess = {
-                                Toast.makeText(context, "Review submitted successfully!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Feedback enviado com sucesso!", Toast.LENGTH_SHORT).show()
                                 parentFragmentManager.popBackStack()
                             },
                             onFailure = { exception ->
-                                Toast.makeText(context, "Failed to submit review: ${exception.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Falha ao enviar o feedback: ${exception.message}", Toast.LENGTH_SHORT).show()
                             }
                         )
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(context, "Error fetching user data: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Erro ao buscar dados do user: ${exception.message}", Toast.LENGTH_SHORT).show()
                     }
             }
         }
