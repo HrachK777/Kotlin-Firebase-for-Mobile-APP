@@ -403,7 +403,7 @@
                 android:layout_gravity="center_horizontal"
                 android:clipToPadding="false"
                 android:paddingBottom="10dp"
-                tools:listitem="@layout/employee_card_item" />
+                tools:listitem="@layout/item_card_employee" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

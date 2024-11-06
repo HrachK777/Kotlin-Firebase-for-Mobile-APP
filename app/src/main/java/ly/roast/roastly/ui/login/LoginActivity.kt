@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import ly.roast.roastly.ForgotPasswordActivity
 import ly.roast.roastly.data.repository.UserRepository
 import ly.roast.roastly.databinding.ActivityLoginBinding
 import ly.roast.roastly.ui.common.HomeActivity
@@ -33,9 +34,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
                 finish()
                 startActivity(Intent(this, HomeActivity::class.java))
-                // Ir para a próxima Activity
             } else {
-                Toast.makeText(this, "Erro no login", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro ao efetuar login", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -45,8 +45,14 @@ class LoginActivity : AppCompatActivity() {
             viewModel.login(email, password)
         }
 
+        // Ir para a activity de criar conta
         binding.createAccount.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        // Ir para a activity de resetar password
+        binding.passwordRemember.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
 }
