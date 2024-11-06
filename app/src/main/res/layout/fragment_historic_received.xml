@@ -22,7 +22,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginStart="35dp"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="Feedbacks recebidos"
+        android:text="Roasts Recebidos"
         android:textColor="#CB3086"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
