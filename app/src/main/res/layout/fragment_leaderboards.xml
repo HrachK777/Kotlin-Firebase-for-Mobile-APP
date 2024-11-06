@@ -83,6 +83,7 @@
                         android:layout_height="wrap_content"
                         android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
+                        android:isIndicator="true"
                         android:numStars="5"
                         android:stepSize="0.1"
                         android:scaleX="0.6"
@@ -155,6 +156,7 @@
                         android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
                         android:numStars="5"
+                        android:isIndicator="true"
                         android:stepSize="0.1"
                         android:scaleX="0.6"
                         android:scaleY="0.6" />
@@ -224,6 +226,7 @@
                         android:layout_height="wrap_content"
                         android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
+                        android:isIndicator="true"
                         android:numStars="5"
                         android:scaleX="0.6"
                         android:scaleY="0.6" />
@@ -294,6 +297,7 @@
                         android:progressTint="@color/yellow_star"
                         android:layout_marginStart="-50dp"
                         android:numStars="5"
+                        android:isIndicator="true"
                         android:scaleX="0.6"
                         android:scaleY="0.6" />
                 </LinearLayout>
