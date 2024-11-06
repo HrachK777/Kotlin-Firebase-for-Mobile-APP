@@ -4,10 +4,10 @@
 
     <!-- Strings add by Juan -->
     <string name="two_girls_with_a_big_star">two girls with a big star</string>
-    <string name="feedbacks_dispon_veis">Feedbacks disponíveis</string>
+    <string name="feedbacks_dispon_veis">Roasts Disponíveis</string>
     <string name="editar_perfil">Editar perfil</string>
-    <string name="feedbacks_recebidos">Feedbacks recebidos:</string>
-    <string name="feedbacks_efetuados">Feedbacks dados:</string>
+    <string name="feedbacks_recebidos">Roasts Recebidos:</string>
+    <string name="feedbacks_efetuados">Roasts Dados:</string>
     <string name="m_dia_pessoal">Média pessoal</string>
     <string name="iniciativa">Iniciativa:</string>
     <string name="colabora_o">Colaboração:</string>
@@ -15,8 +15,8 @@
     <string name="comunica_o">Comunicação:</string>
     <string name="editar_perfil_dashboard_profile">Editar perfil</string>
     <string name="dashboard">Dashboard</string>
-    <string name="feedbacks_recebidos_dashboard">Feedbacks recebidos:</string>
-    <string name="feedbacks_efetuados_dashboard">Feedbacks efetuados:</string>
+    <string name="feedbacks_recebidos_dashboard">Roasts Recebidos:</string>
+    <string name="feedbacks_efetuados_dashboard">Roasts Efetuados:</string>
     <string name="m_dia_pessoal_dashboard">Média pessoal</string>
     <string name="iniciativa_dashboard">Iniciativa:</string>
     <string name="colabora_o_dashboard">Colaboração:</string>
@@ -31,7 +31,7 @@
     <string name="app_name">Roast.ly</string>
     <string name="small_logo_description">Logo Small Roast.ly</string>
     <string name="titulo_boas_vindas">Boas-vindas!</string>
-    <string name="texto_login">Faz já login para poderes dar ou receber feedback</string>
+    <string name="texto_login">Faz já login para poderes dar ou receber Roasts</string>
     <string name="email_hint">Digita o email</string>
     <string name="password_hint">Digita a password</string>
     <string name="esqueceu_password">Esqueceste-te da password?</string>
@@ -105,7 +105,7 @@
     <string name="adicionar_coment_rio">Adicionar comentário</string>
     <string name="profile_photo_content_desc" />
     <string name="name">Name</string>
-    <string name="deu_feedback_a">deu feedback a</string>
+    <string name="deu_feedback_a">deu Roast a</string>
     <string name="name_">Name</string>
     <string name="hoje_s_14h">Hoje às 14h</string>
     <string name="avalia_es_de">Avaliação de</string>
@@ -132,9 +132,9 @@
     <string name="destaque_em_todas_as_categorias">Destaque em todas as categorias</string>
     <string name="name_____">Name</string>
     <string name="two_bullets_icon" />
-    <string name="feedbacks_efetuados_">Feedbacks efetuados</string>
-    <string name="feedbacks_recebidos_">Feedbacks recebidos</string>
-    <string name="feedbacks_realizados">Feedbacks realizados</string>
+    <string name="feedbacks_efetuados_">Roasts Efetuados</string>
+    <string name="feedbacks_recebidos_">Roasts Recebidos</string>
+    <string name="feedbacks_realizados">Roasts Realizados</string>
     <string name="star_icon">Star icon</string>
     <string name="esqueceste_a_password">Esqueceste a password?</string>
     <string name="enviaremos_um_email_com_instru_es_para_que_possas_criar_uma_nova">Enviaremos um email com instruções para que possas criar uma nova.</string>
