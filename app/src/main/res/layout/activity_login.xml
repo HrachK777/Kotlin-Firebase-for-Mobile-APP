@@ -118,6 +118,7 @@
         android:paddingTop="0dp"
         android:paddingBottom="5dp"
         android:text="@string/login_button_text"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorLink="#5E48ED53"

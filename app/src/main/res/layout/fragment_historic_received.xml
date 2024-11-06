@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoricGivenFragment">
+    tools:context=".ui.history.HistoricReceivedFragment">
 
     <ImageView
         android:id="@+id/two_bullets_left_icon"
@@ -12,8 +12,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
         android:contentDescription="@string/two_bullets_icon"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/icon_bullets_left"/>
+
+    <TextView
+        android:id="@+id/average_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="35dp"
+        android:fontFamily="@font/league_spartan_medium"
+        android:text="Feedbacks recebidos"
+        android:textColor="#CB3086"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_feedbacks"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,19 +38,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/historic_received_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/league_spartan_medium"
-                android:text="@string/feedbacks_recebidos_"
-                android:textColor="#CB3086"
-                android:layout_marginEnd="40dp"
-                android:layout_marginTop="5dp"
-                android:textSize="28sp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/received_feedback_recycler_view"

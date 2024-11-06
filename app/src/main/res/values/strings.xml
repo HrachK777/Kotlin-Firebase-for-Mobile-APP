@@ -39,7 +39,7 @@
 
     <!-- REGISTAR -->
 
-    <string name="create_account_text">Ainda não estás registado? Cria conta</string>
+    <string name="create_account_text">Ainda não estás registado? Cria conta.</string>
     <string name="create_account_title">Criar nova conta</string>
     <string name="create_account_nome_hint">Nome</string>
     <string name="create_account_ultimo_nome_hint">Apelido</string>
@@ -65,7 +65,7 @@
     <string name="nome">Nome</string>
     <string name="digita_o_email">Digita o email</string>
     <string name="password_">Password</string>
-    <string name="confirme_a_password_">Confirme a password</string>
+    <string name="confirme_a_password_">Confirma a password</string>
     <string name="cargo">Cargo</string>
     <string name="registar">Registar</string>
     <string name="apelido">Apelido</string>
@@ -83,7 +83,7 @@
     <string name="stars_icon__">stars icon</string>
     <string name="stars_icon___">stars icon</string>
 
-    <string name="capacidade">Capacidade:</string>
+    <string name="capacidade">Comunicação:</string>
     <string name="editar">Editar</string>
     <string name="cargo_">Cargo</string>
     <string name="editar_">Editar</string>
@@ -108,7 +108,7 @@
     <string name="deu_feedback_a">deu feedback a</string>
     <string name="name_">Name</string>
     <string name="hoje_s_14h">Hoje às 14h</string>
-    <string name="avalia_es_de">Avaliações de</string>
+    <string name="avalia_es_de">Avaliação de</string>
     <string name="name__">Name</string>
     <string name="para">para</string>
     <string name="name___">Name</string>
@@ -119,7 +119,7 @@
     <string name="responsabilidade_">Responsabilidade</string>
     <string name="conhecimento_">Conhecimento</string>
     <string name="iniciativa__">Iniciativa</string>
-    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet nulla et ullamcorper dignissim. Nullam id dolor quis velit fringilla venenatis. Integer vitae metus ac felis varius posuere.</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_phasellus_imperdiet_nulla_et_ullamcorper_dignissim_nullam_id_dolor_quis_velit_fringilla_venenatis_integer_vitae_metus_ac_felis_varius_posuere">Teste.</string>
     <string name="destaques_do_m_s">Destaques do mês</string>
     <string name="menu_icon">menu icon</string>
     <string name="name____">Name</string>
@@ -136,4 +136,19 @@
     <string name="feedbacks_recebidos_">Feedbacks recebidos</string>
     <string name="feedbacks_realizados">Feedbacks realizados</string>
     <string name="star_icon">Star icon</string>
+    <string name="esqueceste_a_password">Esqueceste a password?</string>
+    <string name="enviaremos_um_email_com_instru_es_para_que_possas_criar_uma_nova">Enviaremos um email com instruções para que possas criar uma nova.</string>
+    <string name="recuperar_password">Recuperar password</string>
+    <string name="salvar_altera_es_">Salvar alterações</string>
+    <string name="submeter_">Submeter</string>
+    <string name="icon_back">icon back</string>
+    <string name="comunica_o_">Comunicação</string>
+    <string name="comunica_o__">Responsabilidade</string>
+    <string name="icon_under_bar">icon_under_bar</string>
+    <string name="profile">Profile</string>
+    <string name="feed_">Feed</string>
+    <string name="home">Home</string>
+    <string name="small_logo___">Small Logo</string>
+    <string name="add_">Add</string>
+    <string name="ranking_">Ranking</string>
 </resources>

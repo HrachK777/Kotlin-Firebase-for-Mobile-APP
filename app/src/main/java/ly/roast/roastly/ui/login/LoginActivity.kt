@@ -2,6 +2,7 @@ package ly.roast.roastly.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -25,12 +26,6 @@ class LoginActivity : AppCompatActivity() {
         val userRepository = UserRepository(this)
         val viewModelFactory = LoginViewModelFactory(userRepository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
-
-        // Se user ja estiver logado nao mostrar login
-        if (viewModel.checkIfUserIsLoggedIn()) {
-            finish()
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
 
         // Observa mudanças no estado de login
         viewModel.loginState.observe(this, Observer { success ->

@@ -9,6 +9,20 @@
     tools:layout_editor_absoluteX="-3dp"
     tools:layout_editor_absoluteY="-5dp">
 
+    <!-- icon back -->
+    <ImageView
+        android:id="@+id/icon_back"
+        android:layout_width="88dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/icon_back"
+        android:scaleType="centerInside"
+        app:layout_constraintHorizontal_bias="0"
+        android:src="@drawable/icon_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <!-- Logo Image -->
     <ImageView
         android:id="@+id/logoSmall"
@@ -20,7 +34,7 @@
         android:src="@drawable/logo_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Title -->
     <TextView
@@ -41,7 +55,7 @@
     <EditText
         android:id="@+id/nameInput"
         android:layout_width="347dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
@@ -81,7 +95,7 @@
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="346dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -160,16 +174,15 @@
     <!-- Register button -->
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="226dp"
-        android:layout_height="47dp"
+        android:layout_width="344dp"
+        android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_with_shadow"
         android:fontFamily="@font/league_spartan_medium"
-        android:paddingTop="0dp"
-        android:paddingBottom="5dp"
         android:text="@string/registar"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textColorLink="#5E48ED53"
@@ -177,6 +190,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/jobInput" />
+        app:layout_constraintTop_toBottomOf="@id/jobInput"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

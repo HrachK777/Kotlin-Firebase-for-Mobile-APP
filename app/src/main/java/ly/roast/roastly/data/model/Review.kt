@@ -1,11 +1,15 @@
+import android.icu.text.SimpleDateFormat
 import android.os.Parcelable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import kotlinx.android.parcel.Parcelize
 import ly.roast.roastly.R
+import java.util.Locale
 
 @Parcelize
 data class Review(
@@ -16,7 +20,7 @@ data class Review(
     val colaboracao: Float = 0f,
     val responsabilidade: Float = 0f,
     val comment: String = "",
-    val timestamp: String = ""
+    val reviewedOn: Timestamp = Timestamp(11,11),
 ) : Parcelable
 
 class FeedAdapter(
@@ -45,9 +49,10 @@ class FeedAdapter(
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val review = reviews[position]
         holder.feedNameGiven.text = review.reviewerName
-        holder.feedText.text = "gave feedback to"
+        holder.feedText.text = "deu feedback a"
         holder.feedNameReceived.text = review.recipientName
-        holder.feedDayTime.text = review.timestamp // Adjust timestamp format as needed
+        Log.d("Review", review.reviewedOn.toDate().toString())
+        holder.feedDayTime.text = simplifyTimestamp(review.reviewedOn.toDate().toString())
     }
 
     override fun getItemCount() = reviews.size

@@ -1,6 +1,7 @@
 package ly.roast.roastly.ui.common
 
 import AddFragment
+import FeedbackHistoryFragment
 import LeaderboardsFragment
 import ReviewFeedFragment
 import android.content.Intent
@@ -22,7 +23,9 @@ import androidx.core.widget.PopupWindowCompat
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import ly.roast.roastly.EditProfileActivity
 import ly.roast.roastly.R
+import ly.roast.roastly.data.repository.UserRepository
 import ly.roast.roastly.ui.login.LoginActivity
 import ly.roast.roastly.ui.profile.ProfileFragment
 import ly.roast.roastly.viewmodel.HomeViewModel
@@ -30,10 +33,13 @@ import ly.roast.roastly.viewmodel.HomeViewModel
 class HomeActivity : AppCompatActivity() {
 
     private val homeViewModel: HomeViewModel by viewModels()
+    private val userRepository by lazy { UserRepository(applicationContext) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_home)
+
 
         if (savedInstanceState == null) {
             loadFragment(AddFragment())
@@ -43,6 +49,7 @@ class HomeActivity : AppCompatActivity() {
         findViewById<View>(R.id.icon_ranking).setOnClickListener { loadFragment(LeaderboardsFragment()) }
         findViewById<View>(R.id.icon_add).setOnClickListener { loadFragment(AddFragment()) }
         findViewById<View>(R.id.icon_profile).setOnClickListener { loadFragment(ProfileFragment()) }
+        findViewById<View>(R.id.icon_feed).setOnClickListener { loadFragment(FeedbackHistoryFragment()) }
 
         findViewById<View>(R.id.icon_menu_user).setOnClickListener {
             showMenuPopup(it)
@@ -54,7 +61,11 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Account deleted successfully", Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }.onFailure { exception ->
-                Toast.makeText(this, "Failed to delete account: ${exception.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Failed to delete account: ${exception.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -76,13 +87,13 @@ class HomeActivity : AppCompatActivity() {
         )
 
         popupView.findViewById<TextView>(R.id.item_edit_profile).setOnClickListener {
-            loadFragment(ProfileFragment())
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
             popupWindow.dismiss()
         }
 
         popupView.findViewById<TextView>(R.id.item_logout).setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            clearSharedPreferences()
+            userRepository.logout()
             navigateToLogin()
             popupWindow.dismiss()
         }
