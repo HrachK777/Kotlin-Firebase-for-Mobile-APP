@@ -61,4 +61,24 @@ class LeaderboardsViewModel : ViewModel() {
             .addOnFailureListener { exception ->
             }
     }
+
+    class ProfileViewModel : ViewModel() {
+        private val firestore = FirebaseFirestore.getInstance()
+
+        private val _userProfile = MutableLiveData<User>()
+        val userProfile: LiveData<User> get() = _userProfile
+
+        fun loadUserProfile(userId: String) {
+            firestore.collection("users")
+                .document(userId)
+                .get()
+                .addOnSuccessListener { document ->
+                    _userProfile.value = document.toObject(User::class.java)
+                }
+                .addOnFailureListener { exception ->
+                    Log.e("ProfileViewModel", "Error fetching user profile", exception)
+                }
+        }
+    }
+
 }
