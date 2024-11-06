@@ -60,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
         }
         findViewById<View>(R.id.icon_add).setOnClickListener {
             loadFragment(AddFragment())
-            moveUnderBar(iconUnderBar, it)
+            //moveUnderBar(iconUnderBar, it)
         }
         findViewById<View>(R.id.icon_profile).setOnClickListener {
             loadFragment(ProfileFragment())
@@ -70,6 +70,7 @@ class HomeActivity : AppCompatActivity() {
             loadFragment(FeedbackHistoryFragment())
             moveUnderBar(iconUnderBar, it)
         }
+
 
         findViewById<View>(R.id.icon_menu_user).setOnClickListener {
             showMenuPopup(it)
@@ -96,12 +97,13 @@ class HomeActivity : AppCompatActivity() {
         val parent = findViewById<ConstraintLayout>(R.id.footer) // O layout pai do footer
         constraintSet.clone(parent)
 
-        // Altera a posição do icon_under_bar para estar abaixo do ícone clicado
+        // Conecte a barra de destaque ao ícone que foi clicado
         constraintSet.connect(iconUnderBar.id, ConstraintSet.START, clickedIcon.id, ConstraintSet.START)
         constraintSet.connect(iconUnderBar.id, ConstraintSet.END, clickedIcon.id, ConstraintSet.END)
-        constraintSet.connect(iconUnderBar.id, ConstraintSet.TOP, clickedIcon.id, ConstraintSet.BOTTOM, 0) // 0 de margem
-        constraintSet.applyTo(parent) // Aplica as alterações
+        constraintSet.connect(iconUnderBar.id, ConstraintSet.TOP, clickedIcon.id, ConstraintSet.BOTTOM, 5) // Abaixo do ícone com margem
+        constraintSet.applyTo(parent)
     }
+
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
