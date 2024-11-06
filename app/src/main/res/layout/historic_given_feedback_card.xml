@@ -8,7 +8,7 @@
         android:id="@+id/card_historic_given"
         android:layout_width="330dp"
         android:layout_height="110dp"
-        android:layout_margin="12dp"
+        android:layout_margin="15dp"
         android:background="@android:color/white"
         app:cardCornerRadius="80dp"
         app:cardElevation="6dp"
