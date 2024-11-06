@@ -54,7 +54,8 @@ class LeaderboardsFragment : Fragment() {
         viewModel.topOverallUser.observe(viewLifecycleOwner) { user ->
             user?.let {
                 binding.allCategoriesName.text = it.name
-                binding.allCategoriesRating.text = it.averageOverall.toString()
+                val averageOverallValue = it.averageOverall.toString().toFloatOrNull() ?: 0f
+                binding.allCategoriesRating.text = String.format("%.1f", averageOverallValue)
             }
         }
 
