@@ -250,7 +250,7 @@
                             android:id="@+id/four_star_image"
                             android:layout_width="150dp"
                             android:layout_height="57dp"
-                            android:layout_marginStart="2dp"
+                            android:layout_marginStart="7dp"
                             android:contentDescription="@string/stars_icon"
                             android:src="@drawable/four_stars_profile_card"/>
                     </LinearLayout>
