@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="55dp"
     android:background="@android:color/transparent">
 
     <!-- Title section at the top -->
@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/adicionar_coment_rio"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="60dp"
                 android:padding="8dp"
                 android:inputType="textMultiLine"
                 android:background="@drawable/edit_text_border"

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -79,7 +80,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="35dp"
             android:orientation="vertical"
             app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/iniciativa_"
                 android:textColor="#007CBA"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:layout_marginTop="12dp"/>
 
             <RatingBar
@@ -118,7 +118,7 @@
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/conhecimento"
                 android:textColor="#007CBA"
-                android:textSize="30sp"/>
+                android:textSize="28sp"/>
 
             <RatingBar
                 android:id="@+id/rating_conhecimento"
@@ -141,7 +141,7 @@
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/colabora_o_"
                 android:textColor="#007CBA"
-                android:textSize="30sp"/>
+                android:textSize="28sp"/>
 
             <RatingBar
                 android:id="@+id/rating_colaboracao"
@@ -164,7 +164,7 @@
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/responsabilidade"
                 android:textColor="#007CBA"
-                android:textSize="30sp"/>
+                android:textSize="28sp"/>
 
             <RatingBar
                 android:id="@+id/rating_responsabilidade"
@@ -187,7 +187,7 @@
             android:background="@android:color/white"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="30dp"
             android:minHeight="120dp"
             android:padding="8dp"
             android:layout_marginTop="30dp"

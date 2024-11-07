@@ -50,8 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -65,8 +64,9 @@
             android:onClick="onIconClick"
             android:src="@drawable/icon_feed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2" />
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Historic Icon -->
         <ImageView
@@ -77,8 +77,9 @@
             android:onClick="onIconClick"
             android:src="@drawable/icon_historic"
             app:layout_constraintStart_toEndOf="@id/icon_home"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2" />
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Add Icon -->
         <ImageView
@@ -89,8 +90,9 @@
             android:onClick="onIconClick"
             android:src="@drawable/icon_add"
             app:layout_constraintStart_toEndOf="@id/icon_feed"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2" />
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Ranking Icon -->
         <ImageView
@@ -101,8 +103,9 @@
             android:onClick="onIconClick"
             android:src="@drawable/icon_ranking"
             app:layout_constraintStart_toEndOf="@id/icon_add"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2" />
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Profile Icon -->
         <ImageView
@@ -113,14 +116,15 @@
             android:onClick="onIconClick"
             android:src="@drawable/icon_profile"
             app:layout_constraintStart_toEndOf="@id/icon_ranking"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2"/>
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/icon_under_bar"
             android:layout_width="0dp"
             android:layout_height="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
             android:contentDescription="@string/icon_under_bar"
             android:src="@drawable/icon_under_bar"
             app:layout_constraintEnd_toEndOf="@id/icon_profile"
