@@ -53,7 +53,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         checkForNewMonthAndResetRatings()
-        //testDisplayMonthlyTopUserWithoutReset()
+        testDisplayMonthlyTopUserWithoutReset()
 
         if (savedInstanceState == null) {
             loadFragment(AddFragment())

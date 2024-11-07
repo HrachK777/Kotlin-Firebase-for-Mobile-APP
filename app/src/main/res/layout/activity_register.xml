@@ -43,7 +43,7 @@
         android:id="@+id/titleCreateAccount"
         android:layout_width="253dp"
         android:layout_height="57dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="90dp"
         android:fontFamily="@font/league_spartan_medium"
         android:text="@string/create_account_title"
         android:textColor="#CC0676"
