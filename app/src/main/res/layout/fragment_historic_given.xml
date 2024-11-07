@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.history.HistoricGivenFragment">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
     <ImageView
         android:id="@+id/two_bullets_right_icon"
         android:layout_width="wrap_content"
@@ -30,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/card_view_feedbacks"/>
 
     <ScrollView
+        android:id="@+id/scroll_view_given"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="70dp"

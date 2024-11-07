@@ -3,6 +3,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +17,9 @@ class HistoricGivenFragment : Fragment() {
     private lateinit var givenReviewAdapter: GivenReviewAdapter
     private lateinit var recyclerView: RecyclerView
     private val viewModel: HistoryViewModel by viewModels()
+    private lateinit var progressBar: ProgressBar
+    private lateinit var scrollView: ScrollView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,6 +29,10 @@ class HistoricGivenFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.given_feedback_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        progressBar = view.findViewById(R.id.progress_bar)
+        scrollView = view.findViewById(R.id.scroll_view_given)
+
+        scrollView.visibility = View.GONE
 
         givenReviewAdapter = GivenReviewAdapter { review ->
             openReviewDetails(review)
@@ -42,6 +51,8 @@ class HistoricGivenFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.givenReviews.observe(viewLifecycleOwner) { reviewList ->
             givenReviewAdapter.submitList(reviewList)
+            progressBar.visibility = View.GONE
+            scrollView.visibility = View.VISIBLE
         }
     }
 

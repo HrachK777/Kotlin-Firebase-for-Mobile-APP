@@ -7,36 +7,46 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ly.roast.roastly.R
+import ly.roast.roastly.databinding.FragmentFeedbacksFeedBinding
 
 class ReviewFeedFragment : Fragment() {
 
+    private var _binding: FragmentFeedbacksFeedBinding? = null
+    private val binding get() = _binding!!
     private lateinit var feedAdapter: FeedAdapter
-    private lateinit var recyclerView: RecyclerView
     private val viewModel: FeedViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_feedbacks_feed, container, false)
+    ): View {
+        _binding = FragmentFeedbacksFeedBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        recyclerView = view.findViewById(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        binding.progressBar.visibility = View.VISIBLE
+        binding.recyclerView.visibility = View.GONE
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         feedAdapter = FeedAdapter(emptyList()) { review ->
             openReviewDetails(review)
         }
-        recyclerView.adapter = feedAdapter
+        binding.recyclerView.adapter = feedAdapter
 
         observeViewModel()
         viewModel.fetchReviews()
-
-        return view
     }
 
     private fun observeViewModel() {
         viewModel.reviews.observe(viewLifecycleOwner) { reviewList ->
-            feedAdapter.updateData(reviewList)
+            if (reviewList != null) {
+                feedAdapter.updateData(reviewList)
+                binding.progressBar.visibility = View.GONE
+                binding.recyclerView.visibility = View.VISIBLE
+            }
         }
     }
 
@@ -50,5 +60,10 @@ class ReviewFeedFragment : Fragment() {
             .replace(R.id.fragment_container, reviewDetailsFragment)
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

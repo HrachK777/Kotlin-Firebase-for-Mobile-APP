@@ -3,6 +3,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +17,8 @@ class HistoricReceivedFragment : Fragment() {
     private lateinit var receivedReviewAdapter: ReceivedReviewAdapter
     private lateinit var recyclerView: RecyclerView
     private val viewModel: HistoryViewModel by viewModels()
-    private val currentUserID: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+    private lateinit var progressBar: ProgressBar
+    private lateinit var scrollView: ScrollView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +28,11 @@ class HistoricReceivedFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.received_feedback_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        progressBar = view.findViewById(R.id.progress_bar)
+        scrollView = view.findViewById(R.id.scroll_view_received)
+
+        scrollView.visibility = View.GONE
+
 
         receivedReviewAdapter = ReceivedReviewAdapter { review ->
             openReviewDetails(review)
@@ -43,6 +51,8 @@ class HistoricReceivedFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.receivedReviews.observe(viewLifecycleOwner) { reviewList ->
             receivedReviewAdapter.submitList(reviewList)
+            progressBar.visibility = View.GONE
+            scrollView.visibility = View.VISIBLE
         }
     }
 

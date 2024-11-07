@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/transparent">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <!-- User Photo -->
     <de.hdodenhof.circleimageview.CircleImageView
@@ -17,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Job Name -->
     <TextView
@@ -43,20 +55,21 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_name"/>
+        app:layout_constraintTop_toBottomOf="@id/user_name" />
 
     <!-- ScrollView for feedbacks -->
     <ScrollView
+        android:id="@+id/scrollViewProfile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/job_name"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/job_name">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
             android:padding="16dp">
 
             <!-- CardView for received and given feedbacks -->
@@ -77,15 +90,15 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/icon_feedback_received"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:contentDescription="@string/feedback_received_icon"
-                            android:src="@drawable/icon_profile_feedback_received"/>
+                            android:src="@drawable/icon_profile_feedback_received" />
 
                         <TextView
                             android:id="@+id/text_profile_feedback_received"
@@ -102,16 +115,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_marginTop="11dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="11dp">
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/icon_feedback_given"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:contentDescription="@string/feedback_given_icon"
-                            android:src="@drawable/icon_profile_feedback_given"/>
+                            android:src="@drawable/icon_profile_feedback_given" />
 
                         <TextView
                             android:id="@+id/text_profile_feedback_given"
@@ -121,7 +134,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/feedbacks_efetuados"
                             android:textColor="#25183E"
-                            android:textSize="25sp"/>
+                            android:textSize="25sp" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -131,12 +144,12 @@
                 android:id="@+id/average_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
                 android:layout_marginStart="35dp"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/league_spartan_medium"
                 android:text="@string/m_dia_pessoal_"
                 android:textColor="#CB3086"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
             <!-- CardView for personal average -->
             <androidx.cardview.widget.CardView
@@ -144,16 +157,16 @@
                 android:layout_width="370dp"
                 android:layout_height="245dp"
                 android:layout_gravity="center_horizontal"
-                app:cardCornerRadius="26dp"
-                android:layout_marginTop="25dp">
+                android:layout_marginTop="25dp"
+                app:cardCornerRadius="26dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
-                    android:paddingTop="15dp">
+                    android:paddingTop="15dp"
+                    android:paddingEnd="15dp">
 
                     <!-- Initiative Section -->
                     <LinearLayout
@@ -167,7 +180,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/iniciativa"
                             android:textColor="#25183E"
-                            android:textSize="25sp"/>
+                            android:textSize="25sp" />
 
                         <ImageView
                             android:id="@+id/one_star_image"
@@ -175,7 +188,7 @@
                             android:layout_height="57dp"
                             android:layout_marginStart="93dp"
                             android:contentDescription="@string/stars_icon"
-                            android:src="@drawable/one_stars_profile_card"/>
+                            android:src="@drawable/one_stars_profile_card" />
                     </LinearLayout>
 
                     <!-- Collaboration Section -->
@@ -190,7 +203,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/colabora_o"
                             android:textColor="#25183E"
-                            android:textSize="25sp"/>
+                            android:textSize="25sp" />
 
                         <ImageView
                             android:id="@+id/two_star_image"
@@ -198,7 +211,7 @@
                             android:layout_height="57dp"
                             android:layout_marginStart="55dp"
                             android:contentDescription="@string/stars_icon_"
-                            android:src="@drawable/two_stars_profile_card"/>
+                            android:src="@drawable/two_stars_profile_card" />
                     </LinearLayout>
 
                     <!-- Commitment Section -->
@@ -213,7 +226,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/compromisso"
                             android:textColor="#25183E"
-                            android:textSize="25sp"/>
+                            android:textSize="25sp" />
 
                         <ImageView
                             android:id="@+id/three_star_image"
@@ -221,7 +234,7 @@
                             android:layout_height="57dp"
                             android:layout_marginStart="48dp"
                             android:contentDescription="@string/stars_icon"
-                            android:src="@drawable/three_stars_profile_card"/>
+                            android:src="@drawable/three_stars_profile_card" />
                     </LinearLayout>
 
                     <!-- Capacity Section -->
@@ -236,7 +249,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="Responsabilidade:"
                             android:textColor="#25183E"
-                            android:textSize="25sp"/>
+                            android:textSize="25sp" />
 
                         <ImageView
                             android:id="@+id/four_star_image"
@@ -244,7 +257,7 @@
                             android:layout_height="57dp"
                             android:layout_marginStart="7dp"
                             android:contentDescription="@string/stars_icon"
-                            android:src="@drawable/four_stars_profile_card"/>
+                            android:src="@drawable/four_stars_profile_card" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

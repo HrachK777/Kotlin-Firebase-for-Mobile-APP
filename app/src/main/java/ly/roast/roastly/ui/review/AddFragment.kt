@@ -8,17 +8,20 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ly.roast.roastly.R
 import ly.roast.roastly.ui.review.AddUserReviewFragment
+import android.widget.ProgressBar
 
 class AddFragment : Fragment() {
 
     private lateinit var userAdapter: UserAdapter
     private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
     private val viewModel: AddFragmentViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add, container, false)
 
         recyclerView = view.findViewById(R.id.recycler_view)
+        progressBar = view.findViewById(R.id.progressBar)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
         userAdapter = UserAdapter(emptyList()) { user ->
@@ -34,6 +37,7 @@ class AddFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.users.observe(viewLifecycleOwner) { userList ->
             userAdapter.updateData(userList)
+            progressBar.visibility = View.GONE
         }
     }
 
@@ -52,6 +56,7 @@ class AddFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        progressBar.visibility = View.VISIBLE
         viewModel.fetchUsersFromFirestore()
     }
 }

@@ -3,6 +3,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -35,18 +36,30 @@ class UserAdapter(
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.profile_name)
         val profileImageView: ImageView = itemView.findViewById(R.id.profile_image)
+        val profileImageProgress: ProgressBar = itemView.findViewById(R.id.profile_image_progress)
 
         fun bind(user: User) {
             nameTextView.text = user.name
 
-            // Load profile image with Picasso
+            profileImageProgress.visibility = View.VISIBLE
+
             if (user.profileImageUrl.isNotEmpty()) {
                 Picasso.get()
                     .load(user.profileImageUrl)
                     .placeholder(R.drawable.profile_default_image)
                     .error(R.drawable.profile_default_image)
-                    .into(profileImageView)
+                    .into(profileImageView, object : com.squareup.picasso.Callback {
+                        override fun onSuccess() {
+                            profileImageProgress.visibility = View.GONE
+                        }
+
+                        override fun onError(e: Exception?) {
+                            profileImageProgress.visibility = View.GONE
+                            profileImageView.setImageResource(R.drawable.profile_default_image)
+                        }
+                    })
             } else {
+                profileImageProgress.visibility = View.GONE
                 profileImageView.setImageResource(R.drawable.profile_default_image)
             }
 

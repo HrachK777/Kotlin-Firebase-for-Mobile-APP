@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -14,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import ly.roast.roastly.R
+import ly.roast.roastly.viewmodel.ProfileViewModel
 import kotlin.math.roundToInt
 
 class ProfileFragment : Fragment() {
@@ -28,13 +31,14 @@ class ProfileFragment : Fragment() {
     private lateinit var fourStarImage: ImageView
     private lateinit var firestore: FirebaseFirestore
     private lateinit var userId: String
-    private lateinit var profileViewModel: LeaderboardsViewModel.ProfileViewModel
+    private lateinit var profileViewModel: ProfileViewModel
     private lateinit var userPhoto: ImageView
+    private lateinit var scrollView: ScrollView
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
 
-        // Inicialização das Views
         userNameLogin = view.findViewById(R.id.user_name)
         jobNameLogin = view.findViewById(R.id.job_name)
         feedbackGivenTotalText = view.findViewById(R.id.text_profile_feedback_given)
@@ -44,24 +48,34 @@ class ProfileFragment : Fragment() {
         threeStarImage = view.findViewById(R.id.three_star_image)
         fourStarImage = view.findViewById(R.id.four_star_image)
         userPhoto = view.findViewById(R.id.user_photo)
+        scrollView = view.findViewById(R.id.scrollViewProfile)
+        progressBar = view.findViewById(R.id.progress_bar)
+
 
         firestore = FirebaseFirestore.getInstance()
         userId = FirebaseAuth.getInstance().currentUser?.email ?: return view
 
-        // Fetch user data and feedbacks
-        fetchUserProfileData()
+        progressBar.visibility = View.VISIBLE
+        userNameLogin.visibility = View.GONE
+        jobNameLogin.visibility = View.GONE
+        userPhoto.visibility = View.GONE
+        scrollView.visibility = View.GONE
         fetchUserFeedbacks()
         fetchUserData()
 
-        profileViewModel = ViewModelProvider(this).get(LeaderboardsViewModel.ProfileViewModel::class.java)
+        profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         profileViewModel.loadUserProfile(userId)
 
-        // Observa o perfil do usuário
         profileViewModel.userProfile.observe(viewLifecycleOwner) { user ->
             setStarImage(oneStarImage, user.averageIniciativa)
             setStarImage(twoStarImage, user.averageColaboracao)
             setStarImage(threeStarImage, user.averageConhecimento)
             setStarImage(fourStarImage, user.averageResponsabilidade)
+            progressBar.visibility = View.GONE
+            userNameLogin.visibility = View.VISIBLE
+            jobNameLogin.visibility = View.VISIBLE
+            userPhoto.visibility = View.VISIBLE
+            scrollView.visibility = View.VISIBLE
         }
 
         return view
@@ -84,7 +98,7 @@ class ProfileFragment : Fragment() {
                     if (!profileImageUrl.isNullOrEmpty()) {
                         Picasso.get().load(profileImageUrl).into(userPhoto)
                     } else {
-                        userPhoto.setImageResource(R.drawable.profile_default_image) // Set a default image
+                        userPhoto.setImageResource(R.drawable.profile_default_image)
                     }
                 } else {
                     Log.d("ProfileFragment", "No such document")

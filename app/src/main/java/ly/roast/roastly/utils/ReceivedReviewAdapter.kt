@@ -31,7 +31,7 @@ class ReceivedReviewAdapter(private val onClick: (Review) -> Unit) :
         holder.reviewerName.text = review.reviewerName
         holder.timestamp.text = simplifyTimestamp(review.reviewedOn.toDate().toString())
 
-        if (review.recipientProfileImageUrl.isNotEmpty()) {
+        if (review.reviewerProfileImageUrl.isNotEmpty()) {
             Picasso.get().load(review.reviewerProfileImageUrl).into(holder.profileImage)
         } else {
             holder.profileImage.setImageResource(R.drawable.profile_default_image) // Default image
