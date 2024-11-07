@@ -54,18 +54,18 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
             android:padding="16dp">
 
             <!-- CardView for received and given feedbacks -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_feedbacks"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="4dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="26dp">
 
                 <LinearLayout
@@ -96,7 +96,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/feedbacks_recebidos"
                             android:textColor="#25183E"
-                            android:textSize="27sp" />
+                            android:textSize="25sp" />
                     </LinearLayout>
 
                     <!-- Feedback Given Section -->
@@ -122,7 +122,7 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/feedbacks_efetuados"
                             android:textColor="#25183E"
-                            android:textSize="27sp" />
+                            android:textSize="25sp"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -133,35 +133,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
+                android:layout_marginStart="35dp"
                 android:fontFamily="@font/league_spartan_medium"
-                android:text="Média pessoal"
+                android:text="@string/m_dia_pessoal_"
                 android:textColor="#CB3086"
                 android:textSize="30sp"/>
 
             <!-- CardView for personal average -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_average"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardElevation="4dp"
-                android:layout_gravity="center"
+                android:layout_width="370dp"
+                android:layout_height="245dp"
+                android:layout_gravity="center_horizontal"
                 app:cardCornerRadius="26dp"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="25dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingTop="15dp">
 
                     <!-- Initiative Section -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="12dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -169,25 +168,22 @@
                             android:fontFamily="@font/league_spartan_medium"
                             android:text="@string/iniciativa"
                             android:textColor="#25183E"
-                            android:layout_marginStart="5dp"
                             android:textSize="25sp"/>
 
                         <ImageView
                             android:id="@+id/one_star_image"
-                            android:layout_width="150dp"
+                            android:layout_width="145dp"
                             android:layout_height="57dp"
-                            android:layout_marginStart="90dp"
+                            android:layout_marginStart="93dp"
                             android:contentDescription="@string/stars_icon"
                             android:src="@drawable/one_stars_profile_card"/>
                     </LinearLayout>
 
                     <!-- Collaboration Section -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -199,7 +195,7 @@
 
                         <ImageView
                             android:id="@+id/two_star_image"
-                            android:layout_width="150dp"
+                            android:layout_width="145dp"
                             android:layout_height="57dp"
                             android:layout_marginStart="55dp"
                             android:contentDescription="@string/stars_icon_"
@@ -208,11 +204,9 @@
 
                     <!-- Commitment Section -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -224,9 +218,9 @@
 
                         <ImageView
                             android:id="@+id/three_star_image"
-                            android:layout_width="150dp"
+                            android:layout_width="145dp"
                             android:layout_height="57dp"
-                            android:layout_marginStart="49dp"
+                            android:layout_marginStart="48dp"
                             android:contentDescription="@string/stars_icon"
                             android:src="@drawable/three_stars_profile_card"/>
                     </LinearLayout>
@@ -235,8 +229,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -248,7 +241,7 @@
 
                         <ImageView
                             android:id="@+id/four_star_image"
-                            android:layout_width="150dp"
+                            android:layout_width="145dp"
                             android:layout_height="57dp"
                             android:layout_marginStart="7dp"
                             android:contentDescription="@string/stars_icon"
