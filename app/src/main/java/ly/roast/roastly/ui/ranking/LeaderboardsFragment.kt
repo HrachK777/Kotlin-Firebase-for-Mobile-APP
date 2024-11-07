@@ -1,10 +1,12 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.squareup.picasso.Picasso
 import ly.roast.roastly.R
 import ly.roast.roastly.databinding.FragmentLeaderboardsBinding
@@ -14,12 +16,18 @@ class LeaderboardsFragment : Fragment() {
     private var _binding: FragmentLeaderboardsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: LeaderboardsViewModel by viewModels()
+    private lateinit var topEmployeeAdapter: TopEmployeeAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLeaderboardsBinding.inflate(inflater, container, false)
+        binding.bestEmployeesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        topEmployeeAdapter = TopEmployeeAdapter(emptyList())
+        binding.bestEmployeesRecyclerView.adapter = topEmployeeAdapter
+
         return binding.root
     }
 
@@ -77,8 +85,9 @@ class LeaderboardsFragment : Fragment() {
         }
 
         viewModel.topEmployeeOfMonthUsers.observe(viewLifecycleOwner) { users ->
+            Log.d("LeaderboardsFragment", "Top employees: ${users.size}")
             users?.let {
-                binding.bestEmployeesRecyclerView.adapter = TopEmployeeAdapter(it)
+                topEmployeeAdapter.updateUsers(it)
             }
         }
     }

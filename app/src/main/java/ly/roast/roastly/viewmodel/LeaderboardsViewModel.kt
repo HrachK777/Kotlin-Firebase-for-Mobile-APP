@@ -26,7 +26,6 @@ class LeaderboardsViewModel : ViewModel() {
     private val _topEmployeeOfMonthUsers = MutableLiveData<List<User>>()
     val topEmployeeOfMonthUsers: LiveData<List<User>> get() = _topEmployeeOfMonthUsers
 
-    // Add loading flags for each dataset
     private var initiativeLoaded = false
     private var collaborationLoaded = false
     private var knowledgeLoaded = false
@@ -41,12 +40,31 @@ class LeaderboardsViewModel : ViewModel() {
         fetchTopUsers()
     }
 
+    private fun fetchTopEmployeeOfMonthUsers() {
+        firestore.collection("users")
+            .orderBy("employeeOfTheMonthWins", Query.Direction.DESCENDING)
+            .limit(3)
+            .get()
+            .addOnSuccessListener { result ->
+                _topEmployeeOfMonthUsers.value = result.documents.mapNotNull { it.toObject(User::class.java) }
+                employeeOfMonthLoaded = true
+                checkAllDataLoaded()
+            }
+            .addOnFailureListener { exception ->
+                Log.e("LeaderboardsViewModel", "Error fetching top employee of the month users", exception)
+                employeeOfMonthLoaded = true
+                checkAllDataLoaded()
+            }
+    }
+
+
     private fun fetchTopUsers() {
         fetchTopUserInField("averageIniciativa", _topInitiativeUser) { initiativeLoaded = true; checkAllDataLoaded() }
         fetchTopUserInField("averageColaboracao", _topCollaborationUser) { collaborationLoaded = true; checkAllDataLoaded() }
         fetchTopUserInField("averageConhecimento", _topKnowledgeUser) { knowledgeLoaded = true; checkAllDataLoaded() }
         fetchTopUserInField("averageResponsabilidade", _topResponsibilityUser) { responsibilityLoaded = true; checkAllDataLoaded() }
         fetchTopUserInField("averageOverall", _topOverallUser) { overallLoaded = true; checkAllDataLoaded() }
+        fetchTopEmployeeOfMonthUsers()
 
         firestore.collection("users")
             .orderBy("employeeOfTheMonthWins", Query.Direction.DESCENDING)

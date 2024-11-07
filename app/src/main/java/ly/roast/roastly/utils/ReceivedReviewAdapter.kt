@@ -34,7 +34,7 @@ class ReceivedReviewAdapter(private val onClick: (Review) -> Unit) :
         if (review.reviewerProfileImageUrl.isNotEmpty()) {
             Picasso.get().load(review.reviewerProfileImageUrl).into(holder.profileImage)
         } else {
-            holder.profileImage.setImageResource(R.drawable.profile_default_image) // Default image
+            holder.profileImage.setImageResource(R.drawable.profile_default_image)
         }
     }
 
@@ -44,7 +44,7 @@ class ReceivedReviewAdapter(private val onClick: (Review) -> Unit) :
 
         val reviewerName: TextView = view.findViewById(R.id.received_name_received)
         val timestamp: TextView = view.findViewById(R.id.received_day_time)
-        val profileImage: ImageView = view.findViewById(R.id.profile_image_received) // Reference to profile image
+        val profileImage: ImageView = view.findViewById(R.id.profile_image_received)
 
         init {
             view.setOnClickListener {
