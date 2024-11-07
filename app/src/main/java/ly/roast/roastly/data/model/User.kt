@@ -25,7 +25,9 @@ data class User(
     val averageOverall: Float = 0f,
     val feedbacksGiven: Int = 0,
     val feedbacksReceived: Int = 0,
-    val profileImageUrl: String = ""
+    val profileImageUrl: String = "",
+    val averageMonthRating: Float = 0f,
+    val reviewsThisMonth: Int = 0
 ) : Parcelable
 
 class UserAdapter(

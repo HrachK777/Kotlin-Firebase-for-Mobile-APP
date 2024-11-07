@@ -152,4 +152,7 @@
     <string name="add_">Add</string>
     <string name="ranking_">Ranking</string>
     <string name="m_dia_pessoal_">Média pessoal</string>
+    <string name="user_photo_popup">Foto utilizador</string>
+    <string name="congratulations">Parabéns ao nosso roasted do mês!</string>
+    <string name="close">Fechar</string>
 </resources>

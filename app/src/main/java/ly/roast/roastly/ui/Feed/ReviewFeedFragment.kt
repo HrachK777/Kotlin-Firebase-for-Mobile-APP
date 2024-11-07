@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import ly.roast.roastly.R
 import ly.roast.roastly.databinding.FragmentFeedbacksFeedBinding
 

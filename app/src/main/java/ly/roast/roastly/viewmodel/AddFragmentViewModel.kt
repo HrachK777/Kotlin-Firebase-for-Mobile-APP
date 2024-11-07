@@ -63,7 +63,7 @@ class AddFragmentViewModel : ViewModel() {
                 }
 
                 Tasks.whenAllComplete(tasks).addOnSuccessListener {
-                    _users.value = availableUsers // Update LiveData once all tasks complete
+                    _users.value = availableUsers
                 }.addOnFailureListener { exception ->
                     Log.e("FetchUsers", "Error fetching users", exception)
                 }
@@ -119,6 +119,7 @@ class AddFragmentViewModel : ViewModel() {
                 firestore.collection("users").document(recipientEmail).get()
                     .addOnSuccessListener { recipientDoc ->
                         val feedbacksReceived = (recipientDoc.getLong("feedbacksReceived")?.toInt() ?: 0) + 1
+                        val reviewsThisMonth = (recipientDoc.getLong("reviewsThisMonth")?.toInt() ?: 0) + 1
 
                         val averageIniciativa = updateAverage(
                             recipientDoc.getDouble("averageIniciativa")?.toFloat() ?: 0f,
@@ -143,6 +144,9 @@ class AddFragmentViewModel : ViewModel() {
 
                         val averageTotal = (averageIniciativa + averageConhecimento + averageColaboracao + averageResponsabilidade) / 4
 
+                        val currentMonthlyRating = recipientDoc.getDouble("averageMonthRating")?.toFloat() ?: 0f
+                        val newMonthlyRating = ((currentMonthlyRating * (reviewsThisMonth - 1)) + averageTotal) / reviewsThisMonth
+
                         firestore.collection("users").document(recipientEmail)
                             .update(
                                 mapOf(
@@ -151,7 +155,9 @@ class AddFragmentViewModel : ViewModel() {
                                     "averageConhecimento" to averageConhecimento,
                                     "averageColaboracao" to averageColaboracao,
                                     "averageResponsabilidade" to averageResponsabilidade,
-                                    "averageOverall" to averageTotal
+                                    "averageOverall" to averageTotal,
+                                    "averageMonthRating" to newMonthlyRating,
+                                    "reviewsThisMonth" to reviewsThisMonth
                                 )
                             )
                             .addOnSuccessListener { onSuccess() }
@@ -162,6 +168,8 @@ class AddFragmentViewModel : ViewModel() {
             }
             .addOnFailureListener { exception -> onFailure(exception) }
     }
+
+
     private fun updateAverage(currentAverage: Float, newValue: Float, count: Int): Float {
         return ((currentAverage * (count - 1)) + newValue) / count
     }
