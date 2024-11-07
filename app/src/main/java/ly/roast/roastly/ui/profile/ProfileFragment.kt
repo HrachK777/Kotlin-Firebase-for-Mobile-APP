@@ -120,8 +120,8 @@ class ProfileFragment : Fragment() {
                 if (document != null) {
                     val feedbackGivenTotal = document.getLong("feedbacksGiven")?.toInt() ?: 0
                     val feedbackReceivedTotal = document.getLong("feedbacksReceived")?.toInt() ?: 0
-                    feedbackReceivedTotalText.text = "Feedbacks Recebidos: $feedbackReceivedTotal"
-                    feedbackGivenTotalText.text = "Feedbacks Efetuados: $feedbackGivenTotal"
+                    feedbackReceivedTotalText.text = "Roasts Recebidos: $feedbackReceivedTotal"
+                    feedbackGivenTotalText.text = "Roasts Efetuados: $feedbackGivenTotal"
                 }
             }
             .addOnFailureListener { exception ->
