@@ -64,6 +64,17 @@
                     android:layout_marginStart="120dp"
                     android:orientation="vertical">
 
+                    <!-- Iniciative -->
+                    <TextView
+                        android:id="@+id/leaderboards_iniciative_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/league_spartan_medium"
+                        android:text="@string/iniciativa__"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#007CBA"
+                        android:textSize="27sp" />
+
                     <!-- Username Iniciative -->
                     <TextView
                         android:id="@+id/leaderboards_iniciative_username"
@@ -73,16 +84,6 @@
                         android:text="@string/name____"
                         android:textColor="#25183E"
                         android:textSize="25sp" />
-
-                    <!-- Iniciative -->
-                    <TextView
-                        android:id="@+id/leaderboards_iniciative_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
-                        android:text="@string/iniciativa__"
-                        android:textColor="#007CBA"
-                        android:textSize="27sp" />
 
                     <RatingBar
                         android:id="@+id/rating_iniciativa"
@@ -102,7 +103,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="330dp"
+                    android:layout_marginStart="290dp"
                     android:contentDescription="@string/initiative_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_initiative" />
@@ -136,7 +137,18 @@
                     android:layout_marginStart="120dp"
                     android:orientation="vertical">
 
-                    <!-- Username Iniciative -->
+                    <!-- Collaboration -->
+                    <TextView
+                        android:id="@+id/leaderboards_collaboration_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/league_spartan_medium"
+                        android:text="Colaboração"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#007CBA"
+                        android:textSize="27sp" />
+
+                    <!-- Username Collaboration -->
                     <TextView
                         android:id="@+id/leaderboards_collaboration_username"
                         android:layout_width="wrap_content"
@@ -145,16 +157,6 @@
                         android:text="@string/name____"
                         android:textColor="#25183E"
                         android:textSize="25sp" />
-
-                    <!-- Iniciative -->
-                    <TextView
-                        android:id="@+id/leaderboards_collaboration_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
-                        android:text="Colaboração"
-                        android:textColor="#007CBA"
-                        android:textSize="27sp" />
 
                     <RatingBar
                         android:id="@+id/rating_colaboracao"
@@ -174,13 +176,13 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="330dp"
+                    android:layout_marginStart="290dp"
                     android:contentDescription="@string/collaboration_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_collaboration" />
             </androidx.cardview.widget.CardView>
 
-            <!-- Commitment card-->
+            <!-- Knowledge card-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/leaderboards_card_knowledge"
                 android:layout_width="370dp"
@@ -207,7 +209,18 @@
                     android:layout_marginStart="120dp"
                     android:orientation="vertical">
 
-                    <!-- Username Iniciative -->
+                    <!-- Knowledge -->
+                    <TextView
+                        android:id="@+id/leaderboards_knowledge_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/league_spartan_medium"
+                        android:text="Conhecimento"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#007CBA"
+                        android:textSize="27sp" />
+
+                    <!-- Username Knowledge -->
                     <TextView
                         android:id="@+id/leaderboards_knowledge_username"
                         android:layout_width="wrap_content"
@@ -216,16 +229,6 @@
                         android:text="@string/name____"
                         android:textColor="#25183E"
                         android:textSize="25sp" />
-
-                    <!-- Iniciative -->
-                    <TextView
-                        android:id="@+id/leaderboards_knowledge_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
-                        android:text="Conhecimento"
-                        android:textColor="#007CBA"
-                        android:textSize="27sp" />
 
                     <RatingBar
                         android:id="@+id/rating_conhecimento"
@@ -244,7 +247,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="330dp"
+                    android:layout_marginStart="290dp"
                     android:contentDescription="@string/collaboration_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_commitment" />
@@ -277,6 +280,17 @@
                     android:layout_marginStart="120dp"
                     android:orientation="vertical">
 
+                    <!-- Responsibility -->
+                    <TextView
+                        android:id="@+id/leaderboards_responsibility_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/league_spartan_medium"
+                        android:text="@string/comunica_o__"
+                        android:layout_marginTop="3dp"
+                        android:textColor="#007CBA"
+                        android:textSize="27sp" />
+
                     <!-- Username Responsibility -->
                     <TextView
                         android:id="@+id/leaderboards_responsibility_username"
@@ -286,16 +300,6 @@
                         android:text="@string/name____"
                         android:textColor="#25183E"
                         android:textSize="25sp" />
-
-                    <!-- Responsibility -->
-                    <TextView
-                        android:id="@+id/leaderboards_responsibility_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/league_spartan_medium"
-                        android:text="@string/comunica_o__"
-                        android:textColor="#007CBA"
-                        android:textSize="27sp" />
 
                     <RatingBar
                         android:id="@+id/rating_responsabilidade"
@@ -314,7 +318,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="330dp"
+                    android:layout_marginStart="290dp"
                     android:contentDescription="@string/communication_icon"
                     android:scaleType="centerCrop"
                     android:src="@drawable/icon_communication" />

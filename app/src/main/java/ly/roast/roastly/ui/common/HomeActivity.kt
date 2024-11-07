@@ -64,22 +64,26 @@ class HomeActivity : AppCompatActivity() {
         findViewById<View>(R.id.icon_home).setOnClickListener {
             loadFragment(ReviewFeedFragment())
             moveUnderBar(iconUnderBar, it)
+            iconUnderBar.visibility = View.VISIBLE
         }
         findViewById<View>(R.id.icon_ranking).setOnClickListener {
             loadFragment(LeaderboardsFragment())
             moveUnderBar(iconUnderBar, it)
+            iconUnderBar.visibility = View.VISIBLE
         }
         findViewById<View>(R.id.icon_add).setOnClickListener {
             loadFragment(AddFragment())
-            //moveUnderBar(iconUnderBar, it)
+            iconUnderBar.visibility = View.INVISIBLE
         }
         findViewById<View>(R.id.icon_profile).setOnClickListener {
             loadFragment(ProfileFragment())
             moveUnderBar(iconUnderBar, it)
+            iconUnderBar.visibility = View.VISIBLE
         }
         findViewById<View>(R.id.icon_feed).setOnClickListener {
             loadFragment(FeedbackHistoryFragment())
             moveUnderBar(iconUnderBar, it)
+            iconUnderBar.visibility = View.VISIBLE
         }
 
 
@@ -108,9 +112,13 @@ class HomeActivity : AppCompatActivity() {
         val lastCheckedMonth = sharedPreferences.getInt("lastCheckedMonth", -1)
         val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
 
+        if (lastCheckedMonth == -1) {
+            sharedPreferences.edit().putInt("lastCheckedMonth", currentMonth).apply()
+            return
+        }
+
         if (currentMonth != lastCheckedMonth) {
             findAndResetTopMonthlyUser()
-
             sharedPreferences.edit().putInt("lastCheckedMonth", currentMonth).apply()
         }
     }

@@ -4,6 +4,8 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -28,7 +30,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     private val PICK_IMAGE_REQUEST = 1
     private var imagemUri: Uri? = null
-    private var changesMade = false // Track if any changes are made
+    private var changesMade = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,23 @@ class EditProfileActivity : AppCompatActivity() {
 
         loadUserData()
 
+        // Set up TextWatchers to detect changes
+        campoEmailUsuario.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                changesMade = true
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        campoCargoUsuario.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                changesMade = true
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
         iconeCamera.setOnClickListener {
             openImageChooser()
         }
@@ -51,7 +70,7 @@ class EditProfileActivity : AppCompatActivity() {
             val newEmail = campoEmailUsuario.text.toString().trim()
             val newJob = campoCargoUsuario.text.toString().trim()
 
-            // Update only if fields are filled or image is selected
+            // Check and apply changes
             if (newEmail.isNotEmpty()) {
                 updateUserEmail(newEmail)
             }
@@ -61,6 +80,8 @@ class EditProfileActivity : AppCompatActivity() {
             if (imagemUri != null) {
                 uploadImageToFirebase()
             }
+
+            // If no changes were made, show the toast
             if (!changesMade) {
                 Toast.makeText(this, "No changes to save", Toast.LENGTH_SHORT).show()
             }
@@ -105,6 +126,7 @@ class EditProfileActivity : AppCompatActivity() {
             imagemUri = data.data
             if (imagemUri != null) {
                 Picasso.get().load(imagemUri).into(fotoPerfil)
+                changesMade = true // Mark changes as made
             }
         }
     }
