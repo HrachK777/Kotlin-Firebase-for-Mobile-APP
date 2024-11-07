@@ -1,11 +1,9 @@
 package ly.roast.roastly
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -24,13 +22,14 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var fotoPerfil: CircleImageView
     private lateinit var iconeCamera: ImageView
     private lateinit var botaoAplicarAlteracoes: Button
-    private lateinit var campoEmailUsuario: EditText
     private lateinit var campoCargoUsuario: EditText
     private lateinit var botaoVoltar: ImageView
+    private lateinit var campoSenhaAtual: EditText
+    private lateinit var campoNovaSenha: EditText
+    private lateinit var campoConfirmarNovaSenha: EditText
 
     private val PICK_IMAGE_REQUEST = 1
     private var imagemUri: Uri? = null
-    private var changesMade = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,51 +38,40 @@ class EditProfileActivity : AppCompatActivity() {
         fotoPerfil = findViewById(R.id.user_photo)
         iconeCamera = findViewById(R.id.icon_camera)
         botaoAplicarAlteracoes = findViewById(R.id.saveEditProfileButton)
-        campoEmailUsuario = findViewById(R.id.emailInput)
         campoCargoUsuario = findViewById(R.id.jobInput)
         botaoVoltar = findViewById(R.id.icon_back)
+        campoSenhaAtual = findViewById(R.id.passwordInput)
+        campoNovaSenha = findViewById(R.id.newPasswordInput)
+        campoConfirmarNovaSenha = findViewById(R.id.newPasswordConfirmationInput)
 
         loadUserData()
-
-        // Set up TextWatchers to detect changes
-        campoEmailUsuario.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                changesMade = true
-            }
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
-
-        campoCargoUsuario.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                changesMade = true
-            }
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
 
         iconeCamera.setOnClickListener {
             openImageChooser()
         }
 
         botaoAplicarAlteracoes.setOnClickListener {
-            val newEmail = campoEmailUsuario.text.toString().trim()
             val newJob = campoCargoUsuario.text.toString().trim()
+            val currentPassword = campoSenhaAtual.text.toString().trim()
+            val newPassword = campoNovaSenha.text.toString().trim()
+            val confirmPassword = campoConfirmarNovaSenha.text.toString().trim()
 
-            // Check and apply changes
-            if (newEmail.isNotEmpty()) {
-                updateUserEmail(newEmail)
-            }
             if (newJob.isNotEmpty()) {
                 updateUserJob(newJob)
             }
+
             if (imagemUri != null) {
                 uploadImageToFirebase()
             }
 
-            // If no changes were made, show the toast
-            if (!changesMade) {
-                Toast.makeText(this, "No changes to save", Toast.LENGTH_SHORT).show()
+            if (currentPassword.isNotEmpty() && newPassword.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                if (newPassword == confirmPassword) {
+                    updatePassword(currentPassword, newPassword)
+                } else {
+                    Toast.makeText(this, "As senhas novas não coincidem.", Toast.LENGTH_SHORT).show()
+                }
+            } else if (newJob.isEmpty() && imagemUri == null) {
+                Toast.makeText(this, "Nenhuma alteração a ser salva", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -99,8 +87,11 @@ class EditProfileActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
-                        campoEmailUsuario.hint = document.getString("email") ?: ""
-                        campoCargoUsuario.hint = document.getString("job") ?: ""
+                        val job = document.getString("job")
+                        if (!job.isNullOrEmpty()) {
+                            campoCargoUsuario.setText(job)
+                        }
+
                         val profileImageUrl = document.getString("profileImageUrl")
                         if (!profileImageUrl.isNullOrEmpty()) {
                             Picasso.get().load(profileImageUrl).into(fotoPerfil)
@@ -122,108 +113,77 @@ class EditProfileActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             imagemUri = data.data
             if (imagemUri != null) {
-                Picasso.get().load(imagemUri).into(fotoPerfil)
-                changesMade = true // Mark changes as made
+                fotoPerfil.setImageURI(imagemUri)
             }
         }
     }
 
     private fun uploadImageToFirebase() {
-        imagemUri?.let { uri ->
-            val usuarioEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
-            val storageRef = FirebaseStorage.getInstance().reference.child("profile_images/$usuarioEmail")
+        val usuarioEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+        val storageRef = FirebaseStorage.getInstance().reference.child("profile_images/$usuarioEmail")
 
+        imagemUri?.let { uri ->
             storageRef.putFile(uri)
                 .addOnSuccessListener {
                     storageRef.downloadUrl.addOnSuccessListener { downloadUrl ->
                         val userRef = FirebaseFirestore.getInstance().collection("users").document(usuarioEmail)
 
-                        userRef.set(mapOf("profileImageUrl" to downloadUrl.toString()), SetOptions.merge())
+                        val updates = mapOf("profileImageUrl" to downloadUrl.toString())
+                        userRef.set(updates, SetOptions.merge())
                             .addOnSuccessListener {
-                                changesMade = true
-                                Toast.makeText(this, "Profile image updated successfully!", Toast.LENGTH_SHORT).show()
-                                finishIfChanges()
+                                Toast.makeText(this, "Imagem de perfil atualizada com sucesso!", Toast.LENGTH_SHORT).show()
+                                finish()
                             }
                             .addOnFailureListener {
-                                Toast.makeText(this, "Failed to update profile image.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Falha ao atualizar a imagem de perfil.", Toast.LENGTH_SHORT).show()
                             }
                     }
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Image upload failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Falha ao enviar a imagem.", Toast.LENGTH_SHORT).show()
                 }
         }
-    }
-
-    private fun updateUserEmail(newEmail: String) {
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        val oldEmail = currentUser?.email
-
-        if (oldEmail != null) {
-            val passwordInput = EditText(this)
-            passwordInput.hint = "Digite sua senha"
-
-            AlertDialog.Builder(this)
-                .setTitle("Reautenticação Necessária")
-                .setMessage("Por favor, insira sua senha para continuar.")
-                .setView(passwordInput)
-                .setPositiveButton("Confirmar") { _, _ ->
-                    val password = passwordInput.text.toString()
-
-                    if (password.isNotEmpty()) {
-                        val credential = EmailAuthProvider.getCredential(oldEmail, password)
-
-                        currentUser.reauthenticate(credential)
-                            .addOnCompleteListener { authTask ->
-                                if (authTask.isSuccessful) {
-                                    sendVerificationEmail(newEmail)
-                                } else {
-                                    Toast.makeText(this, "Reauthentication failed. Check your credentials.", Toast.LENGTH_SHORT).show()
-                                }
-                            }
-                    } else {
-                        Toast.makeText(this, "Password cannot be empty.", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
-        }
-    }
-
-    private fun sendVerificationEmail(newEmail: String) {
-        FirebaseAuth.getInstance().currentUser?.sendEmailVerification()
-            ?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "Verification email sent to $newEmail. Please check your inbox.", Toast.LENGTH_LONG).show()
-                    changesMade = true
-                    finishIfChanges()
-                } else {
-                    Toast.makeText(this, "Failed to send verification email.", Toast.LENGTH_SHORT).show()
-                }
-            }
     }
 
     private fun updateUserJob(newJob: String) {
         val usuarioEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
         val userRef = FirebaseFirestore.getInstance().collection("users").document(usuarioEmail)
 
-        userRef.set(mapOf("job" to newJob), SetOptions.merge())
+        val updates = mapOf("job" to newJob)
+        userRef.set(updates, SetOptions.merge())
             .addOnSuccessListener {
-                changesMade = true
-                Toast.makeText(this, "Job updated successfully!", Toast.LENGTH_SHORT).show()
-                finishIfChanges()
+                Toast.makeText(this, "Cargo atualizado com sucesso!", Toast.LENGTH_SHORT).show()
+                finish()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Failed to update job.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Falha ao atualizar o cargo.", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun finishIfChanges() {
-        if (changesMade) {
-            finish()
+    private fun updatePassword(currentPassword: String, newPassword: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val usuarioEmail = user?.email
+
+        if (user != null && usuarioEmail != null) {
+            val credential = EmailAuthProvider.getCredential(usuarioEmail, currentPassword)
+            user.reauthenticate(credential)
+                .addOnSuccessListener {
+                    user.updatePassword(newPassword)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Senha atualizada com sucesso!", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e("EditProfileActivity", e.toString())
+                            Toast.makeText(this, "Falha ao atualizar a senha.", Toast.LENGTH_SHORT).show()
+                        }
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Falha na reautenticação. Verifique sua senha atual.", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }

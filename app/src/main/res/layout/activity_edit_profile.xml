@@ -82,64 +82,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/photo_frame" />
 
-        <!-- Email Label -->
-        <TextView
-            android:id="@+id/emailLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/league_spartan_medium"
-            android:text="Email"
-            android:textColor="#80999999"
-            android:textSize="21sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleEditProfile" />
-
-        <!-- Email Input Field -->
-        <EditText
-            android:id="@+id/emailInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:background="@drawable/rounded_input_background"
-            android:fontFamily="@font/league_spartan_medium"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:textColorHint="#80999999"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailLabel" />
-
-        <Button
-            android:id="@+id/editEmailButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/league_spartan_medium"
-            android:text="@string/editar"
-            android:textAllCaps="false"
-            android:textColor="#CB3086"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailInput" />
-
         <!-- Job Label -->
         <TextView
             android:id="@+id/jobLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/league_spartan_medium"
             android:text="@string/cargo_"
             android:textColor="#80999999"
             android:textSize="21sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editEmailButton" />
+            app:layout_constraintTop_toBottomOf="@id/titleEditProfile" />
 
         <!-- Job Input Field -->
         <EditText
@@ -202,7 +157,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordLabel" />
 
-        <!-- Password Label -->
+        <!-- New Password Label -->
         <TextView
             android:id="@+id/newpasswordLabel"
             android:layout_width="wrap_content"
@@ -216,7 +171,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordInput" />
 
-        <!-- Password Input Field -->
+        <!-- New Password Input Field -->
         <EditText
             android:id="@+id/newPasswordInput"
             android:layout_width="0dp"
@@ -232,20 +187,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/newpasswordLabel" />
-        <!--        <Button-->
-        <!--            android:id="@+id/editNewPassword"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:fontFamily="@font/league_spartan_medium"-->
-        <!--            android:textSize="18sp"-->
-        <!--            android:text="@string/editar_"-->
-        <!--            android:textColor="#CB3086"-->
-        <!--            android:background="@android:color/transparent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.9"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/newPasswordInput"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent" />-->
 
+        <!-- New Password Confirmation Label -->
         <TextView
             android:id="@+id/newPasswordConfirmationLabel"
             android:layout_width="wrap_content"
@@ -259,6 +202,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/newPasswordInput" />
 
+        <!-- New Password Confirmation Input Field -->
         <EditText
             android:id="@+id/newPasswordConfirmationInput"
             android:layout_width="0dp"
@@ -275,22 +219,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/newPasswordConfirmationLabel" />
 
-        <!--        <Button-->
-        <!--            android:id="@+id/editNewPasswordConfirmation"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:fontFamily="@font/league_spartan_medium"-->
-        <!--            android:textSize="18sp"-->
-        <!--            android:text="@string/editar_"-->
-        <!--            android:textColor="#CB3086"-->
-        <!--            android:background="@android:color/transparent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.9"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/newPasswordConfirmationInput"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"/>-->
-
-
-        <!-- Register button -->
+        <!-- Save Changes Button -->
         <Button
             android:id="@+id/saveEditProfileButton"
             android:layout_width="344dp"
@@ -309,7 +238,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/newPasswordConfirmationInput" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
