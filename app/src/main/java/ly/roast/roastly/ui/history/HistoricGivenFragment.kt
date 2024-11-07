@@ -1,4 +1,5 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,15 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import ly.roast.roastly.R
-import ly.roast.roastly.databinding.FragmentHistoricGivenBinding
-import ly.roast.roastly.viewmodel.FeedViewModel
 
 class HistoricGivenFragment : Fragment() {
 
     private lateinit var givenReviewAdapter: GivenReviewAdapter
     private lateinit var recyclerView: RecyclerView
     private val viewModel: HistoryViewModel by viewModels()
-    private val currentUserID: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +31,11 @@ class HistoricGivenFragment : Fragment() {
         recyclerView.adapter = givenReviewAdapter
 
         observeViewModel()
-        viewModel.fetchGivenReviews(currentUserID)
-
+        FirebaseAuth.getInstance().currentUser?.email?.let { currentUserEmail ->
+            viewModel.fetchGivenReviews(currentUserEmail)
+        } ?: run {
+            Log.e("HistoricGivenFragment", "User email not found.")
+        }
         return view
     }
 

@@ -2,8 +2,10 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.parcelize.Parcelize
 import ly.roast.roastly.R
 
@@ -21,7 +23,8 @@ data class User(
     val averageResponsabilidade: Float = 0f,
     val averageOverall: Float = 0f,
     val feedbacksGiven: Int = 0,
-    val feedbacksReceived: Int = 0
+    val feedbacksReceived: Int = 0,
+    val profileImageUrl: String = ""
 ) : Parcelable
 
 class UserAdapter(
@@ -31,9 +34,22 @@ class UserAdapter(
 
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.profile_name)
+        val profileImageView: ImageView = itemView.findViewById(R.id.profile_image)
 
         fun bind(user: User) {
             nameTextView.text = user.name
+
+            // Load profile image with Picasso
+            if (user.profileImageUrl.isNotEmpty()) {
+                Picasso.get()
+                    .load(user.profileImageUrl)
+                    .placeholder(R.drawable.profile_default_image)
+                    .error(R.drawable.profile_default_image)
+                    .into(profileImageView)
+            } else {
+                profileImageView.setImageResource(R.drawable.profile_default_image)
+            }
+
             itemView.setOnClickListener {
                 onUserClicked(user)
             }
@@ -56,4 +72,3 @@ class UserAdapter(
         notifyDataSetChanged()
     }
 }
-

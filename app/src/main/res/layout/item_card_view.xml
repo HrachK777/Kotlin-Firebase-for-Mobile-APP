@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:padding="4dp"/>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="115dp"
             android:layout_height="115dp"
@@ -31,7 +31,6 @@
             android:layout_marginTop="8dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_default_image"
-            android:background="@drawable/circular_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

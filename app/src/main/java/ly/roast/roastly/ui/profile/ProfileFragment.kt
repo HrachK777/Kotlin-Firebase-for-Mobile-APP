@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import ly.roast.roastly.R
 import kotlin.math.roundToInt
 
@@ -28,6 +29,7 @@ class ProfileFragment : Fragment() {
     private lateinit var firestore: FirebaseFirestore
     private lateinit var userId: String
     private lateinit var profileViewModel: LeaderboardsViewModel.ProfileViewModel
+    private lateinit var userPhoto: ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_profile_user, container, false)
@@ -41,6 +43,7 @@ class ProfileFragment : Fragment() {
         twoStarImage = view.findViewById(R.id.two_star_image)
         threeStarImage = view.findViewById(R.id.three_star_image)
         fourStarImage = view.findViewById(R.id.four_star_image)
+        userPhoto = view.findViewById(R.id.user_photo)
 
         firestore = FirebaseFirestore.getInstance()
         userId = FirebaseAuth.getInstance().currentUser?.email ?: return view
@@ -64,6 +67,11 @@ class ProfileFragment : Fragment() {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        fetchUserProfileData()
+    }
+
     private fun fetchUserProfileData() {
         firestore.collection("users").document(userId)
             .get()
@@ -71,6 +79,13 @@ class ProfileFragment : Fragment() {
                 if (document != null) {
                     userNameLogin.text = document.getString("name") ?: "Nome não disponível"
                     jobNameLogin.text = document.getString("job") ?: "Cargo não disponível"
+
+                    val profileImageUrl = document.getString("profileImageUrl")
+                    if (!profileImageUrl.isNullOrEmpty()) {
+                        Picasso.get().load(profileImageUrl).into(userPhoto)
+                    } else {
+                        userPhoto.setImageResource(R.drawable.profile_default_image) // Set a default image
+                    }
                 } else {
                     Log.d("ProfileFragment", "No such document")
                 }
@@ -79,8 +94,10 @@ class ProfileFragment : Fragment() {
                 Log.w("ProfileFragment", "Error getting documents: ", exception)
                 userNameLogin.text = "Erro ao carregar o nome"
                 jobNameLogin.text = "Erro ao carregar o cargo"
+                Toast.makeText(requireContext(), "Erro ao carregar perfil", Toast.LENGTH_SHORT).show()
             }
     }
+
 
     private fun fetchUserFeedbacks() {
         firestore.collection("users").document(userId)

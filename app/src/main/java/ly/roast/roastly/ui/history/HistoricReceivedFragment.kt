@@ -1,4 +1,5 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +32,11 @@ class HistoricReceivedFragment : Fragment() {
         recyclerView.adapter = receivedReviewAdapter
 
         observeViewModel()
-        viewModel.fetchReceivedReviews(currentUserID)
-
+        FirebaseAuth.getInstance().currentUser?.email?.let { currentUserEmail ->
+            viewModel.fetchReceivedReviews(currentUserEmail)
+        } ?: run {
+            Log.e("HistoricReceivedFragment", "User email not found.")
+        }
         return view
     }
 

@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ly.roast.roastly.R
-import ly.roast.roastly.viewmodel.FeedViewModel
 
 class ReviewFeedFragment : Fragment() {
 

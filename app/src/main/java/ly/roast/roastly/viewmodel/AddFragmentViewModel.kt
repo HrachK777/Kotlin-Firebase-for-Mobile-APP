@@ -3,12 +3,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 import java.util.Locale
-
 
 class AddFragmentViewModel : ViewModel() {
 
@@ -21,54 +21,57 @@ class AddFragmentViewModel : ViewModel() {
     }
 
     fun fetchUsersFromFirestore() {
-        val firestore = FirebaseFirestore.getInstance()
         val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
-        val currentUserId= FirebaseAuth.getInstance().currentUser?.uid
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
+        val availableUsers = mutableListOf<User>()
+
         firestore.collection("users")
             .get()
             .addOnSuccessListener { result ->
-                val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
-                val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-                val availableUsers = mutableListOf<User>()
-
-                for (document in result) {
-                    val user = document.toObject(User::class.java).copy(
-                        uid = document.getString("uid") ?: document.id
-                    )
+                val tasks = result.documents.mapNotNull { document ->
+                    val user = document.toObject(User::class.java)?.copy(
+                        uid = document.getString("uid") ?: document.id,
+                        profileImageUrl = document.getString("profileImageUrl") ?: ""
+                    ) ?: return@mapNotNull null
 
                     if (user.email != currentUserEmail) {
-
                         firestore.collection("users")
                             .document(user.email)
                             .collection("reviews")
-                            .whereEqualTo("reviewerId", currentUserId)
+                            .whereEqualTo("reviewerEmail", currentUserEmail)
                             .get()
-                            .addOnSuccessListener { reviewResult ->
-                                var alreadyReviewedThisMonth = false
+                            .continueWith { reviewTask ->
+                                if (reviewTask.isSuccessful) {
+                                    val alreadyReviewedThisMonth = reviewTask.result?.documents?.any { review ->
+                                        val reviewedOn = review.getTimestamp("reviewedOn")?.toDate()
+                                        reviewedOn?.let {
+                                            val calendar = Calendar.getInstance().apply { time = it }
+                                            calendar.get(Calendar.MONTH) == currentMonth &&
+                                                    calendar.get(Calendar.YEAR) == currentYear
+                                        } ?: false
+                                    } ?: false
 
-                                for (review in reviewResult.documents) {
-                                    val reviewedOn = review.getTimestamp("reviewedOn")?.toDate()
-                                    if (reviewedOn != null) {
-                                        val calendar = Calendar.getInstance()
-                                        calendar.time = reviewedOn
-
-                                        if (calendar.get(Calendar.MONTH) == currentMonth && calendar.get(Calendar.YEAR) == currentYear) {
-                                            alreadyReviewedThisMonth = true
-                                            break
-                                        }
+                                    if (!alreadyReviewedThisMonth) {
+                                        availableUsers.add(user)
                                     }
                                 }
-
-                                if (!alreadyReviewedThisMonth) {
-                                    availableUsers.add(user)
-                                }
-                                _users.value = availableUsers
                             }
+                    } else {
+                        Tasks.forResult(null)
                     }
                 }
+
+                Tasks.whenAllComplete(tasks).addOnSuccessListener {
+                    _users.value = availableUsers // Update LiveData once all tasks complete
+                }.addOnFailureListener { exception ->
+                    Log.e("FetchUsers", "Error fetching users", exception)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("FetchUsers", "Error fetching users", exception)
             }
     }
-
 
     fun submitReview(
         currentUser: User,
@@ -89,9 +92,9 @@ class AddFragmentViewModel : ViewModel() {
         val formattedComment = "\"$comment\""
 
         val reviewData = hashMapOf(
-            "reviewerId" to currentUser.uid,
+            "reviewerEmail" to currentUser.email,
             "reviewerName" to (currentUser.name.takeIf { it.isNotEmpty() } ?: "Anonymous"),
-            "recipientId" to selectedUserUid,
+            "recipientEmail" to recipientEmail,
             "recipientName" to selectedUserName,
             "iniciativa" to iniciativa,
             "conhecimento" to conhecimento,
@@ -109,7 +112,9 @@ class AddFragmentViewModel : ViewModel() {
             .addOnSuccessListener {
                 firestore.collection("users").document(currentUser.email)
                     .update("feedbacksGiven", currentUser.feedbacksGiven + 1)
-                    .addOnFailureListener { exception -> Log.e("SubmitReview", "Failed to update feedbacksGiven", exception) }
+                    .addOnFailureListener { exception ->
+                        Log.e("SubmitReview", "Failed to update feedbacksGiven", exception)
+                    }
 
                 firestore.collection("users").document(recipientEmail).get()
                     .addOnSuccessListener { recipientDoc ->
@@ -157,9 +162,7 @@ class AddFragmentViewModel : ViewModel() {
             }
             .addOnFailureListener { exception -> onFailure(exception) }
     }
-
     private fun updateAverage(currentAverage: Float, newValue: Float, count: Int): Float {
         return ((currentAverage * (count - 1)) + newValue) / count
     }
-
 }
