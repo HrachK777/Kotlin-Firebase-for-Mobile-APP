@@ -114,7 +114,7 @@
             android:src="@drawable/icon_profile"
             app:layout_constraintStart_toEndOf="@id/icon_ranking"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.2" />
+            app:layout_constraintWidth_percent="0.2"/>
 
         <ImageView
             android:id="@+id/icon_under_bar"
@@ -126,8 +126,6 @@
             app:layout_constraintEnd_toEndOf="@id/icon_profile"
             app:layout_constraintStart_toStartOf="@id/icon_home"
             app:layout_constraintTop_toBottomOf="@id/footer"
-            app:layout_constraintWidth_percent="0.2" />
-
-
+            app:layout_constraintWidth_percent="0.2"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

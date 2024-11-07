@@ -58,7 +58,7 @@ class FeedAdapter(
         val review = reviews[position]
 
         holder.feedNameGiven.text = review.reviewerName
-        holder.feedText.text = "deu feedback a"
+        holder.feedText.text
         holder.feedNameReceived.text = review.recipientName
 
         holder.feedDayTime.text = simplifyTimestamp(review.reviewedOn.toDate().toString())

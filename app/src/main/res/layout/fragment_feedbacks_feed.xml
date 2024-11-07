@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="Últimas notícias"
+        android:text="Últimos Roasts"
         android:layout_marginTop="65dp"
         android:textColor="#CB3086"
         android:textSize="30sp"
