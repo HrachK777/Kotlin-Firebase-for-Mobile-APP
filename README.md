@@ -1,6 +1,7 @@
 A professional feedback platform where users that are employees from the Cesae company can give and receive "roasts" (skill evaluations) about professional competencies.
 
 ## About the App
+
 Roastly is an Android application that allows users to:
 
 - Give Feedback: Evaluate peers on skills like collaboration, initiative, responsibility, and knowledge
@@ -9,14 +10,18 @@ Roastly is an Android application that allows users to:
 - Rankings: See monthly leaderboards and highlights
 - Profile Management: Customize profiles with photos and professional info
 
+
 ## Technologies
+
 - Android: Kotlin, ViewBinding, Navigation Component
 - Backend: Firebase, Firestore
 - Authentication: Firebase Auth
 - Storage: Firebase Storage for profile pictures
 - Architecture: MVVM with Repository Pattern
 
+
 ## Features
+
 - Authentication system (login/register)
 - User profiles with photos
 - Skill evaluation system (4 competencies)
@@ -25,6 +30,3 @@ Roastly is an Android application that allows users to:
 - Rankings and statistics
 - Profile editing
 - Account deletion
-
-## License
-This project is developed for educational and professional purposes.
