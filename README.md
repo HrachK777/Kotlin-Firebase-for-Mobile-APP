@@ -1,4 +1,4 @@
-A professional feedback platform where users that are employees from the Cesae company can give and receive "roasts" (skill evaluations) about professional competencies.
+A professional web app named Roastly where users that are employees from the Cesae company can give and receive "roasts" (skill evaluations) about professional competencies.
 
 ## About the App
 
