@@ -94,7 +94,7 @@ class AddUserReviewFragment : Fragment() {
                         )
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(context, "Erro aos buscar dados do utilizador: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Erro ao buscar dados do user: ${exception.message}", Toast.LENGTH_SHORT).show()
                     }
             }
         }
