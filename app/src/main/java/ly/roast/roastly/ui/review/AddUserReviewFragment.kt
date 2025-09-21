@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,6 +21,7 @@ import ly.roast.roastly.R
 class AddUserReviewFragment : Fragment() {
 
     private var selectedUser: User? = null
+    private lateinit var titleUserToReview: TextView
     private lateinit var ratingIniciativa: RatingBar
     private lateinit var ratingConhecimento: RatingBar
     private lateinit var ratingColaboracao: RatingBar
@@ -33,8 +35,14 @@ class AddUserReviewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_add_user_review, container, false)
 
+        // Get the selected user from the arguments
         selectedUser = arguments?.getParcelable("selectedUser")
 
+        // Set the dynamic title
+        titleUserToReview = view.findViewById(R.id.title_usertoreview)
+        titleUserToReview.text = "${selectedUser?.name ?: "usuário"}"
+
+        // Initialize the rating bars and other views
         ratingIniciativa = view.findViewById(R.id.rating_iniciativa)
         ratingConhecimento = view.findViewById(R.id.rating_conhecimento)
         ratingColaboracao = view.findViewById(R.id.rating_colaboracao)
@@ -77,16 +85,16 @@ class AddUserReviewFragment : Fragment() {
                             responsabilidade = ratingResponsabilidade.rating,
                             comment = comment,
                             onSuccess = {
-                                Toast.makeText(context, "Review submitted successfully!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Feedback enviado com sucesso!", Toast.LENGTH_SHORT).show()
                                 parentFragmentManager.popBackStack()
                             },
                             onFailure = { exception ->
-                                Toast.makeText(context, "Failed to submit review: ${exception.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Falha ao enviar o feedback: ${exception.message}", Toast.LENGTH_SHORT).show()
                             }
                         )
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(context, "Error fetching user data: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Erro aos buscar dados do utilizador: ${exception.message}", Toast.LENGTH_SHORT).show()
                     }
             }
         }

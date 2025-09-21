@@ -1,22 +1,25 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import ly.roast.roastly.R
-import ly.roast.roastly.databinding.FragmentHistoricGivenBinding
-import ly.roast.roastly.viewmodel.FeedViewModel
 
 class HistoricGivenFragment : Fragment() {
 
     private lateinit var givenReviewAdapter: GivenReviewAdapter
     private lateinit var recyclerView: RecyclerView
     private val viewModel: HistoryViewModel by viewModels()
-    private val currentUserID: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+    private lateinit var progressBar: ProgressBar
+    private lateinit var scrollView: ScrollView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +29,10 @@ class HistoricGivenFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.given_feedback_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        progressBar = view.findViewById(R.id.progress_bar)
+        scrollView = view.findViewById(R.id.scroll_view_given)
+
+        scrollView.visibility = View.GONE
 
         givenReviewAdapter = GivenReviewAdapter { review ->
             openReviewDetails(review)
@@ -33,14 +40,19 @@ class HistoricGivenFragment : Fragment() {
         recyclerView.adapter = givenReviewAdapter
 
         observeViewModel()
-        viewModel.fetchGivenReviews(currentUserID)
-
+        FirebaseAuth.getInstance().currentUser?.email?.let { currentUserEmail ->
+            viewModel.fetchGivenReviews(currentUserEmail)
+        } ?: run {
+            Log.e("HistoricGivenFragment", "User email not found.")
+        }
         return view
     }
 
     private fun observeViewModel() {
         viewModel.givenReviews.observe(viewLifecycleOwner) { reviewList ->
             givenReviewAdapter.submitList(reviewList)
+            progressBar.visibility = View.GONE
+            scrollView.visibility = View.VISIBLE
         }
     }
 

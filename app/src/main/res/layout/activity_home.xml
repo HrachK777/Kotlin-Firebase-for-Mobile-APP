@@ -24,14 +24,14 @@
         android:id="@+id/icon_menu_user"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/menu_icon"
         android:scaleType="centerCrop"
         android:src="@drawable/icon_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="40dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Fragment Container -->
     <FrameLayout
@@ -50,8 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -60,27 +59,27 @@
         <ImageView
             android:id="@+id/icon_home"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:contentDescription="@string/home"
             android:onClick="onIconClick"
             android:src="@drawable/icon_feed"
-            android:layout_marginTop="5dp"
-            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Historic Icon -->
         <ImageView
             android:id="@+id/icon_feed"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:contentDescription="@string/feed_"
-            android:layout_marginTop="10dp"
             android:onClick="onIconClick"
             android:src="@drawable/icon_historic"
-            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/icon_home"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Add Icon -->
         <ImageView
@@ -90,47 +89,47 @@
             android:contentDescription="@string/add_"
             android:onClick="onIconClick"
             android:src="@drawable/icon_add"
-            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/icon_feed"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Ranking Icon -->
         <ImageView
             android:id="@+id/icon_ranking"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:contentDescription="@string/ranking_"
-            android:layout_marginTop="10dp"
             android:onClick="onIconClick"
             android:src="@drawable/icon_ranking"
-            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/icon_add"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Profile Icon -->
         <ImageView
             android:id="@+id/icon_profile"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:contentDescription="@string/profile"
-            android:layout_marginTop="10dp"
             android:onClick="onIconClick"
             android:src="@drawable/icon_profile"
-            app:layout_constraintWidth_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/icon_ranking"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <!-- Icon Under Bar -->
         <ImageView
             android:id="@+id/icon_under_bar"
             android:layout_width="0dp"
             android:layout_height="5dp"
+            android:layout_marginTop="7dp"
             android:contentDescription="@string/icon_under_bar"
             android:src="@drawable/icon_under_bar"
-            android:layout_marginTop="5dp"
-            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintEnd_toEndOf="@id/icon_profile"
             app:layout_constraintStart_toStartOf="@id/icon_home"
-            app:layout_constraintTop_toBottomOf="@id/icon_home"/>
-
+            app:layout_constraintTop_toBottomOf="@id/footer"
+            app:layout_constraintWidth_percent="0.2"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

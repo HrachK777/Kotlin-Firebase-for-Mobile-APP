@@ -5,147 +5,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="55dp"
     android:background="@android:color/transparent">
 
-    <!-- Rating Section -->
-    <LinearLayout
-        android:id="@+id/rating_section"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="30dp"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Field 1: Iniciativa -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/iniciativa__"
-            android:fontFamily="@font/league_spartan_medium"
-            android:textColor="#CB3086"
-            android:textSize="30sp"/>
-
-        <RatingBar
-            android:id="@+id/rating_iniciativa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:progressTint="@color/yellow_star"
-            android:stepSize="1.0"
-            android:scaleX="0.9"
-            android:scaleY="0.9"/>
-
-
-        <!-- Field 2: Conhecimento -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/conhecimento_"
-            android:fontFamily="@font/league_spartan_medium"
-            android:textColor="#CB3086"
-            android:textSize="30sp"
-            android:layout_marginTop="15dp"/>
-        <RatingBar
-            android:id="@+id/rating_conhecimento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0"
-            android:progressTint="@color/yellow_star"
-            android:scaleX="0.9"
-            android:scaleY="0.9"/>
-
-        <!-- Field 3: Colaboração -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Colaboração"
-            android:fontFamily="@font/league_spartan_medium"
-            android:textColor="#CB3086"
-            android:textSize="30sp"
-            android:layout_marginTop="15dp"/>
-        <RatingBar
-            android:id="@+id/rating_colaboracao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0"
-            android:progressTint="@color/yellow_star"
-            android:scaleX="0.9"
-            android:scaleY="0.9"/>
-
-        <!-- Field 4: Responsabilidade -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/responsabilidade_"
-            android:fontFamily="@font/league_spartan_medium"
-            android:textColor="#CB3086"
-            android:textSize="30sp"
-            android:layout_marginTop="15dp"/>
-        <RatingBar
-            android:id="@+id/rating_responsabilidade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1.0"
-            android:progressTint="@color/yellow_star"
-            android:scaleX="0.9"
-            android:scaleY="0.9"/>
-    </LinearLayout>
-
-    <!-- Comment Box -->
-    <EditText
-        android:id="@+id/comment_box"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/adicionar_coment_rio"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:padding="8dp"
-        android:inputType="textMultiLine"
-        android:background="@drawable/edit_text_border"
-        android:minHeight="120dp"
-        android:gravity="top|start"
-        app:layout_constraintTop_toBottomOf="@+id/rating_section"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/submit_button" />
-
-<!--    &lt;!&ndash; Submit Button &ndash;&gt;-->
-<!--    <Button-->
-<!--        android:id="@+id/submit_button"-->
-<!--        android:layout_width="344dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_marginTop="160dp"-->
-<!--        android:fontFamily="@font/league_spartan_medium"-->
-<!--        android:text="@string/submeter"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:gravity="center"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:backgroundTint="@color/button_background"-->
-<!--        android:textSize="22sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/rating_section"/>-->
-
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="344dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="160dp"
-        android:background="@drawable/button_with_shadow"
-        android:fontFamily="@font/league_spartan_medium"
-        android:text="@string/submeter_"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#5E48ED53"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rating_section"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fillViewport="true">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/title_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/title_avaliar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/league_spartan_medium"
+                    android:text="Roast"
+                    android:textColor="#25183E"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/title_usertoreview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/league_spartan_medium"
+                    android:textColor="#CB3086"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rating_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/league_spartan_medium"
+                    android:text="@string/iniciativa__"
+                    android:textColor="#005A87"
+                    android:textSize="30sp" />
+
+                <RatingBar
+                    android:id="@+id/rating_iniciativa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:progressTint="@color/yellow_star"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:stepSize="1.0" />
+
+                <!-- Campo 2: Conhecimento -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/league_spartan_medium"
+                    android:text="@string/conhecimento_"
+                    android:textColor="#005A87"
+                    android:textSize="30sp" />
+
+                <RatingBar
+                    android:id="@+id/rating_conhecimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:progressTint="@color/yellow_star"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:stepSize="1.0" />
+
+                <!-- Campo 3: Colaboração -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/league_spartan_medium"
+                    android:text="Colaboração"
+                    android:textColor="#005A87"
+                    android:textSize="30sp" />
+
+                <RatingBar
+                    android:id="@+id/rating_colaboracao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:progressTint="@color/yellow_star"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:stepSize="1.0" />
+
+                <!-- Campo 4: Responsabilidade -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/league_spartan_medium"
+                    android:text="@string/responsabilidade_"
+                    android:textColor="#005A87"
+                    android:textSize="30sp" />
+
+                <RatingBar
+                    android:id="@+id/rating_responsabilidade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:progressTint="@color/yellow_star"
+                    android:scaleX="0.9"
+                    android:scaleY="0.9"
+                    android:stepSize="1.0" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/comment_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/adicionar_coment_rio"
+                android:layout_marginTop="60dp"
+                android:padding="8dp"
+                android:inputType="textMultiLine"
+                android:background="@drawable/edit_text_border"
+                android:minHeight="120dp"
+                android:gravity="top|start"/>
+
+            <!-- Botão de Submissão -->
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/button_with_shadow"
+                android:fontFamily="@font/league_spartan_medium"
+                android:text="@string/submeter_"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

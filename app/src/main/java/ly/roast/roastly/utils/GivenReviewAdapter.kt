@@ -1,9 +1,12 @@
 import android.icu.text.SimpleDateFormat
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import ly.roast.roastly.R
 import java.util.Locale
 
@@ -25,29 +28,23 @@ class GivenReviewAdapter(private val onClick: (Review) -> Unit) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val review = reviews[position]
+
         holder.recipientName.text = review.recipientName
-        holder.timestamp.text = simplifyTimestamp(review.timestamp)
-    }
+        holder.timestamp.text = simplifyTimestamp(review.reviewedOn.toDate().toString())
 
-    fun simplifyTimestamp(originalTimestamp: String): String {
-        val originalFormat = SimpleDateFormat("MMMM d, yyyy 'at' h:mm:ss a z", Locale.ENGLISH)
-        val targetFormat = SimpleDateFormat("MMM d, yyyy - h:mm a", Locale.ENGLISH)
-
-        return try {
-            val date = originalFormat.parse(originalTimestamp)
-            targetFormat.format(date)
-        } catch (e: Exception) {
-            originalTimestamp
+        if (review.recipientProfileImageUrl.isNotEmpty()) {
+            Picasso.get().load(review.recipientProfileImageUrl).into(holder.profileImage)
+        } else {
+            holder.profileImage.setImageResource(R.drawable.profile_default_image)
         }
     }
 
     override fun getItemCount(): Int = reviews.size
 
-    inner class ViewHolder(view: View) :
-        RecyclerView.ViewHolder(view) {
-
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val recipientName: TextView = view.findViewById(R.id.given_name_given)
         val timestamp: TextView = view.findViewById(R.id.given_day_time)
+        val profileImage: ImageView = view.findViewById(R.id.profile_image_given)
 
         init {
             view.setOnClickListener {
