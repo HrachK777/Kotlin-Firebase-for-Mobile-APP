@@ -15,7 +15,7 @@ import ly.roast.roastly.viewmodel.RegisterViewModel
 class RegisterActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityRegisterBinding.inflate(layoutInflater) }
-    private val viewModel: RegisterViewModel by viewModels() // Using ViewModelProvider for ViewModel injection
+    private val viewModel: RegisterViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

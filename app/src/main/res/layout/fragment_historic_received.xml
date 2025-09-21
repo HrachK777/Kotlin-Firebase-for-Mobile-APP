@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.history.HistoricReceivedFragment">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
     <ImageView
         android:id="@+id/two_bullets_left_icon"
         android:layout_width="wrap_content"
@@ -22,7 +29,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginStart="35dp"
         android:fontFamily="@font/league_spartan_medium"
-        android:text="Feedbacks recebidos"
+        android:text="Roasts Recebidos"
         android:textColor="#CB3086"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/card_view_feedbacks"/>
 
     <ScrollView
+        android:id="@+id/scroll_view_received"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="70dp"
